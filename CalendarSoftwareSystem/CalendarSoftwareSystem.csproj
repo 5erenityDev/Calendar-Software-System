@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Calendar.cs" />
+    <Compile Include="Classes\Employee.cs" />
+    <Compile Include="Classes\Event.cs" />
+    <Compile Include="Classes\Manager.cs" />
+    <Compile Include="Classes\User.cs" />
     <Compile Include="EventForm.cs">
       <SubType>Form</SubType>
     </Compile>

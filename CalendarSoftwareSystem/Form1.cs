@@ -17,6 +17,10 @@ namespace CalendarSoftwareSystem
         private int month, year;
         private string user, curEvent, selectedDate;
         private string[] testEvents = {"Birthday", "Meeting", "Post-Meeting Birthday", "Post-Post-Meeting Birthday Meeting" };
+        
+        private User unidentifiedUser;
+        private Employee curEmployee;
+        private Manager curManager;
 
         public FormCalendar()
         {
@@ -43,16 +47,27 @@ namespace CalendarSoftwareSystem
 
         private void btnLogLogin_Click(object sender, EventArgs e)
         {
-            //verify user login
-            if (!String.IsNullOrEmpty(tBoxLogUser.Text) && !String.IsNullOrEmpty(tBoxLogPass.Text))
+            unidentifiedUser = new User(tBoxLogUser.Text, tBoxLogPass.Text);
+            if (unidentifiedUser.logIn())
             {
-                user = tBoxLogUser.Text;
                 tBoxLogUser.Text = "";
                 tBoxLogPass.Text = "";
 
                 panelLogin.Visible = false;
                 panelCalendar.Visible = true;
-            }
+                if (unidentifiedUser.isManager())
+                {
+                    curManager = new Manager("GET NAME FROM DATABASE LATER", 
+                        unidentifiedUser.Username, 
+                        unidentifiedUser.Password);
+                }
+                else
+                {
+                    curEmployee = new Employee("GET NAME FROM DATABASE LATER", 
+                        unidentifiedUser.Username, 
+                        unidentifiedUser.Password);
+                }
+            }   
             else
             {
                 string boxMsg = "Invalid Login.";
