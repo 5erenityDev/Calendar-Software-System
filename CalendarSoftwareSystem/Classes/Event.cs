@@ -6,15 +6,37 @@ using System.Threading.Tasks;
 
 namespace CalendarSoftwareSystem
 {
-    class Event
+    public class Event
     {
         private string title;
-        private string date;
-        private string time;
         private string description;
+        private string location;
+
         private string[] attendants;
 
-        public Event()
+        private DateTime startDate;
+        private DateTime endDate;
+        
+        
+        public Event(string t, string d, string l, string[] a, DateTime sDate, DateTime eDate)
+        {
+            title = t;
+            description = d;
+            location = l;
+
+            attendants = a;
+
+            startDate = sDate;
+            endDate = eDate;
+
+        }
+
+        private void editEvent()
+        {
+
+        }
+
+        private void deleteEvent()
         {
 
         }

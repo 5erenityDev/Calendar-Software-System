@@ -6,21 +6,43 @@ using System.Threading.Tasks;
 
 namespace CalendarSoftwareSystem
 {
-    class Calendar
+    public class Calendar
     {
-        private int days;
-        private int months;
-        private int years;
-        private Event eventList;
+        private int day;
+        private int month;
+        private int year;
+        private Event[] eventList;
 
-        public Calendar()
+        public Calendar(int d, int m, int y, Event[] eList)
         {
-
+            day = d;
+            month = m;
+            year = y;
+            eventList = eList;
         }
 
-        public void changeDay()
+        public int Day
         {
+            get { return day; }
+            set { day = value; }
+        }
 
+        public int Month
+        {
+            get { return month; }
+            set { month = value; }
+        }
+
+        public int Year
+        {
+            get { return year; }
+            set { year = value; }
+        }
+
+        public Event[] EventList
+        {
+            get { return eventList; }
+            set { eventList = value; }
         }
     }
 }

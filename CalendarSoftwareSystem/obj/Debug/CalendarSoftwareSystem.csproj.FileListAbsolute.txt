@@ -24,3 +24,24 @@ D:\School\EKU\Spring 2022\CSC 340\Calendar Software System\CalendarSoftwareSyste
 D:\School\EKU\Spring 2022\CSC 340\Calendar Software System\CalendarSoftwareSystem\Calendar-Software-System\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.csproj.CoreCompileInputs.cache
 D:\School\EKU\Spring 2022\CSC 340\Calendar Software System\CalendarSoftwareSystem\Calendar-Software-System\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.exe
 D:\School\EKU\Spring 2022\CSC 340\Calendar Software System\CalendarSoftwareSystem\Calendar-Software-System\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.pdb
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\bin\Debug\CalendarSoftwareSystem.exe.config
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\bin\Debug\CalendarSoftwareSystem.exe
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\bin\Debug\CalendarSoftwareSystem.pdb
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.csprojAssemblyReference.cache
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.EventForm.resources
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.FormCalendar.resources
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.Properties.Resources.resources
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.csproj.GenerateResource.cache
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.csproj.CoreCompileInputs.cache
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.exe
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.pdb
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.BlankDay.resources
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.MonthDay.resources
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\bin\Debug\MySql.Data.dll
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\bin\Debug\ZstdNet.dll
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\bin\Debug\Ubiety.Dns.Core.dll
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\bin\Debug\System.Memory.dll
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\bin\Debug\System.Buffers.dll
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\bin\Debug\System.Numerics.Vectors.dll
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\bin\Debug\MySql.Data.xml
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.csproj.CopyComplete
