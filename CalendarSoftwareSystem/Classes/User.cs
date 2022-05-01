@@ -16,7 +16,7 @@ namespace CalendarSoftwareSystem
         private string usernameAttempt;
         private string passwordAttempt;
         private static readonly string[] RESULTS = {"VALID_EMPLOYEE", "VALID_MANAGER", "INVALID_USER", 
-                                                    "INVALID_PASS", "TEXT_EMPTY"};
+                                                    "INVALID_PASS", "TEXT_EMPTY", "UNABLE_TO_CONNECT"};
         int empID = 0;
 
 
@@ -87,6 +87,10 @@ namespace CalendarSoftwareSystem
                     }
                     myReader.Close();
                 }
+                catch (TimeoutException ex)
+                {
+                    result = RESULTS[5];
+                }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.ToString());
@@ -98,18 +102,6 @@ namespace CalendarSoftwareSystem
             
         }
 
-        public bool IsManager(int isManager)
-        {
-            // Verify user login
-            if (isManager == 1)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
         ////////////////////
         ///GETTER/SETTERS///
         ////////////////////

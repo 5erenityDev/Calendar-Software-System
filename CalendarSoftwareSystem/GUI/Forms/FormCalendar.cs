@@ -94,6 +94,9 @@ namespace CalendarSoftwareSystem
                 case "TEXT_EMPTY":
                     MessageBox.Show("Please type into the text boxes provided.", "Calendar System");
                     break;
+                case "UNABLE_TO_CONNECT":
+                    MessageBox.Show("Unable to connect to EKU database. Please test your connection and try again.", "Calendar System");
+                    break;
             }
         }
 

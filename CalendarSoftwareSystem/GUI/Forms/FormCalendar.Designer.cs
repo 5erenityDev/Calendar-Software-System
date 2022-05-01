@@ -37,6 +37,7 @@ namespace CalendarSoftwareSystem
             this.tBoxLogPass = new System.Windows.Forms.TextBox();
             this.tBoxLogUser = new System.Windows.Forms.TextBox();
             this.panelCalendar = new System.Windows.Forms.Panel();
+            this.lblYear = new System.Windows.Forms.Label();
             this.btnCalLogOut = new System.Windows.Forms.Button();
             this.btnCalPrevious = new System.Windows.Forms.Button();
             this.btnCalNext = new System.Windows.Forms.Button();
@@ -49,7 +50,6 @@ namespace CalendarSoftwareSystem
             this.labelCalendarTuesday = new System.Windows.Forms.Label();
             this.labelCalendarMonday = new System.Windows.Forms.Label();
             this.labelCalendarSunday = new System.Windows.Forms.Label();
-            this.lblYear = new System.Windows.Forms.Label();
             this.panelLogin.SuspendLayout();
             this.panelCalendar.SuspendLayout();
             this.SuspendLayout();
@@ -156,6 +156,19 @@ namespace CalendarSoftwareSystem
             this.panelCalendar.Name = "panelCalendar";
             this.panelCalendar.Size = new System.Drawing.Size(1267, 680);
             this.panelCalendar.TabIndex = 1;
+            // 
+            // lblYear
+            // 
+            this.lblYear.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblYear.AutoSize = true;
+            this.lblYear.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Bold);
+            this.lblYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.lblYear.Location = new System.Drawing.Point(1050, 5);
+            this.lblYear.Name = "lblYear";
+            this.lblYear.Size = new System.Drawing.Size(119, 47);
+            this.lblYear.TabIndex = 5;
+            this.lblYear.Text = "YEAR";
+            this.lblYear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnCalLogOut
             // 
@@ -309,19 +322,6 @@ namespace CalendarSoftwareSystem
             this.labelCalendarSunday.TabIndex = 0;
             this.labelCalendarSunday.Text = "Sunday";
             // 
-            // lblYear
-            // 
-            this.lblYear.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblYear.AutoSize = true;
-            this.lblYear.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Bold);
-            this.lblYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.lblYear.Location = new System.Drawing.Point(1050, 5);
-            this.lblYear.Name = "lblYear";
-            this.lblYear.Size = new System.Drawing.Size(119, 47);
-            this.lblYear.TabIndex = 5;
-            this.lblYear.Text = "YEAR";
-            this.lblYear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // FormCalendar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,6 +330,7 @@ namespace CalendarSoftwareSystem
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.panelCalendar);
             this.Controls.Add(this.panelLogin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormCalendar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calendar";
