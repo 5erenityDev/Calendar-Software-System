@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,16 @@ namespace CalendarSoftwareSystem
         public void days(int numDay)
         {
             lblDays.Text = numDay.ToString();
+            lblEvents.Text = "";
+            foreach (Event e in FormCalendar.thisCalendar.EventList)
+            {
+                if (e.StartDate.Date.ToString("M/d/yyyy").Equals(FormCalendar.thisCalendar.Month + "/" + numDay + "/" + FormCalendar.thisCalendar.Year))
+                {
+                    lblEvents.Text += e.Title;
+                    lblEvents.Text += "\n";
+                }
+            }
+            
         }
 
         private void UserControlDays_Click(object sender, EventArgs e)

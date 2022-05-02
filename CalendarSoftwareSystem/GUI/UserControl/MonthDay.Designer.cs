@@ -30,6 +30,7 @@ namespace CalendarSoftwareSystem
         private void InitializeComponent()
         {
             this.lblDays = new System.Windows.Forms.Label();
+            this.lblEvents = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblDays
@@ -43,11 +44,23 @@ namespace CalendarSoftwareSystem
             this.lblDays.TabIndex = 0;
             this.lblDays.Text = "00";
             // 
+            // lblEvents
+            // 
+            this.lblEvents.AutoSize = true;
+            this.lblEvents.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.lblEvents.ForeColor = System.Drawing.Color.Lavender;
+            this.lblEvents.Location = new System.Drawing.Point(2, 23);
+            this.lblEvents.Name = "lblEvents";
+            this.lblEvents.Size = new System.Drawing.Size(49, 17);
+            this.lblEvents.TabIndex = 1;
+            this.lblEvents.Text = "Events";
+            // 
             // MonthDay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.Controls.Add(this.lblEvents);
             this.Controls.Add(this.lblDays);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.Name = "MonthDay";
@@ -61,5 +74,6 @@ namespace CalendarSoftwareSystem
         #endregion
 
         private System.Windows.Forms.Label lblDays;
+        private System.Windows.Forms.Label lblEvents;
     }
 }

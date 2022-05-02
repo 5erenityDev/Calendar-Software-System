@@ -43,10 +43,10 @@ namespace CalendarSoftwareSystem
             this.lblEveStaTime = new System.Windows.Forms.Label();
             this.lblEventAttendents = new System.Windows.Forms.Label();
             this.chklstAttendants = new System.Windows.Forms.CheckedListBox();
-            this.radButEveStartAM = new System.Windows.Forms.RadioButton();
+            this.radButEveStaAM = new System.Windows.Forms.RadioButton();
             this.cBoxEveStaYear = new System.Windows.Forms.ComboBox();
             this.cBoxEveStaHour = new System.Windows.Forms.ComboBox();
-            this.radButEveStartPM = new System.Windows.Forms.RadioButton();
+            this.radButEveStaPM = new System.Windows.Forms.RadioButton();
             this.lblEveStaColon = new System.Windows.Forms.Label();
             this.cBoxEveStaMon = new System.Windows.Forms.ComboBox();
             this.cBoxEveStaDay = new System.Windows.Forms.ComboBox();
@@ -55,8 +55,6 @@ namespace CalendarSoftwareSystem
             this.lblEveStaSlashOne = new System.Windows.Forms.Label();
             this.lblEveEndDate = new System.Windows.Forms.Label();
             this.lblEveEndTime = new System.Windows.Forms.Label();
-            this.radButEveEndAM = new System.Windows.Forms.RadioButton();
-            this.radButEveEndPM = new System.Windows.Forms.RadioButton();
             this.cBoxEveEndYear = new System.Windows.Forms.ComboBox();
             this.cBoxEveEndHour = new System.Windows.Forms.ComboBox();
             this.lblEveEndColon = new System.Windows.Forms.Label();
@@ -65,11 +63,30 @@ namespace CalendarSoftwareSystem
             this.cBoxEveEndMon = new System.Windows.Forms.ComboBox();
             this.cBoxEveEndDay = new System.Windows.Forms.ComboBox();
             this.cBoxEveEndMin = new System.Windows.Forms.ComboBox();
+            this.panelEveStaRad = new System.Windows.Forms.Panel();
+            this.panelEveEndRad = new System.Windows.Forms.Panel();
+            this.radButEveEndPM = new System.Windows.Forms.RadioButton();
+            this.radButEveEndAM = new System.Windows.Forms.RadioButton();
+            this.panelEveAdd = new System.Windows.Forms.Panel();
+            this.panelEveView = new System.Windows.Forms.Panel();
+            this.lblEveViewDate = new System.Windows.Forms.Label();
+            this.btnEveViewCreate = new System.Windows.Forms.Button();
+            this.lblEveView = new System.Windows.Forms.Label();
+            this.btnEveViewEdit = new System.Windows.Forms.Button();
+            this.btnEveViewDelete = new System.Windows.Forms.Button();
+            this.BtnEveViewCancel = new System.Windows.Forms.Button();
+            this.lBoxEveView = new System.Windows.Forms.ListBox();
+            this.btnEveCoord = new System.Windows.Forms.Button();
+            this.btnEveBack = new System.Windows.Forms.Button();
+            this.panelEveStaRad.SuspendLayout();
+            this.panelEveEndRad.SuspendLayout();
+            this.panelEveAdd.SuspendLayout();
+            this.panelEveView.SuspendLayout();
             this.SuspendLayout();
             // 
             // tBoxEveName
             // 
-            this.tBoxEveName.Location = new System.Drawing.Point(149, 64);
+            this.tBoxEveName.Location = new System.Drawing.Point(137, 56);
             this.tBoxEveName.Name = "tBoxEveName";
             this.tBoxEveName.Size = new System.Drawing.Size(639, 20);
             this.tBoxEveName.TabIndex = 0;
@@ -79,7 +96,7 @@ namespace CalendarSoftwareSystem
             this.lblEveName.AutoSize = true;
             this.lblEveName.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.lblEveName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.lblEveName.Location = new System.Drawing.Point(12, 65);
+            this.lblEveName.Location = new System.Drawing.Point(3, 56);
             this.lblEveName.Name = "lblEveName";
             this.lblEveName.Size = new System.Drawing.Size(93, 17);
             this.lblEveName.TabIndex = 1;
@@ -90,7 +107,7 @@ namespace CalendarSoftwareSystem
             this.lblEveDesc.AutoSize = true;
             this.lblEveDesc.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.lblEveDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.lblEveDesc.Location = new System.Drawing.Point(12, 108);
+            this.lblEveDesc.Location = new System.Drawing.Point(4, 99);
             this.lblEveDesc.Name = "lblEveDesc";
             this.lblEveDesc.Size = new System.Drawing.Size(127, 17);
             this.lblEveDesc.TabIndex = 1;
@@ -101,7 +118,7 @@ namespace CalendarSoftwareSystem
             this.lblEveLoc.AutoSize = true;
             this.lblEveLoc.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.lblEveLoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.lblEveLoc.Location = new System.Drawing.Point(12, 279);
+            this.lblEveLoc.Location = new System.Drawing.Point(4, 270);
             this.lblEveLoc.Name = "lblEveLoc";
             this.lblEveLoc.Size = new System.Drawing.Size(109, 17);
             this.lblEveLoc.TabIndex = 1;
@@ -109,7 +126,7 @@ namespace CalendarSoftwareSystem
             // 
             // tBoxEveDesc
             // 
-            this.tBoxEveDesc.Location = new System.Drawing.Point(149, 107);
+            this.tBoxEveDesc.Location = new System.Drawing.Point(137, 99);
             this.tBoxEveDesc.Multiline = true;
             this.tBoxEveDesc.Name = "tBoxEveDesc";
             this.tBoxEveDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -118,7 +135,7 @@ namespace CalendarSoftwareSystem
             // 
             // tBoxEveLoc
             // 
-            this.tBoxEveLoc.Location = new System.Drawing.Point(149, 278);
+            this.tBoxEveLoc.Location = new System.Drawing.Point(137, 270);
             this.tBoxEveLoc.Name = "tBoxEveLoc";
             this.tBoxEveLoc.Size = new System.Drawing.Size(639, 20);
             this.tBoxEveLoc.TabIndex = 0;
@@ -128,7 +145,7 @@ namespace CalendarSoftwareSystem
             this.lblEveSta.AutoSize = true;
             this.lblEveSta.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.lblEveSta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.lblEveSta.Location = new System.Drawing.Point(38, 334);
+            this.lblEveSta.Location = new System.Drawing.Point(22, 325);
             this.lblEveSta.Name = "lblEveSta";
             this.lblEveSta.Size = new System.Drawing.Size(79, 17);
             this.lblEveSta.TabIndex = 1;
@@ -142,7 +159,7 @@ namespace CalendarSoftwareSystem
             this.btnEveSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEveSave.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.btnEveSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.btnEveSave.Location = new System.Drawing.Point(713, 409);
+            this.btnEveSave.Location = new System.Drawing.Point(701, 401);
             this.btnEveSave.Name = "btnEveSave";
             this.btnEveSave.Size = new System.Drawing.Size(75, 29);
             this.btnEveSave.TabIndex = 3;
@@ -155,7 +172,7 @@ namespace CalendarSoftwareSystem
             this.lblEveTitle.AutoSize = true;
             this.lblEveTitle.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Bold);
             this.lblEveTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.lblEveTitle.Location = new System.Drawing.Point(12, 9);
+            this.lblEveTitle.Location = new System.Drawing.Point(3, 5);
             this.lblEveTitle.Name = "lblEveTitle";
             this.lblEveTitle.Size = new System.Drawing.Size(235, 47);
             this.lblEveTitle.TabIndex = 1;
@@ -166,7 +183,7 @@ namespace CalendarSoftwareSystem
             this.lblEveEnd.AutoSize = true;
             this.lblEveEnd.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.lblEveEnd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.lblEveEnd.Location = new System.Drawing.Point(428, 334);
+            this.lblEveEnd.Location = new System.Drawing.Point(416, 326);
             this.lblEveEnd.Name = "lblEveEnd";
             this.lblEveEnd.Size = new System.Drawing.Size(75, 17);
             this.lblEveEnd.TabIndex = 1;
@@ -177,7 +194,7 @@ namespace CalendarSoftwareSystem
             this.lblEveStaDate.AutoSize = true;
             this.lblEveStaDate.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.lblEveStaDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.lblEveStaDate.Location = new System.Drawing.Point(172, 313);
+            this.lblEveStaDate.Location = new System.Drawing.Point(160, 305);
             this.lblEveStaDate.Name = "lblEveStaDate";
             this.lblEveStaDate.Size = new System.Drawing.Size(44, 17);
             this.lblEveStaDate.TabIndex = 1;
@@ -188,7 +205,7 @@ namespace CalendarSoftwareSystem
             this.lblEveStaTime.AutoSize = true;
             this.lblEveStaTime.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.lblEveStaTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.lblEveStaTime.Location = new System.Drawing.Point(329, 313);
+            this.lblEveStaTime.Location = new System.Drawing.Point(317, 305);
             this.lblEveStaTime.Name = "lblEveStaTime";
             this.lblEveStaTime.Size = new System.Drawing.Size(45, 17);
             this.lblEveStaTime.TabIndex = 1;
@@ -199,7 +216,7 @@ namespace CalendarSoftwareSystem
             this.lblEventAttendents.AutoSize = true;
             this.lblEventAttendents.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.lblEventAttendents.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.lblEventAttendents.Location = new System.Drawing.Point(618, 87);
+            this.lblEventAttendents.Location = new System.Drawing.Point(606, 79);
             this.lblEventAttendents.Name = "lblEventAttendents";
             this.lblEventAttendents.Size = new System.Drawing.Size(83, 17);
             this.lblEventAttendents.TabIndex = 4;
@@ -208,30 +225,30 @@ namespace CalendarSoftwareSystem
             // chklstAttendants
             // 
             this.chklstAttendants.FormattingEnabled = true;
-            this.chklstAttendants.Location = new System.Drawing.Point(524, 107);
+            this.chklstAttendants.Location = new System.Drawing.Point(512, 99);
             this.chklstAttendants.Name = "chklstAttendants";
             this.chklstAttendants.Size = new System.Drawing.Size(264, 154);
             this.chklstAttendants.TabIndex = 5;
             // 
-            // radButEveStartAM
+            // radButEveStaAM
             // 
-            this.radButEveStartAM.AutoSize = true;
-            this.radButEveStartAM.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.radButEveStartAM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.radButEveStartAM.Location = new System.Drawing.Point(297, 360);
-            this.radButEveStartAM.Name = "radButEveStartAM";
-            this.radButEveStartAM.Size = new System.Drawing.Size(49, 21);
-            this.radButEveStartAM.TabIndex = 6;
-            this.radButEveStartAM.TabStop = true;
-            this.radButEveStartAM.Text = "AM";
-            this.radButEveStartAM.UseVisualStyleBackColor = true;
+            this.radButEveStaAM.AutoSize = true;
+            this.radButEveStaAM.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.radButEveStaAM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.radButEveStaAM.Location = new System.Drawing.Point(3, 3);
+            this.radButEveStaAM.Name = "radButEveStaAM";
+            this.radButEveStaAM.Size = new System.Drawing.Size(49, 21);
+            this.radButEveStaAM.TabIndex = 6;
+            this.radButEveStaAM.TabStop = true;
+            this.radButEveStaAM.Text = "AM";
+            this.radButEveStaAM.UseVisualStyleBackColor = true;
             // 
             // cBoxEveStaYear
             // 
             this.cBoxEveStaYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxEveStaYear.Enabled = false;
             this.cBoxEveStaYear.FormattingEnabled = true;
-            this.cBoxEveStaYear.Location = new System.Drawing.Point(227, 332);
+            this.cBoxEveStaYear.Location = new System.Drawing.Point(215, 324);
             this.cBoxEveStaYear.Name = "cBoxEveStaYear";
             this.cBoxEveStaYear.Size = new System.Drawing.Size(54, 21);
             this.cBoxEveStaYear.TabIndex = 7;
@@ -252,79 +269,31 @@ namespace CalendarSoftwareSystem
             "9",
             "10",
             "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31",
-            "32",
-            "33",
-            "34",
-            "35",
-            "36",
-            "37",
-            "38",
-            "39",
-            "40",
-            "41",
-            "42",
-            "43",
-            "44",
-            "45",
-            "46",
-            "47",
-            "48",
-            "49",
-            "50",
-            "51",
-            "52",
-            "53",
-            "54",
-            "55",
-            "56",
-            "57",
-            "58",
-            "59",
-            "60"});
-            this.cBoxEveStaHour.Location = new System.Drawing.Point(296, 332);
+            "12"});
+            this.cBoxEveStaHour.Location = new System.Drawing.Point(284, 324);
             this.cBoxEveStaHour.Name = "cBoxEveStaHour";
             this.cBoxEveStaHour.Size = new System.Drawing.Size(39, 21);
             this.cBoxEveStaHour.TabIndex = 8;
             // 
-            // radButEveStartPM
+            // radButEveStaPM
             // 
-            this.radButEveStartPM.AutoSize = true;
-            this.radButEveStartPM.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.radButEveStartPM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.radButEveStartPM.Location = new System.Drawing.Point(360, 360);
-            this.radButEveStartPM.Name = "radButEveStartPM";
-            this.radButEveStartPM.Size = new System.Drawing.Size(47, 21);
-            this.radButEveStartPM.TabIndex = 6;
-            this.radButEveStartPM.TabStop = true;
-            this.radButEveStartPM.Text = "PM";
-            this.radButEveStartPM.UseVisualStyleBackColor = true;
+            this.radButEveStaPM.AutoSize = true;
+            this.radButEveStaPM.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.radButEveStaPM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.radButEveStaPM.Location = new System.Drawing.Point(66, 3);
+            this.radButEveStaPM.Name = "radButEveStaPM";
+            this.radButEveStaPM.Size = new System.Drawing.Size(47, 21);
+            this.radButEveStaPM.TabIndex = 6;
+            this.radButEveStaPM.TabStop = true;
+            this.radButEveStaPM.Text = "PM";
+            this.radButEveStaPM.UseVisualStyleBackColor = true;
             // 
             // lblEveStaColon
             // 
             this.lblEveStaColon.AutoSize = true;
             this.lblEveStaColon.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.lblEveStaColon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.lblEveStaColon.Location = new System.Drawing.Point(342, 334);
+            this.lblEveStaColon.Location = new System.Drawing.Point(330, 326);
             this.lblEveStaColon.Name = "lblEveStaColon";
             this.lblEveStaColon.Size = new System.Drawing.Size(12, 17);
             this.lblEveStaColon.TabIndex = 9;
@@ -348,7 +317,7 @@ namespace CalendarSoftwareSystem
             "10",
             "11",
             "12"});
-            this.cBoxEveStaMon.Location = new System.Drawing.Point(119, 332);
+            this.cBoxEveStaMon.Location = new System.Drawing.Point(107, 324);
             this.cBoxEveStaMon.Name = "cBoxEveStaMon";
             this.cBoxEveStaMon.Size = new System.Drawing.Size(40, 21);
             this.cBoxEveStaMon.TabIndex = 10;
@@ -390,7 +359,7 @@ namespace CalendarSoftwareSystem
             "29",
             "30",
             "31"});
-            this.cBoxEveStaDay.Location = new System.Drawing.Point(173, 332);
+            this.cBoxEveStaDay.Location = new System.Drawing.Point(161, 324);
             this.cBoxEveStaDay.Name = "cBoxEveStaDay";
             this.cBoxEveStaDay.Size = new System.Drawing.Size(40, 21);
             this.cBoxEveStaDay.TabIndex = 10;
@@ -400,15 +369,16 @@ namespace CalendarSoftwareSystem
             this.cBoxEveStaMin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxEveStaMin.FormattingEnabled = true;
             this.cBoxEveStaMin.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
             "10",
             "11",
             "12",
@@ -459,7 +429,7 @@ namespace CalendarSoftwareSystem
             "57",
             "58",
             "59"});
-            this.cBoxEveStaMin.Location = new System.Drawing.Point(359, 332);
+            this.cBoxEveStaMin.Location = new System.Drawing.Point(347, 324);
             this.cBoxEveStaMin.Name = "cBoxEveStaMin";
             this.cBoxEveStaMin.Size = new System.Drawing.Size(40, 21);
             this.cBoxEveStaMin.TabIndex = 10;
@@ -469,7 +439,7 @@ namespace CalendarSoftwareSystem
             this.lblEveStaSlashTwo.AutoSize = true;
             this.lblEveStaSlashTwo.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.lblEveStaSlashTwo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.lblEveStaSlashTwo.Location = new System.Drawing.Point(213, 333);
+            this.lblEveStaSlashTwo.Location = new System.Drawing.Point(201, 325);
             this.lblEveStaSlashTwo.Name = "lblEveStaSlashTwo";
             this.lblEveStaSlashTwo.Size = new System.Drawing.Size(14, 17);
             this.lblEveStaSlashTwo.TabIndex = 9;
@@ -480,7 +450,7 @@ namespace CalendarSoftwareSystem
             this.lblEveStaSlashOne.AutoSize = true;
             this.lblEveStaSlashOne.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.lblEveStaSlashOne.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.lblEveStaSlashOne.Location = new System.Drawing.Point(160, 333);
+            this.lblEveStaSlashOne.Location = new System.Drawing.Point(148, 325);
             this.lblEveStaSlashOne.Name = "lblEveStaSlashOne";
             this.lblEveStaSlashOne.Size = new System.Drawing.Size(14, 17);
             this.lblEveStaSlashOne.TabIndex = 9;
@@ -491,7 +461,7 @@ namespace CalendarSoftwareSystem
             this.lblEveEndDate.AutoSize = true;
             this.lblEveEndDate.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.lblEveEndDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.lblEveEndDate.Location = new System.Drawing.Point(562, 313);
+            this.lblEveEndDate.Location = new System.Drawing.Point(550, 305);
             this.lblEveEndDate.Name = "lblEveEndDate";
             this.lblEveEndDate.Size = new System.Drawing.Size(44, 17);
             this.lblEveEndDate.TabIndex = 1;
@@ -502,43 +472,18 @@ namespace CalendarSoftwareSystem
             this.lblEveEndTime.AutoSize = true;
             this.lblEveEndTime.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.lblEveEndTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.lblEveEndTime.Location = new System.Drawing.Point(721, 313);
+            this.lblEveEndTime.Location = new System.Drawing.Point(709, 305);
             this.lblEveEndTime.Name = "lblEveEndTime";
             this.lblEveEndTime.Size = new System.Drawing.Size(45, 17);
             this.lblEveEndTime.TabIndex = 1;
             this.lblEveEndTime.Text = "Time:";
             // 
-            // radButEveEndAM
-            // 
-            this.radButEveEndAM.AutoSize = true;
-            this.radButEveEndAM.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.radButEveEndAM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.radButEveEndAM.Location = new System.Drawing.Point(689, 360);
-            this.radButEveEndAM.Name = "radButEveEndAM";
-            this.radButEveEndAM.Size = new System.Drawing.Size(49, 21);
-            this.radButEveEndAM.TabIndex = 6;
-            this.radButEveEndAM.TabStop = true;
-            this.radButEveEndAM.Text = "AM";
-            this.radButEveEndAM.UseVisualStyleBackColor = true;
-            // 
-            // radButEveEndPM
-            // 
-            this.radButEveEndPM.AutoSize = true;
-            this.radButEveEndPM.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.radButEveEndPM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.radButEveEndPM.Location = new System.Drawing.Point(752, 360);
-            this.radButEveEndPM.Name = "radButEveEndPM";
-            this.radButEveEndPM.Size = new System.Drawing.Size(47, 21);
-            this.radButEveEndPM.TabIndex = 6;
-            this.radButEveEndPM.TabStop = true;
-            this.radButEveEndPM.Text = "PM";
-            this.radButEveEndPM.UseVisualStyleBackColor = true;
-            // 
             // cBoxEveEndYear
             // 
             this.cBoxEveEndYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxEveEndYear.Enabled = false;
             this.cBoxEveEndYear.FormattingEnabled = true;
-            this.cBoxEveEndYear.Location = new System.Drawing.Point(617, 332);
+            this.cBoxEveEndYear.Location = new System.Drawing.Point(605, 324);
             this.cBoxEveEndYear.Name = "cBoxEveEndYear";
             this.cBoxEveEndYear.Size = new System.Drawing.Size(54, 21);
             this.cBoxEveEndYear.TabIndex = 7;
@@ -560,7 +505,7 @@ namespace CalendarSoftwareSystem
             "10",
             "11",
             "12"});
-            this.cBoxEveEndHour.Location = new System.Drawing.Point(688, 332);
+            this.cBoxEveEndHour.Location = new System.Drawing.Point(676, 324);
             this.cBoxEveEndHour.Name = "cBoxEveEndHour";
             this.cBoxEveEndHour.Size = new System.Drawing.Size(39, 21);
             this.cBoxEveEndHour.TabIndex = 8;
@@ -570,7 +515,7 @@ namespace CalendarSoftwareSystem
             this.lblEveEndColon.AutoSize = true;
             this.lblEveEndColon.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.lblEveEndColon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.lblEveEndColon.Location = new System.Drawing.Point(734, 334);
+            this.lblEveEndColon.Location = new System.Drawing.Point(722, 326);
             this.lblEveEndColon.Name = "lblEveEndColon";
             this.lblEveEndColon.Size = new System.Drawing.Size(12, 17);
             this.lblEveEndColon.TabIndex = 9;
@@ -581,7 +526,7 @@ namespace CalendarSoftwareSystem
             this.lblEveEndSlashTwo.AutoSize = true;
             this.lblEveEndSlashTwo.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.lblEveEndSlashTwo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.lblEveEndSlashTwo.Location = new System.Drawing.Point(603, 333);
+            this.lblEveEndSlashTwo.Location = new System.Drawing.Point(591, 325);
             this.lblEveEndSlashTwo.Name = "lblEveEndSlashTwo";
             this.lblEveEndSlashTwo.Size = new System.Drawing.Size(14, 17);
             this.lblEveEndSlashTwo.TabIndex = 9;
@@ -592,7 +537,7 @@ namespace CalendarSoftwareSystem
             this.lblEveEndSlashOne.AutoSize = true;
             this.lblEveEndSlashOne.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.lblEveEndSlashOne.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.lblEveEndSlashOne.Location = new System.Drawing.Point(550, 333);
+            this.lblEveEndSlashOne.Location = new System.Drawing.Point(538, 325);
             this.lblEveEndSlashOne.Name = "lblEveEndSlashOne";
             this.lblEveEndSlashOne.Size = new System.Drawing.Size(14, 17);
             this.lblEveEndSlashOne.TabIndex = 9;
@@ -601,6 +546,7 @@ namespace CalendarSoftwareSystem
             // cBoxEveEndMon
             // 
             this.cBoxEveEndMon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxEveEndMon.Enabled = false;
             this.cBoxEveEndMon.FormattingEnabled = true;
             this.cBoxEveEndMon.Items.AddRange(new object[] {
             "1",
@@ -615,7 +561,7 @@ namespace CalendarSoftwareSystem
             "10",
             "11",
             "12"});
-            this.cBoxEveEndMon.Location = new System.Drawing.Point(509, 332);
+            this.cBoxEveEndMon.Location = new System.Drawing.Point(497, 324);
             this.cBoxEveEndMon.Name = "cBoxEveEndMon";
             this.cBoxEveEndMon.Size = new System.Drawing.Size(40, 21);
             this.cBoxEveEndMon.TabIndex = 10;
@@ -623,6 +569,7 @@ namespace CalendarSoftwareSystem
             // cBoxEveEndDay
             // 
             this.cBoxEveEndDay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxEveEndDay.Enabled = false;
             this.cBoxEveEndDay.FormattingEnabled = true;
             this.cBoxEveEndDay.Items.AddRange(new object[] {
             "1",
@@ -656,7 +603,7 @@ namespace CalendarSoftwareSystem
             "29",
             "30",
             "31"});
-            this.cBoxEveEndDay.Location = new System.Drawing.Point(563, 332);
+            this.cBoxEveEndDay.Location = new System.Drawing.Point(551, 324);
             this.cBoxEveEndDay.Name = "cBoxEveEndDay";
             this.cBoxEveEndDay.Size = new System.Drawing.Size(40, 21);
             this.cBoxEveEndDay.TabIndex = 10;
@@ -666,15 +613,16 @@ namespace CalendarSoftwareSystem
             this.cBoxEveEndMin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxEveEndMin.FormattingEnabled = true;
             this.cBoxEveEndMin.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
             "10",
             "11",
             "12",
@@ -725,10 +673,237 @@ namespace CalendarSoftwareSystem
             "57",
             "58",
             "59"});
-            this.cBoxEveEndMin.Location = new System.Drawing.Point(751, 332);
+            this.cBoxEveEndMin.Location = new System.Drawing.Point(739, 324);
             this.cBoxEveEndMin.Name = "cBoxEveEndMin";
             this.cBoxEveEndMin.Size = new System.Drawing.Size(40, 21);
             this.cBoxEveEndMin.TabIndex = 10;
+            // 
+            // panelEveStaRad
+            // 
+            this.panelEveStaRad.Controls.Add(this.radButEveStaPM);
+            this.panelEveStaRad.Controls.Add(this.radButEveStaAM);
+            this.panelEveStaRad.Location = new System.Drawing.Point(284, 351);
+            this.panelEveStaRad.Name = "panelEveStaRad";
+            this.panelEveStaRad.Size = new System.Drawing.Size(115, 29);
+            this.panelEveStaRad.TabIndex = 11;
+            // 
+            // panelEveEndRad
+            // 
+            this.panelEveEndRad.Controls.Add(this.radButEveEndPM);
+            this.panelEveEndRad.Controls.Add(this.radButEveEndAM);
+            this.panelEveEndRad.Location = new System.Drawing.Point(676, 351);
+            this.panelEveEndRad.Name = "panelEveEndRad";
+            this.panelEveEndRad.Size = new System.Drawing.Size(111, 29);
+            this.panelEveEndRad.TabIndex = 11;
+            // 
+            // radButEveEndPM
+            // 
+            this.radButEveEndPM.AutoSize = true;
+            this.radButEveEndPM.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.radButEveEndPM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.radButEveEndPM.Location = new System.Drawing.Point(66, 3);
+            this.radButEveEndPM.Name = "radButEveEndPM";
+            this.radButEveEndPM.Size = new System.Drawing.Size(47, 21);
+            this.radButEveEndPM.TabIndex = 6;
+            this.radButEveEndPM.TabStop = true;
+            this.radButEveEndPM.Text = "PM";
+            this.radButEveEndPM.UseVisualStyleBackColor = true;
+            // 
+            // radButEveEndAM
+            // 
+            this.radButEveEndAM.AutoSize = true;
+            this.radButEveEndAM.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.radButEveEndAM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.radButEveEndAM.Location = new System.Drawing.Point(3, 3);
+            this.radButEveEndAM.Name = "radButEveEndAM";
+            this.radButEveEndAM.Size = new System.Drawing.Size(49, 21);
+            this.radButEveEndAM.TabIndex = 6;
+            this.radButEveEndAM.TabStop = true;
+            this.radButEveEndAM.Text = "AM";
+            this.radButEveEndAM.UseVisualStyleBackColor = true;
+            // 
+            // panelEveAdd
+            // 
+            this.panelEveAdd.Controls.Add(this.btnEveBack);
+            this.panelEveAdd.Controls.Add(this.btnEveCoord);
+            this.panelEveAdd.Controls.Add(this.panelEveEndRad);
+            this.panelEveAdd.Controls.Add(this.lblEveTitle);
+            this.panelEveAdd.Controls.Add(this.panelEveStaRad);
+            this.panelEveAdd.Controls.Add(this.lblEveName);
+            this.panelEveAdd.Controls.Add(this.cBoxEveEndMin);
+            this.panelEveAdd.Controls.Add(this.lblEveDesc);
+            this.panelEveAdd.Controls.Add(this.cBoxEveStaMin);
+            this.panelEveAdd.Controls.Add(this.lblEveLoc);
+            this.panelEveAdd.Controls.Add(this.cBoxEveEndDay);
+            this.panelEveAdd.Controls.Add(this.lblEveSta);
+            this.panelEveAdd.Controls.Add(this.cBoxEveStaDay);
+            this.panelEveAdd.Controls.Add(this.tBoxEveDesc);
+            this.panelEveAdd.Controls.Add(this.cBoxEveEndMon);
+            this.panelEveAdd.Controls.Add(this.tBoxEveName);
+            this.panelEveAdd.Controls.Add(this.lblEveEndSlashOne);
+            this.panelEveAdd.Controls.Add(this.tBoxEveLoc);
+            this.panelEveAdd.Controls.Add(this.cBoxEveStaMon);
+            this.panelEveAdd.Controls.Add(this.lblEveStaDate);
+            this.panelEveAdd.Controls.Add(this.lblEveEndSlashTwo);
+            this.panelEveAdd.Controls.Add(this.lblEveStaTime);
+            this.panelEveAdd.Controls.Add(this.lblEveStaSlashOne);
+            this.panelEveAdd.Controls.Add(this.lblEveEndDate);
+            this.panelEveAdd.Controls.Add(this.lblEveEndColon);
+            this.panelEveAdd.Controls.Add(this.lblEveEnd);
+            this.panelEveAdd.Controls.Add(this.lblEveStaSlashTwo);
+            this.panelEveAdd.Controls.Add(this.lblEveEndTime);
+            this.panelEveAdd.Controls.Add(this.cBoxEveEndHour);
+            this.panelEveAdd.Controls.Add(this.btnEveSave);
+            this.panelEveAdd.Controls.Add(this.lblEveStaColon);
+            this.panelEveAdd.Controls.Add(this.lblEventAttendents);
+            this.panelEveAdd.Controls.Add(this.cBoxEveEndYear);
+            this.panelEveAdd.Controls.Add(this.chklstAttendants);
+            this.panelEveAdd.Controls.Add(this.cBoxEveStaHour);
+            this.panelEveAdd.Controls.Add(this.cBoxEveStaYear);
+            this.panelEveAdd.Location = new System.Drawing.Point(3, 4);
+            this.panelEveAdd.Name = "panelEveAdd";
+            this.panelEveAdd.Size = new System.Drawing.Size(796, 443);
+            this.panelEveAdd.TabIndex = 12;
+            // 
+            // panelEveView
+            // 
+            this.panelEveView.Controls.Add(this.lBoxEveView);
+            this.panelEveView.Controls.Add(this.BtnEveViewCancel);
+            this.panelEveView.Controls.Add(this.btnEveViewDelete);
+            this.panelEveView.Controls.Add(this.btnEveViewEdit);
+            this.panelEveView.Controls.Add(this.lblEveView);
+            this.panelEveView.Controls.Add(this.btnEveViewCreate);
+            this.panelEveView.Controls.Add(this.lblEveViewDate);
+            this.panelEveView.Location = new System.Drawing.Point(3, 4);
+            this.panelEveView.Name = "panelEveView";
+            this.panelEveView.Size = new System.Drawing.Size(796, 443);
+            this.panelEveView.TabIndex = 12;
+            // 
+            // lblEveViewDate
+            // 
+            this.lblEveViewDate.AutoSize = true;
+            this.lblEveViewDate.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Bold);
+            this.lblEveViewDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.lblEveViewDate.Location = new System.Drawing.Point(3, 5);
+            this.lblEveViewDate.Name = "lblEveViewDate";
+            this.lblEveViewDate.Size = new System.Drawing.Size(116, 47);
+            this.lblEveViewDate.TabIndex = 12;
+            this.lblEveViewDate.Text = "DATE";
+            // 
+            // btnEveViewCreate
+            // 
+            this.btnEveViewCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.btnEveViewCreate.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEveViewCreate.FlatAppearance.BorderSize = 0;
+            this.btnEveViewCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEveViewCreate.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEveViewCreate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.btnEveViewCreate.Location = new System.Drawing.Point(701, 401);
+            this.btnEveViewCreate.Name = "btnEveViewCreate";
+            this.btnEveViewCreate.Size = new System.Drawing.Size(75, 29);
+            this.btnEveViewCreate.TabIndex = 12;
+            this.btnEveViewCreate.Text = "Create";
+            this.btnEveViewCreate.UseVisualStyleBackColor = false;
+            this.btnEveViewCreate.Click += new System.EventHandler(this.btnEveViewCreate_Click);
+            // 
+            // lblEveView
+            // 
+            this.lblEveView.AutoSize = true;
+            this.lblEveView.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.lblEveView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.lblEveView.Location = new System.Drawing.Point(21, 57);
+            this.lblEveView.Name = "lblEveView";
+            this.lblEveView.Size = new System.Drawing.Size(53, 17);
+            this.lblEveView.TabIndex = 12;
+            this.lblEveView.Text = "Events:";
+            // 
+            // btnEveViewEdit
+            // 
+            this.btnEveViewEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.btnEveViewEdit.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEveViewEdit.FlatAppearance.BorderSize = 0;
+            this.btnEveViewEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEveViewEdit.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEveViewEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.btnEveViewEdit.Location = new System.Drawing.Point(597, 401);
+            this.btnEveViewEdit.Name = "btnEveViewEdit";
+            this.btnEveViewEdit.Size = new System.Drawing.Size(96, 29);
+            this.btnEveViewEdit.TabIndex = 13;
+            this.btnEveViewEdit.Text = "Edit/View";
+            this.btnEveViewEdit.UseVisualStyleBackColor = false;
+            this.btnEveViewEdit.Click += new System.EventHandler(this.btnEveViewEdit_Click);
+            // 
+            // btnEveViewDelete
+            // 
+            this.btnEveViewDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.btnEveViewDelete.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEveViewDelete.FlatAppearance.BorderSize = 0;
+            this.btnEveViewDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEveViewDelete.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEveViewDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.btnEveViewDelete.Location = new System.Drawing.Point(512, 401);
+            this.btnEveViewDelete.Name = "btnEveViewDelete";
+            this.btnEveViewDelete.Size = new System.Drawing.Size(75, 29);
+            this.btnEveViewDelete.TabIndex = 14;
+            this.btnEveViewDelete.Text = "Delete";
+            this.btnEveViewDelete.UseVisualStyleBackColor = false;
+            this.btnEveViewDelete.Click += new System.EventHandler(this.btnEveViewDelete_Click);
+            // 
+            // BtnEveViewCancel
+            // 
+            this.BtnEveViewCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.BtnEveViewCancel.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.BtnEveViewCancel.FlatAppearance.BorderSize = 0;
+            this.BtnEveViewCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEveViewCancel.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.BtnEveViewCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.BtnEveViewCancel.Location = new System.Drawing.Point(14, 401);
+            this.BtnEveViewCancel.Name = "BtnEveViewCancel";
+            this.BtnEveViewCancel.Size = new System.Drawing.Size(75, 29);
+            this.BtnEveViewCancel.TabIndex = 15;
+            this.BtnEveViewCancel.Text = "Cancel";
+            this.BtnEveViewCancel.UseVisualStyleBackColor = false;
+            this.BtnEveViewCancel.Click += new System.EventHandler(this.BtnEveViewCancel_Click);
+            // 
+            // lBoxEveView
+            // 
+            this.lBoxEveView.FormattingEnabled = true;
+            this.lBoxEveView.Location = new System.Drawing.Point(23, 82);
+            this.lBoxEveView.Name = "lBoxEveView";
+            this.lBoxEveView.Size = new System.Drawing.Size(753, 303);
+            this.lBoxEveView.TabIndex = 16;
+            // 
+            // btnEveCoord
+            // 
+            this.btnEveCoord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.btnEveCoord.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEveCoord.FlatAppearance.BorderSize = 0;
+            this.btnEveCoord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEveCoord.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEveCoord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.btnEveCoord.Location = new System.Drawing.Point(265, 401);
+            this.btnEveCoord.Name = "btnEveCoord";
+            this.btnEveCoord.Size = new System.Drawing.Size(326, 29);
+            this.btnEveCoord.TabIndex = 12;
+            this.btnEveCoord.Text = "Coordinate Event with Selected Attendants";
+            this.btnEveCoord.UseVisualStyleBackColor = false;
+            this.btnEveCoord.Click += new System.EventHandler(this.btnEveCoord_Click);
+            // 
+            // btnEveBack
+            // 
+            this.btnEveBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.btnEveBack.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEveBack.FlatAppearance.BorderSize = 0;
+            this.btnEveBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEveBack.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEveBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.btnEveBack.Location = new System.Drawing.Point(14, 401);
+            this.btnEveBack.Name = "btnEveBack";
+            this.btnEveBack.Size = new System.Drawing.Size(75, 29);
+            this.btnEveBack.TabIndex = 13;
+            this.btnEveBack.Text = "Back";
+            this.btnEveBack.UseVisualStyleBackColor = false;
+            this.btnEveBack.Click += new System.EventHandler(this.btnEveBack_Click);
             // 
             // EventForm
             // 
@@ -736,49 +911,22 @@ namespace CalendarSoftwareSystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.cBoxEveEndMin);
-            this.Controls.Add(this.cBoxEveStaMin);
-            this.Controls.Add(this.cBoxEveEndDay);
-            this.Controls.Add(this.cBoxEveStaDay);
-            this.Controls.Add(this.cBoxEveEndMon);
-            this.Controls.Add(this.lblEveEndSlashOne);
-            this.Controls.Add(this.cBoxEveStaMon);
-            this.Controls.Add(this.lblEveEndSlashTwo);
-            this.Controls.Add(this.lblEveStaSlashOne);
-            this.Controls.Add(this.lblEveEndColon);
-            this.Controls.Add(this.lblEveStaSlashTwo);
-            this.Controls.Add(this.cBoxEveEndHour);
-            this.Controls.Add(this.lblEveStaColon);
-            this.Controls.Add(this.cBoxEveEndYear);
-            this.Controls.Add(this.cBoxEveStaHour);
-            this.Controls.Add(this.radButEveEndPM);
-            this.Controls.Add(this.cBoxEveStaYear);
-            this.Controls.Add(this.radButEveEndAM);
-            this.Controls.Add(this.radButEveStartPM);
-            this.Controls.Add(this.radButEveStartAM);
-            this.Controls.Add(this.chklstAttendants);
-            this.Controls.Add(this.lblEventAttendents);
-            this.Controls.Add(this.btnEveSave);
-            this.Controls.Add(this.lblEveEndTime);
-            this.Controls.Add(this.lblEveEnd);
-            this.Controls.Add(this.lblEveEndDate);
-            this.Controls.Add(this.lblEveStaTime);
-            this.Controls.Add(this.lblEveStaDate);
-            this.Controls.Add(this.lblEveSta);
-            this.Controls.Add(this.lblEveLoc);
-            this.Controls.Add(this.lblEveDesc);
-            this.Controls.Add(this.lblEveTitle);
-            this.Controls.Add(this.lblEveName);
-            this.Controls.Add(this.tBoxEveLoc);
-            this.Controls.Add(this.tBoxEveDesc);
-            this.Controls.Add(this.tBoxEveName);
+            this.Controls.Add(this.panelEveAdd);
+            this.Controls.Add(this.panelEveView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "EventForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Event";
             this.Load += new System.EventHandler(this.EventForm_Load);
+            this.panelEveStaRad.ResumeLayout(false);
+            this.panelEveStaRad.PerformLayout();
+            this.panelEveEndRad.ResumeLayout(false);
+            this.panelEveEndRad.PerformLayout();
+            this.panelEveAdd.ResumeLayout(false);
+            this.panelEveAdd.PerformLayout();
+            this.panelEveView.ResumeLayout(false);
+            this.panelEveView.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -798,10 +946,10 @@ namespace CalendarSoftwareSystem
         private System.Windows.Forms.Label lblEveStaTime;
         private System.Windows.Forms.Label lblEventAttendents;
         private System.Windows.Forms.CheckedListBox chklstAttendants;
-        private System.Windows.Forms.RadioButton radButEveStartAM;
+        private System.Windows.Forms.RadioButton radButEveStaAM;
         private System.Windows.Forms.ComboBox cBoxEveStaYear;
         private System.Windows.Forms.ComboBox cBoxEveStaHour;
-        private System.Windows.Forms.RadioButton radButEveStartPM;
+        private System.Windows.Forms.RadioButton radButEveStaPM;
         private System.Windows.Forms.Label lblEveStaColon;
         private System.Windows.Forms.ComboBox cBoxEveStaMon;
         private System.Windows.Forms.ComboBox cBoxEveStaDay;
@@ -810,8 +958,6 @@ namespace CalendarSoftwareSystem
         private System.Windows.Forms.Label lblEveStaSlashOne;
         private System.Windows.Forms.Label lblEveEndDate;
         private System.Windows.Forms.Label lblEveEndTime;
-        private System.Windows.Forms.RadioButton radButEveEndAM;
-        private System.Windows.Forms.RadioButton radButEveEndPM;
         private System.Windows.Forms.ComboBox cBoxEveEndYear;
         private System.Windows.Forms.ComboBox cBoxEveEndHour;
         private System.Windows.Forms.Label lblEveEndColon;
@@ -820,5 +966,20 @@ namespace CalendarSoftwareSystem
         private System.Windows.Forms.ComboBox cBoxEveEndMon;
         private System.Windows.Forms.ComboBox cBoxEveEndDay;
         private System.Windows.Forms.ComboBox cBoxEveEndMin;
+        private System.Windows.Forms.Panel panelEveStaRad;
+        private System.Windows.Forms.Panel panelEveEndRad;
+        private System.Windows.Forms.RadioButton radButEveEndPM;
+        private System.Windows.Forms.RadioButton radButEveEndAM;
+        private System.Windows.Forms.Panel panelEveAdd;
+        private System.Windows.Forms.Panel panelEveView;
+        private System.Windows.Forms.Label lblEveViewDate;
+        private System.Windows.Forms.Label lblEveView;
+        private System.Windows.Forms.Button btnEveViewCreate;
+        private System.Windows.Forms.Button BtnEveViewCancel;
+        private System.Windows.Forms.Button btnEveViewDelete;
+        private System.Windows.Forms.Button btnEveViewEdit;
+        private System.Windows.Forms.ListBox lBoxEveView;
+        private System.Windows.Forms.Button btnEveCoord;
+        private System.Windows.Forms.Button btnEveBack;
     }
 }

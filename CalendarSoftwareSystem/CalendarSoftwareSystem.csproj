@@ -54,11 +54,11 @@
     <Compile Include="Classes\Event.cs" />
     <Compile Include="Classes\Manager.cs" />
     <Compile Include="Classes\User.cs" />
-    <Compile Include="GUI\Forms\EventForm.cs">
+    <Compile Include="GUI\Forms\FormEvent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Forms\EventForm.Designer.cs">
-      <DependentUpon>EventForm.cs</DependentUpon>
+    <Compile Include="GUI\Forms\FormEvent.Designer.cs">
+      <DependentUpon>FormEvent.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Forms\FormCalendar.cs">
       <SubType>Form</SubType>
@@ -80,8 +80,8 @@
     <Compile Include="GUI\UserControl\MonthDay.Designer.cs">
       <DependentUpon>MonthDay.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="GUI\Forms\EventForm.resx">
-      <DependentUpon>EventForm.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Forms\FormEvent.resx">
+      <DependentUpon>FormEvent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\FormCalendar.resx">
       <DependentUpon>FormCalendar.cs</DependentUpon>

@@ -13,13 +13,15 @@ namespace CalendarSoftwareSystem
 {
     public partial class FormCalendar : Form
     {
+        // Create variables
+        public static bool curUserIsManager;
 
         // Create objects
         private static User unidentifiedUser;
         private static Employee thisEmployee;
         private static Manager thisManager;
         public static Calendar thisCalendar;
-        private static Event[] eventList;
+        private static List<Event> eventList = new List<Event>();
 
         //
         public FormCalendar()
@@ -37,12 +39,7 @@ namespace CalendarSoftwareSystem
         {
             // Initialize variables
             DateTime now = DateTime.Now;
-
-            // Create calendar
             thisCalendar = new Calendar(now.Day, now.Month, now.Year, eventList);
-            
-
-            displayDays();
         }
 
 
@@ -51,7 +48,9 @@ namespace CalendarSoftwareSystem
         //              If the provided information is valid, the user will be logged into the system.
         private void btnLogLogin_Click(object sender, EventArgs e)
         {
+            // Initialize variables
             unidentifiedUser = new User(tBoxLogUser.Text, tBoxLogPass.Text);
+            DateTime now = DateTime.Now;
 
             switch (unidentifiedUser.logIn())
             {
@@ -60,30 +59,45 @@ namespace CalendarSoftwareSystem
                     tBoxLogUser.Text = "";
                     tBoxLogPass.Text = "";
 
-                    // Switch menus
-                    panelLogin.Visible = false;
-                    panelCalendar.Visible = true;
+
 
                     // Create Employee Object
                     thisEmployee = Employee.retrieveEmployee(unidentifiedUser.EmpID);
 
+                    thisCalendar = new Calendar(now.Day, now.Month, now.Year, Calendar.retrieveEventList(unidentifiedUser.EmpID));
+
+                    curUserIsManager = false;
+
                     // Remove User Object
                     unidentifiedUser = null;
+
+                    displayDays();
+
+                    // Switch menus
+                    panelLogin.Visible = false;
+                    panelCalendar.Visible = true;
                     break;
                 case "VALID_MANAGER":
                     // Empty the text boxes
                     tBoxLogUser.Text = "";
                     tBoxLogPass.Text = "";
 
-                    // Switch menus
-                    panelLogin.Visible = false;
-                    panelCalendar.Visible = true;
-
                     // Create Manager Object
                     thisManager = Manager.retrieveManager(unidentifiedUser.EmpID);
 
+                    thisCalendar = new Calendar(now.Day, now.Month, now.Year, Calendar.retrieveEventList(unidentifiedUser.EmpID));
+
+                    curUserIsManager = true;
+
+
                     // Remove User Object
                     unidentifiedUser = null;
+
+                    displayDays();
+
+                    // Switch menus
+                    panelLogin.Visible = false;
+                    panelCalendar.Visible = true;
                     break;
                 case "INVALID_USER":
                     MessageBox.Show("Invalid Username. Please Try Again.", "Calendar System");
@@ -122,6 +136,7 @@ namespace CalendarSoftwareSystem
             
             thisEmployee = null;
             thisManager = null;
+            thisCalendar = null;
         }
 
         //Attatched to: btnCalNext (Panel: panelCalendar)
