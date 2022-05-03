@@ -14,9 +14,14 @@ namespace CalendarSoftwareSystem
     public partial class MonthDay : UserControl
     {
         int curDay;
-        public MonthDay()
+        Employee thisEmployee;
+        FormCalendar thisCalendar;
+
+        public MonthDay(Employee employee, FormCalendar calendar)
         {
             InitializeComponent();
+            thisEmployee = employee;
+            thisCalendar = calendar;
         }
 
         public void days(int numDay)
@@ -37,8 +42,13 @@ namespace CalendarSoftwareSystem
         private void UserControlDays_Click(object sender, EventArgs e)
         {
             curDay = Convert.ToInt32(lblDays.Text);
-            EventForm eventform = new EventForm(curDay);
+            EventForm eventform = new EventForm(curDay, thisEmployee, thisCalendar);
             eventform.Show();
+        }
+
+        private void MonthDay_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

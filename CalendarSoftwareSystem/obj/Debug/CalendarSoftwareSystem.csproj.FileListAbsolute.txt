@@ -45,3 +45,29 @@ D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\Calend
 D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\bin\Debug\System.Numerics.Vectors.dll
 D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\bin\Debug\MySql.Data.xml
 D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.csproj.CopyComplete
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\bin\Debug\CalendarSoftwareSystem.exe.config
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\bin\Debug\CalendarSoftwareSystem.exe
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\bin\Debug\CalendarSoftwareSystem.pdb
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\bin\Debug\MySql.Data.dll
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\bin\Debug\ZstdNet.dll
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\bin\Debug\K4os.Compression.LZ4.Streams.dll
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\bin\Debug\BouncyCastle.Crypto.dll
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\bin\Debug\Ubiety.Dns.Core.dll
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\bin\Debug\System.Memory.dll
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\bin\Debug\System.Buffers.dll
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\bin\Debug\K4os.Compression.LZ4.dll
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\bin\Debug\K4os.Hash.xxHash.dll
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\bin\Debug\System.Numerics.Vectors.dll
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\bin\Debug\MySql.Data.xml
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.csproj.AssemblyReference.cache
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.EventForm.resources
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.FormCalendar.resources
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.Properties.Resources.resources
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.BlankDay.resources
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.MonthDay.resources
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.csproj.GenerateResource.cache
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.csproj.CoreCompileInputs.cache
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.csproj.CopyComplete
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.exe
+D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.pdb

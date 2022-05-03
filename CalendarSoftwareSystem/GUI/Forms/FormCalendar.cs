@@ -177,7 +177,7 @@ namespace CalendarSoftwareSystem
 
         //Used in:  formCalendar_Load, btnCalNext_Click, btnCalPrevious_Click
         //Purpose:  This function displays the days of the month to the user
-        private void displayDays()
+        public void displayDays()
         {
             ///CREATE VARIABLES///
             // Find out how many days are in a given month
@@ -203,7 +203,7 @@ namespace CalendarSoftwareSystem
             // Create usercontrol objects for the actual days of the month
             for (int i = 1; i <= monthDays; i++)
             {
-                MonthDay ucDays = new MonthDay();
+                MonthDay ucDays = new MonthDay(thisEmployee, this);
                 ucDays.days(i);
                 flPanelMonth.Controls.Add(ucDays);
             }
@@ -214,6 +214,13 @@ namespace CalendarSoftwareSystem
             String monthName = DateTimeFormatInfo.CurrentInfo.GetMonthName(thisCalendar.Month);
             lblMonth.Text = monthName; 
             lblYear.Text = thisCalendar.Year.ToString();
+        }
+
+        public Calendar ThisCalendar
+        {
+            get { return thisCalendar; }
+            set { thisCalendar = value; }
+
         }
     }
 }

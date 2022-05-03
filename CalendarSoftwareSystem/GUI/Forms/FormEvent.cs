@@ -16,10 +16,14 @@ namespace CalendarSoftwareSystem
     {
         int curDay;
         List<string> possibleAttendants = new List<string>();
+        Employee thisEmployee;
+        FormCalendar thisCalendar;
 
-        public EventForm(int day)
+        public EventForm(int day, Employee employee, FormCalendar calendar)
         {
             curDay = day;
+            thisEmployee = employee;
+            thisCalendar = calendar;
             InitializeComponent();
 
             // Set initial panel visibility
@@ -54,7 +58,11 @@ namespace CalendarSoftwareSystem
             {
                 if (eve.StartDate.Date.ToString("M/d/yyyy").Equals(FormCalendar.thisCalendar.Month + "/" + FormCalendar.thisCalendar.Day + "/" + FormCalendar.thisCalendar.Year))
                 {
-                    lBoxEveView.Items.Add(eve.Title + "\t\t\t" + eve.StartDate.ToString() + "\t-\t" + eve.EndDate.ToString());
+                    //debug oversized event title name display
+                    if (eve.Title.Length >= 23)
+                        lBoxEveView.Items.Add(eve.Title.Substring(0,20)+"..." + "\t\t" + eve.StartDate.ToString() + "\t-\t" + eve.EndDate.ToString());
+                    else
+                        lBoxEveView.Items.Add(eve.Title + "\t\t\t" + eve.StartDate.ToString() + "\t-\t" + eve.EndDate.ToString());
                 }
             }
 
@@ -162,9 +170,14 @@ namespace CalendarSoftwareSystem
             switch (eventState)
             {
                 case "VALID":
-                    ///
-                    /// Create Event code here
-                    ///
+                    //update calendar events and create event
+                    List<Event> tempEvents = thisCalendar.ThisCalendar.EventList;
+                    tempEvents.Add(thisEmployee.createEvent(title, description, location, attendants, startDate, endDate));
+                    thisCalendar.ThisCalendar.EventList = tempEvents;
+                    thisCalendar.displayDays();
+
+
+
                     MessageBox.Show("Event created.");
                     this.Close();
                     break;
