@@ -21,10 +21,8 @@ namespace CalendarSoftwareSystem
             month = m;
             year = y;
             eventList = eList;
-            //TEST EVENTS
-            //eventList.Add(new Event("test", "testing testing", "testland", new List<string> { "testperson1", "testperson2" }, DateTime.Now, DateTime.Now));
-            //eventList.Add(new Event("zest", "zesting zesting", "zestland", new List<string> { "zestperson1", "zestperson2" }, DateTime.Now, DateTime.Now));
         }
+
         public static List<Event> retrieveEventList(int empID)
         {
             string connStr = "server=157.89.28.29;user=student;database=csc340_db;port=3306;password=Maroon@21?;";

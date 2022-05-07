@@ -114,72 +114,129 @@ namespace CalendarSoftwareSystem
                     attendants.Add(chklstAttendants.Items[i].ToString());
             }
 
-            // Add start date
-            try
+            if (eventState == "VALID")
             {
-                if (radButEveStaAM.Checked)
+                // Add start date
+                try
                 {
-                    staHour = Int32.Parse(cBoxEveStaHour.Text);
-                    startDate = Convert.ToDateTime(cBoxEveStaMon.Text + "/" + cBoxEveStaDay.Text + "/" + cBoxEveStaYear.Text + " " + cBoxEveStaHour.Text + ":" + cBoxEveStaMin.Text + " " + "AM");
-                }
-                else
-                {
-                    staHour = Int32.Parse(cBoxEveStaHour.Text) + 12;
-                    startDate = Convert.ToDateTime(cBoxEveStaMon.Text + "/" + cBoxEveStaDay.Text + "/" + cBoxEveStaYear.Text + " " + cBoxEveStaHour.Text + ":" + cBoxEveStaMin.Text + " " + "PM");
-                }
-                    
-            }
-            catch (Exception ex)
-            {
-                eventState = "INVALID_START";
-            }
-
-            // Add end date
-            try
-            {
-                if (radButEveEndAM.Checked)
-                {
-                    endHour = Int32.Parse(cBoxEveEndHour.Text);
-                    endDate = Convert.ToDateTime(cBoxEveEndMon.Text + "/" + cBoxEveEndDay.Text + "/" + cBoxEveEndYear.Text + " " + cBoxEveEndHour.Text + ":" + cBoxEveEndMin.Text + " " + "AM");
-                }
-                else
-                {
-                    endHour = Int32.Parse(cBoxEveEndHour.Text) + 12;
-                    endDate = Convert.ToDateTime(cBoxEveEndMon.Text + "/" + cBoxEveEndDay.Text + "/" + cBoxEveEndYear.Text + " " + cBoxEveEndHour.Text + ":" + cBoxEveEndMin.Text + " " + "PM");
-                }
-                
-                if(endHour < staHour)
-                {
-                    Debug.WriteLine("End Before Start in Hour");
-                    eventState = "END_BEFORE_START";
-                }
-                else if(endHour == staHour)
-                {
-                    Debug.WriteLine("End Hour Matches Start Hour");
-                    if (Int32.Parse(cBoxEveEndMin.Text) < Int32.Parse(cBoxEveStaMin.Text))
+                    if (radButEveStaAM.Checked)
                     {
-                        Debug.WriteLine("End min before Start min");
-                        eventState = "END_BEFORE_START";
-                    } 
-                } 
+                        if (Int32.Parse(cBoxEveStaHour.Text) == 12)
+                            staHour = 0;
+                        else
+                            staHour = Int32.Parse(cBoxEveStaHour.Text);
+                        startDate = Convert.ToDateTime(cBoxEveStaMon.Text + "/" + cBoxEveStaDay.Text + "/" + cBoxEveStaYear.Text + " " + cBoxEveStaHour.Text + ":" + cBoxEveStaMin.Text + " " + "AM");
+                    }
+                    else
+                    {
+                        if (Int32.Parse(cBoxEveStaHour.Text) == 12)
+                            staHour = 12;
+                        else
+                            staHour = Int32.Parse(cBoxEveStaHour.Text) + 12;
+                        startDate = Convert.ToDateTime(cBoxEveStaMon.Text + "/" + cBoxEveStaDay.Text + "/" + cBoxEveStaYear.Text + " " + cBoxEveStaHour.Text + ":" + cBoxEveStaMin.Text + " " + "PM");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    eventState = "INVALID_START";
+                }
             }
-            catch (Exception ex)
-            {
 
-                eventState = "INVALID_END";
+            
+
+            if (eventState == "VALID")
+            {
+                // Add end date
+                try
+                {
+                    if (radButEveEndAM.Checked)
+                    {
+                        if (Int32.Parse(cBoxEveEndHour.Text) == 12)
+                            endHour = 0;
+                        else
+                            endHour = Int32.Parse(cBoxEveEndHour.Text);
+                        endDate = Convert.ToDateTime(cBoxEveEndMon.Text + "/" + cBoxEveEndDay.Text + "/" + cBoxEveEndYear.Text + " " + cBoxEveEndHour.Text + ":" + cBoxEveEndMin.Text + " " + "AM");
+                    }
+                    else
+                    {
+                        if (Int32.Parse(cBoxEveEndHour.Text) == 12)
+                            endHour = 12;
+                        else
+                            endHour = Int32.Parse(cBoxEveEndHour.Text) + 12;
+                        endDate = Convert.ToDateTime(cBoxEveEndMon.Text + "/" + cBoxEveEndDay.Text + "/" + cBoxEveEndYear.Text + " " + cBoxEveEndHour.Text + ":" + cBoxEveEndMin.Text + " " + "PM");
+                    }
+
+                    if (endHour < staHour)
+                    {
+                        Debug.WriteLine("End Before Start in Hour");
+                        eventState = "END_BEFORE_START";
+                    }
+                    else if (endHour == staHour)
+                    {
+                        Debug.WriteLine("End Hour Matches Start Hour");
+                        if (Int32.Parse(cBoxEveEndMin.Text) < Int32.Parse(cBoxEveStaMin.Text))
+                        {
+                            Debug.WriteLine("End min before Start min");
+                            eventState = "END_BEFORE_START";
+                        }
+                    }
+                    else
+                    {
+                        foreach (Event eve in thisCalendar.ThisCalendar.EventList)
+                        {
+                            Debug.WriteLine("Start Date: " + endDate);
+                            Debug.WriteLine("Event Date: " + eve.EndDate);
+                            if ((startDate.CompareTo(eve.StartDate) == -1 && endDate.CompareTo(eve.StartDate) == 1)
+                                || (startDate.CompareTo(eve.EndDate) == -1 && endDate.CompareTo(eve.EndDate) == 1)
+                                || (startDate.CompareTo(eve.StartDate) == 1 && endDate.CompareTo(eve.EndDate) == -1)
+                                || (startDate.CompareTo(eve.StartDate) == -1 && endDate.CompareTo(eve.EndDate) == 1)
+                                || (startDate.CompareTo(eve.StartDate) == 0)
+                                || (startDate.CompareTo(eve.EndDate) == 0)
+                                || (endDate.CompareTo(eve.StartDate) == 0)
+                                || (endDate.CompareTo(eve.EndDate) == 0))
+                            {
+                                eventState = "CONFLICTING_TIMES";
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    eventState = "INVALID_END";
+                }
             }
+
 
             // Check and make sure all necessary features have been added
+            List<Event> tempEvents = new List<Event>();
             switch (eventState)
             {
+                
+                case "CONFLICTING_TIMES":
+                    DialogResult result = MessageBox.Show("The time provided conflicts with another event. Are you sure you wish to create this event?", "Calendar System", MessageBoxButtons.YesNo);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        //update calendar events and create event
+                        tempEvents = thisCalendar.ThisCalendar.EventList;
+                        tempEvents.Add(thisEmployee.createEvent(title, description, location, attendants, startDate, endDate));
+                        thisCalendar.ThisCalendar.EventList = tempEvents;
+                        thisCalendar.displayDays();
+
+
+
+                        MessageBox.Show("Event created.", "Calendar System");
+                        this.Close();
+                    }
+
+                    break;
                 case "VALID":
                     //update calendar events and create event
-                    List<Event> tempEvents = thisCalendar.ThisCalendar.EventList;
+                    tempEvents = thisCalendar.ThisCalendar.EventList;
                     tempEvents.Add(thisEmployee.createEvent(title, description, location, attendants, startDate, endDate));
                     thisCalendar.ThisCalendar.EventList = tempEvents;
                     thisCalendar.displayDays();
-
-
 
                     MessageBox.Show("Event created.", "Calendar System");
                     this.Close();
@@ -317,11 +374,7 @@ namespace CalendarSoftwareSystem
             {
                 if (eve.StartDate.Date.ToString("M/d/yyyy").Equals(FormCalendar.thisCalendar.Month + "/" + FormCalendar.thisCalendar.Day + "/" + FormCalendar.thisCalendar.Year))
                 {
-                    //debug oversized event title name display
-                    if (eve.Title.Length >= 15)
-                        lBoxEveView.Items.Add(eve.Title.Substring(0, 14) + "..." + "\t\t" + eve.StartDate.ToString() + "\t-\t" + eve.EndDate.ToString());
-                    else
-                        lBoxEveView.Items.Add(eve.Title + "\t\t\t" + eve.StartDate.ToString() + "\t-\t" + eve.EndDate.ToString());
+                    lBoxEveView.Items.Add(eve.Title + "\t\t\t" + eve.StartDate.ToString() + "\t-\t" + eve.EndDate.ToString());
                 }
             }
         }

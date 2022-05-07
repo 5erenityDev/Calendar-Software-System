@@ -52,7 +52,7 @@ namespace CalendarSoftwareSystem
                 title = t;
             dateTime = dateTime.Trim('\t');
             List<Event> tempEvents = new List<Event>();
-            bool matched = false;
+            bool deleted = false;
             string result = RESULTS[0];
 
             if (dateTime.IndexOf('/') == 1)
@@ -66,19 +66,17 @@ namespace CalendarSoftwareSystem
 
             foreach (Event eve in thisCalendar.ThisCalendar.EventList)
             {
-                
+                bool matched = false;
                 string tle = eve.Title;
+
                 if (eve.Title.Length >= 15)
                     tle = tle.Substring(0, 14);
-                Debug.WriteLine(tle);
-                Debug.WriteLine(title);
+
                 if (tle == title)
                 {
-                    Debug.WriteLine(eve.StartDate.ToString("MM/dd/yyyy hh:mm:ss tt"));
-                    Debug.WriteLine(dateTime);
-                    Debug.WriteLine(eve.StartDate.ToString("MM/dd/yyyy hh:mm:ss tt").Equals(dateTime));
                     if (eve.StartDate.ToString("MM/dd/yyyy hh:mm:ss tt").Equals(dateTime))
                     {
+                        Debug.WriteLine("Hello");
                         matched = true;
                         string connStr = "server=157.89.28.29;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
                         MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connStr);
@@ -102,12 +100,19 @@ namespace CalendarSoftwareSystem
                         conn.Close();
                     }
                 }
+
                 if (!matched)
                 {
-                    result = RESULTS[1];
                     tempEvents.Add(eve);
                 }
+                else
+                {
+                    deleted = true;
+                }
             }
+
+            if(!deleted)
+                result = RESULTS[1];
 
             thisCalendar.ThisCalendar.EventList = tempEvents;
             return result;

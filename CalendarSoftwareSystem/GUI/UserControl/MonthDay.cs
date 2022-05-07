@@ -37,7 +37,6 @@ namespace CalendarSoftwareSystem
                     Debug.WriteLine("Event Count: " + eventCount);
                     if (eventCount < 4)
                     {
-
                         eventCount++;
                         if (e.Title.Length > 10)
                         {

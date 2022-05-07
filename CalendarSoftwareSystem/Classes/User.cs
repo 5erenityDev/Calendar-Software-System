@@ -105,13 +105,13 @@ namespace CalendarSoftwareSystem
         ////////////////////
         ///GETTER/SETTERS///
         ////////////////////
-        public String Username
+        public string Username
         {
             get { return usernameAttempt; }
             set { usernameAttempt = value; }
         }
 
-        public String Password
+        public string Password
         {
             get { return passwordAttempt; }
             set { passwordAttempt = value; }
