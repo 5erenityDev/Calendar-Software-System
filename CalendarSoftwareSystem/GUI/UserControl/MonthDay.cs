@@ -28,12 +28,45 @@ namespace CalendarSoftwareSystem
         {
             lblDays.Text = numDay.ToString();
             lblEvents.Text = "";
+            int eventCount = 0;
+
             foreach (Event e in FormCalendar.thisCalendar.EventList)
             {
                 if (e.StartDate.Date.ToString("M/d/yyyy").Equals(FormCalendar.thisCalendar.Month + "/" + numDay + "/" + FormCalendar.thisCalendar.Year))
                 {
-                    lblEvents.Text += e.Title;
-                    lblEvents.Text += "\n";
+                    Debug.WriteLine("Event Count: " + eventCount);
+                    if (eventCount < 4)
+                    {
+
+                        eventCount++;
+                        if (e.Title.Length > 10)
+                        {
+                            lblEvents.Text += e.Title.Substring(0, 9) + "...";
+                        }
+                        else
+                        {
+                            lblEvents.Text += e.Title;
+                        }
+                        lblEvents.Text += '\n';
+                    }
+                    else
+                    {
+                        int count = 0;
+                        for (int i = 0; i < lblEvents.Text.Length; i++)
+                        {
+                            if (lblEvents.Text[i] == '\n')
+                            {
+                                
+                                count++;
+                                if (count == 3)
+                                {
+                                    lblEvents.Text = lblEvents.Text.Substring(0, i) + "\n+" + (eventCount - 2) + " more events";
+                                    break;
+                                }
+                            }
+                        }
+                        
+                    }
                 }
             }
             

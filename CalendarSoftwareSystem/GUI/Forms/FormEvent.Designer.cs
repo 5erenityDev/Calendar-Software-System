@@ -68,16 +68,16 @@ namespace CalendarSoftwareSystem
             this.radButEveEndPM = new System.Windows.Forms.RadioButton();
             this.radButEveEndAM = new System.Windows.Forms.RadioButton();
             this.panelEveAdd = new System.Windows.Forms.Panel();
-            this.panelEveView = new System.Windows.Forms.Panel();
-            this.lblEveViewDate = new System.Windows.Forms.Label();
-            this.btnEveViewCreate = new System.Windows.Forms.Button();
-            this.lblEveView = new System.Windows.Forms.Label();
-            this.btnEveViewEdit = new System.Windows.Forms.Button();
-            this.btnEveViewDelete = new System.Windows.Forms.Button();
-            this.BtnEveViewCancel = new System.Windows.Forms.Button();
-            this.lBoxEveView = new System.Windows.Forms.ListBox();
-            this.btnEveCoord = new System.Windows.Forms.Button();
             this.btnEveBack = new System.Windows.Forms.Button();
+            this.btnEveCoord = new System.Windows.Forms.Button();
+            this.panelEveView = new System.Windows.Forms.Panel();
+            this.lBoxEveView = new System.Windows.Forms.ListBox();
+            this.BtnEveViewCancel = new System.Windows.Forms.Button();
+            this.btnEveViewDelete = new System.Windows.Forms.Button();
+            this.btnEveViewEdit = new System.Windows.Forms.Button();
+            this.lblEveView = new System.Windows.Forms.Label();
+            this.btnEveViewCreate = new System.Windows.Forms.Button();
+            this.lblEveViewDate = new System.Windows.Forms.Label();
             this.panelEveStaRad.SuspendLayout();
             this.panelEveEndRad.SuspendLayout();
             this.panelEveAdd.SuspendLayout();
@@ -87,8 +87,9 @@ namespace CalendarSoftwareSystem
             // tBoxEveName
             // 
             this.tBoxEveName.Location = new System.Drawing.Point(137, 56);
+            this.tBoxEveName.MaxLength = 20;
             this.tBoxEveName.Name = "tBoxEveName";
-            this.tBoxEveName.Size = new System.Drawing.Size(639, 20);
+            this.tBoxEveName.Size = new System.Drawing.Size(186, 20);
             this.tBoxEveName.TabIndex = 0;
             // 
             // lblEveName
@@ -127,6 +128,7 @@ namespace CalendarSoftwareSystem
             // tBoxEveDesc
             // 
             this.tBoxEveDesc.Location = new System.Drawing.Point(137, 99);
+            this.tBoxEveDesc.MaxLength = 500;
             this.tBoxEveDesc.Multiline = true;
             this.tBoxEveDesc.Name = "tBoxEveDesc";
             this.tBoxEveDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -136,8 +138,9 @@ namespace CalendarSoftwareSystem
             // tBoxEveLoc
             // 
             this.tBoxEveLoc.Location = new System.Drawing.Point(137, 270);
+            this.tBoxEveLoc.MaxLength = 50;
             this.tBoxEveLoc.Name = "tBoxEveLoc";
-            this.tBoxEveLoc.Size = new System.Drawing.Size(639, 20);
+            this.tBoxEveLoc.Size = new System.Drawing.Size(365, 20);
             this.tBoxEveLoc.TabIndex = 0;
             // 
             // lblEveSta
@@ -765,113 +768,21 @@ namespace CalendarSoftwareSystem
             this.panelEveAdd.Size = new System.Drawing.Size(796, 443);
             this.panelEveAdd.TabIndex = 12;
             // 
-            // panelEveView
+            // btnEveBack
             // 
-            this.panelEveView.Controls.Add(this.lBoxEveView);
-            this.panelEveView.Controls.Add(this.BtnEveViewCancel);
-            this.panelEveView.Controls.Add(this.btnEveViewDelete);
-            this.panelEveView.Controls.Add(this.btnEveViewEdit);
-            this.panelEveView.Controls.Add(this.lblEveView);
-            this.panelEveView.Controls.Add(this.btnEveViewCreate);
-            this.panelEveView.Controls.Add(this.lblEveViewDate);
-            this.panelEveView.Location = new System.Drawing.Point(3, 4);
-            this.panelEveView.Name = "panelEveView";
-            this.panelEveView.Size = new System.Drawing.Size(796, 443);
-            this.panelEveView.TabIndex = 12;
-            // 
-            // lblEveViewDate
-            // 
-            this.lblEveViewDate.AutoSize = true;
-            this.lblEveViewDate.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Bold);
-            this.lblEveViewDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.lblEveViewDate.Location = new System.Drawing.Point(3, 5);
-            this.lblEveViewDate.Name = "lblEveViewDate";
-            this.lblEveViewDate.Size = new System.Drawing.Size(116, 47);
-            this.lblEveViewDate.TabIndex = 12;
-            this.lblEveViewDate.Text = "DATE";
-            // 
-            // btnEveViewCreate
-            // 
-            this.btnEveViewCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
-            this.btnEveViewCreate.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEveViewCreate.FlatAppearance.BorderSize = 0;
-            this.btnEveViewCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEveViewCreate.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEveViewCreate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.btnEveViewCreate.Location = new System.Drawing.Point(701, 401);
-            this.btnEveViewCreate.Name = "btnEveViewCreate";
-            this.btnEveViewCreate.Size = new System.Drawing.Size(75, 29);
-            this.btnEveViewCreate.TabIndex = 12;
-            this.btnEveViewCreate.Text = "Create";
-            this.btnEveViewCreate.UseVisualStyleBackColor = false;
-            this.btnEveViewCreate.Click += new System.EventHandler(this.btnEveViewCreate_Click);
-            // 
-            // lblEveView
-            // 
-            this.lblEveView.AutoSize = true;
-            this.lblEveView.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.lblEveView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.lblEveView.Location = new System.Drawing.Point(21, 57);
-            this.lblEveView.Name = "lblEveView";
-            this.lblEveView.Size = new System.Drawing.Size(53, 17);
-            this.lblEveView.TabIndex = 12;
-            this.lblEveView.Text = "Events:";
-            // 
-            // btnEveViewEdit
-            // 
-            this.btnEveViewEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
-            this.btnEveViewEdit.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEveViewEdit.FlatAppearance.BorderSize = 0;
-            this.btnEveViewEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEveViewEdit.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEveViewEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.btnEveViewEdit.Location = new System.Drawing.Point(597, 401);
-            this.btnEveViewEdit.Name = "btnEveViewEdit";
-            this.btnEveViewEdit.Size = new System.Drawing.Size(96, 29);
-            this.btnEveViewEdit.TabIndex = 13;
-            this.btnEveViewEdit.Text = "Edit/View";
-            this.btnEveViewEdit.UseVisualStyleBackColor = false;
-            this.btnEveViewEdit.Click += new System.EventHandler(this.btnEveViewEdit_Click);
-            // 
-            // btnEveViewDelete
-            // 
-            this.btnEveViewDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
-            this.btnEveViewDelete.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEveViewDelete.FlatAppearance.BorderSize = 0;
-            this.btnEveViewDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEveViewDelete.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEveViewDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.btnEveViewDelete.Location = new System.Drawing.Point(512, 401);
-            this.btnEveViewDelete.Name = "btnEveViewDelete";
-            this.btnEveViewDelete.Size = new System.Drawing.Size(75, 29);
-            this.btnEveViewDelete.TabIndex = 14;
-            this.btnEveViewDelete.Text = "Delete";
-            this.btnEveViewDelete.UseVisualStyleBackColor = false;
-            this.btnEveViewDelete.Click += new System.EventHandler(this.btnEveViewDelete_Click);
-            // 
-            // BtnEveViewCancel
-            // 
-            this.BtnEveViewCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
-            this.BtnEveViewCancel.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.BtnEveViewCancel.FlatAppearance.BorderSize = 0;
-            this.BtnEveViewCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnEveViewCancel.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.BtnEveViewCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.BtnEveViewCancel.Location = new System.Drawing.Point(14, 401);
-            this.BtnEveViewCancel.Name = "BtnEveViewCancel";
-            this.BtnEveViewCancel.Size = new System.Drawing.Size(75, 29);
-            this.BtnEveViewCancel.TabIndex = 15;
-            this.BtnEveViewCancel.Text = "Cancel";
-            this.BtnEveViewCancel.UseVisualStyleBackColor = false;
-            this.BtnEveViewCancel.Click += new System.EventHandler(this.BtnEveViewCancel_Click);
-            // 
-            // lBoxEveView
-            // 
-            this.lBoxEveView.FormattingEnabled = true;
-            this.lBoxEveView.Location = new System.Drawing.Point(23, 82);
-            this.lBoxEveView.Name = "lBoxEveView";
-            this.lBoxEveView.Size = new System.Drawing.Size(753, 303);
-            this.lBoxEveView.TabIndex = 16;
+            this.btnEveBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.btnEveBack.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEveBack.FlatAppearance.BorderSize = 0;
+            this.btnEveBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEveBack.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEveBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.btnEveBack.Location = new System.Drawing.Point(14, 401);
+            this.btnEveBack.Name = "btnEveBack";
+            this.btnEveBack.Size = new System.Drawing.Size(75, 29);
+            this.btnEveBack.TabIndex = 13;
+            this.btnEveBack.Text = "Back";
+            this.btnEveBack.UseVisualStyleBackColor = false;
+            this.btnEveBack.Click += new System.EventHandler(this.btnEveBack_Click);
             // 
             // btnEveCoord
             // 
@@ -889,21 +800,113 @@ namespace CalendarSoftwareSystem
             this.btnEveCoord.UseVisualStyleBackColor = false;
             this.btnEveCoord.Click += new System.EventHandler(this.btnEveCoord_Click);
             // 
-            // btnEveBack
+            // panelEveView
             // 
-            this.btnEveBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
-            this.btnEveBack.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEveBack.FlatAppearance.BorderSize = 0;
-            this.btnEveBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEveBack.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEveBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.btnEveBack.Location = new System.Drawing.Point(14, 401);
-            this.btnEveBack.Name = "btnEveBack";
-            this.btnEveBack.Size = new System.Drawing.Size(75, 29);
-            this.btnEveBack.TabIndex = 13;
-            this.btnEveBack.Text = "Back";
-            this.btnEveBack.UseVisualStyleBackColor = false;
-            this.btnEveBack.Click += new System.EventHandler(this.btnEveBack_Click);
+            this.panelEveView.Controls.Add(this.lBoxEveView);
+            this.panelEveView.Controls.Add(this.BtnEveViewCancel);
+            this.panelEveView.Controls.Add(this.btnEveViewDelete);
+            this.panelEveView.Controls.Add(this.btnEveViewEdit);
+            this.panelEveView.Controls.Add(this.lblEveView);
+            this.panelEveView.Controls.Add(this.btnEveViewCreate);
+            this.panelEveView.Controls.Add(this.lblEveViewDate);
+            this.panelEveView.Location = new System.Drawing.Point(3, 4);
+            this.panelEveView.Name = "panelEveView";
+            this.panelEveView.Size = new System.Drawing.Size(796, 443);
+            this.panelEveView.TabIndex = 12;
+            // 
+            // lBoxEveView
+            // 
+            this.lBoxEveView.FormattingEnabled = true;
+            this.lBoxEveView.Location = new System.Drawing.Point(23, 82);
+            this.lBoxEveView.Name = "lBoxEveView";
+            this.lBoxEveView.Size = new System.Drawing.Size(753, 303);
+            this.lBoxEveView.TabIndex = 16;
+            // 
+            // BtnEveViewCancel
+            // 
+            this.BtnEveViewCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.BtnEveViewCancel.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.BtnEveViewCancel.FlatAppearance.BorderSize = 0;
+            this.BtnEveViewCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEveViewCancel.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.BtnEveViewCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.BtnEveViewCancel.Location = new System.Drawing.Point(14, 401);
+            this.BtnEveViewCancel.Name = "BtnEveViewCancel";
+            this.BtnEveViewCancel.Size = new System.Drawing.Size(75, 29);
+            this.BtnEveViewCancel.TabIndex = 15;
+            this.BtnEveViewCancel.Text = "Cancel";
+            this.BtnEveViewCancel.UseVisualStyleBackColor = false;
+            this.BtnEveViewCancel.Click += new System.EventHandler(this.BtnEveViewCancel_Click);
+            // 
+            // btnEveViewDelete
+            // 
+            this.btnEveViewDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.btnEveViewDelete.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEveViewDelete.FlatAppearance.BorderSize = 0;
+            this.btnEveViewDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEveViewDelete.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEveViewDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.btnEveViewDelete.Location = new System.Drawing.Point(512, 401);
+            this.btnEveViewDelete.Name = "btnEveViewDelete";
+            this.btnEveViewDelete.Size = new System.Drawing.Size(75, 29);
+            this.btnEveViewDelete.TabIndex = 14;
+            this.btnEveViewDelete.Text = "Delete";
+            this.btnEveViewDelete.UseVisualStyleBackColor = false;
+            this.btnEveViewDelete.Click += new System.EventHandler(this.btnEveViewDelete_Click);
+            // 
+            // btnEveViewEdit
+            // 
+            this.btnEveViewEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.btnEveViewEdit.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEveViewEdit.FlatAppearance.BorderSize = 0;
+            this.btnEveViewEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEveViewEdit.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEveViewEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.btnEveViewEdit.Location = new System.Drawing.Point(597, 401);
+            this.btnEveViewEdit.Name = "btnEveViewEdit";
+            this.btnEveViewEdit.Size = new System.Drawing.Size(96, 29);
+            this.btnEveViewEdit.TabIndex = 13;
+            this.btnEveViewEdit.Text = "Edit/View";
+            this.btnEveViewEdit.UseVisualStyleBackColor = false;
+            this.btnEveViewEdit.Click += new System.EventHandler(this.btnEveViewEdit_Click);
+            // 
+            // lblEveView
+            // 
+            this.lblEveView.AutoSize = true;
+            this.lblEveView.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.lblEveView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.lblEveView.Location = new System.Drawing.Point(21, 57);
+            this.lblEveView.Name = "lblEveView";
+            this.lblEveView.Size = new System.Drawing.Size(53, 17);
+            this.lblEveView.TabIndex = 12;
+            this.lblEveView.Text = "Events:";
+            // 
+            // btnEveViewCreate
+            // 
+            this.btnEveViewCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.btnEveViewCreate.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEveViewCreate.FlatAppearance.BorderSize = 0;
+            this.btnEveViewCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEveViewCreate.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEveViewCreate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.btnEveViewCreate.Location = new System.Drawing.Point(701, 401);
+            this.btnEveViewCreate.Name = "btnEveViewCreate";
+            this.btnEveViewCreate.Size = new System.Drawing.Size(75, 29);
+            this.btnEveViewCreate.TabIndex = 12;
+            this.btnEveViewCreate.Text = "Create";
+            this.btnEveViewCreate.UseVisualStyleBackColor = false;
+            this.btnEveViewCreate.Click += new System.EventHandler(this.btnEveViewCreate_Click);
+            // 
+            // lblEveViewDate
+            // 
+            this.lblEveViewDate.AutoSize = true;
+            this.lblEveViewDate.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Bold);
+            this.lblEveViewDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.lblEveViewDate.Location = new System.Drawing.Point(3, 5);
+            this.lblEveViewDate.Name = "lblEveViewDate";
+            this.lblEveViewDate.Size = new System.Drawing.Size(116, 47);
+            this.lblEveViewDate.TabIndex = 12;
+            this.lblEveViewDate.Text = "DATE";
             // 
             // EventForm
             // 
