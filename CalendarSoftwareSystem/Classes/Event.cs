@@ -9,6 +9,7 @@ namespace CalendarSoftwareSystem
 {
     public class Event
     {
+        private int eventID;
         private string title;
         private string description;
         private string location;
@@ -20,8 +21,9 @@ namespace CalendarSoftwareSystem
         private DateTime endDate;
         
         
-        public Event(string t, string d, string l, List<string> a, DateTime sDate, DateTime eDate)
+        public Event(int eID, string t, string d, string l, List<string> a, DateTime sDate, DateTime eDate)
         {
+            eventID = eID;
             title = t;
             description = d;
             location = l;
@@ -36,92 +38,52 @@ namespace CalendarSoftwareSystem
         public Event()
         {
         }
+        
 
-        public void editEvent()
+        public string deleteEvent(FormCalendar thisCalendar, int eveID, int empID)
         {
-
-        }
-
-        public string deleteEvent(FormCalendar thisCalendar, string d, string t)
-        {
-            string dateTime = d;
-            string title;
-            if (t.Length >= 15)
-                title = t.Substring(0, 14);
-            else
-                title = t;
-            dateTime = dateTime.Trim('\t');
-            List<Event> tempEvents = new List<Event>();
             bool deleted = false;
             string result = RESULTS[0];
 
-            if (dateTime.IndexOf('/') == 1)
+            string connStr = "server=157.89.28.29;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
+            MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connStr);
+            try
             {
-                dateTime = "0" + dateTime;
-            }
-            if (dateTime.ElementAt(dateTime.Length - 11) == ' ')
-            {
-                dateTime = dateTime.Substring(0, dateTime.Length - 11) + " 0" + dateTime.Substring(dateTime.Length - 10);
-            }
-
-            foreach (Event eve in thisCalendar.ThisCalendar.EventList)
-            {
-                bool matched = false;
-                string tle = eve.Title;
-
-                if (eve.Title.Length >= 15)
-                    tle = tle.Substring(0, 14);
-
-                if (tle == title)
-                {
-                    if (eve.StartDate.ToString("MM/d/yyyy hh:mm:ss tt").Equals(dateTime))
-                    {
-                        Debug.WriteLine("Hello");
-                        matched = true;
-                        string connStr = "server=157.89.28.29;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
-                        MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connStr);
-                        try
-                        {
-                            conn.Open();
-                            string sql = "DELETE FROM csop_event WHERE startDate=@dateTime";
-                            MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
-                            cmd.Parameters.AddWithValue("@dateTime", dateTime);
-                            cmd.ExecuteNonQuery();
-                        }
-                        catch (TimeoutException ex)
-                        {
-                            result = RESULTS[2];
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine(ex.ToString());
-                        }
-
-                        conn.Close();
-                    }
-                }
-
-                if (!matched)
-                {
-                    tempEvents.Add(eve);
-                }
-                else
+                conn.Open();
+                string sql = "DELETE FROM csop_event WHERE evntID=@eveID";
+                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@eveID", eveID);
+                int rowsAffected = cmd.ExecuteNonQuery();
+                if (rowsAffected > 0)
                 {
                     deleted = true;
                 }
             }
+            catch (TimeoutException ex)
+            {
+                result = RESULTS[2];
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
 
             if(!deleted)
                 result = RESULTS[1];
 
-            thisCalendar.ThisCalendar.EventList = tempEvents;
+            thisCalendar.ThisCalendar.EventList = Calendar.retrieveEventList(empID);
+
             return result;
         }
 
 
-        public void editGroupEvents(FormCalendar cal)
+
+
+        public int EventID
         {
-            /* similar to the formevent editing but for the events that have group aspects?*/
+            get { return eventID; }
+            set { eventID = value; }
         }
 
         public string Title

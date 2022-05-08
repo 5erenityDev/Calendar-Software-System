@@ -31,12 +31,24 @@ namespace CalendarSoftwareSystem
             password = null;
         }
 
-        public Event createEvent(string title, string desc, string loc, List<string> attendList, DateTime start, DateTime end)
+        public List<Event> createEvent(string title, string desc, string loc, List<string> attendList, DateTime start, DateTime end)
         {
-            //creates event object
-            Event newEvent = new Event(title, desc, loc, attendList, start, end);
-
-            string attending = name;
+            string attending = "";
+            //create comma seperated string of attendants
+            foreach (string att in attendList)
+            {
+                if (attendList.LastIndexOf(att) == 0)
+                {
+                    attending += att;
+                }
+                else
+                {
+                    attending += ", " + att;
+                }
+            }
+            //default add creator to attending list if it is empty
+            if (attendList.Count == 0)
+                attending = name;
 
             //write new event to the Database(wasn't clear on whether we wanted this in the event class or here)
             //feel free to move this elsewere or delete it if it is made redundant
@@ -45,8 +57,8 @@ namespace CalendarSoftwareSystem
             MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connStr);
             try
             {
-                conn.Open();
-                string sql = "INSERT INTO csop_event (title, description, location, startDate, endDate, attendants, empID) VALUES (@uTitle, @uDesc, @uLoc, @uSDate, @uEDate, @uAtt, @uEmpID)";
+                
+                string sql = "INSERT INTO csop_event (title, description, location, startDate, endDate, attendants, empID) VALUES (@uTitle, @uDesc, @uLoc, @uSDate, @uEDate, @uAtt, @uEmpID);" + "SELECT SCOPE_IDENTITY();";
                 MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@uTitle", title);
                 cmd.Parameters.AddWithValue("@uDesc", desc);
@@ -55,6 +67,7 @@ namespace CalendarSoftwareSystem
                 cmd.Parameters.AddWithValue("@uEDate", end.ToString("MM/dd/yyyy hh:mm:ss tt"));
                 cmd.Parameters.AddWithValue("@uAtt", attending);
                 cmd.Parameters.AddWithValue("@uEmpID", employeeID);
+                conn.Open();
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -63,7 +76,56 @@ namespace CalendarSoftwareSystem
             }
             conn.Close();
 
-            return newEvent;
+            // Returns event list
+            return Calendar.retrieveEventList(employeeID);
+        }
+
+        public List<Event> editEvent(int eventID, string title, string desc, string loc, List<string> attendList, DateTime start, DateTime end)
+        {
+            string attending = "";
+            //create comma seperated string of attendants
+            foreach (string att in attendList)
+            {
+                if (attendList.LastIndexOf(att) == 0)
+                {
+                    attending += att;
+                }
+                else
+                {
+                    attending += ", " + att;
+                }
+            }
+            //default add creator to attending list if it is empty
+            if (attendList.Count == 0)
+                attending = name;
+
+            //write new event to the Database(wasn't clear on whether we wanted this in the event class or here)
+            //feel free to move this elsewere or delete it if it is made redundant
+
+            string connStr = "server=157.89.28.29;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
+            MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connStr);
+            try
+            {
+                string sql = "UPDATE csop_event SET title = @uTitle, description = @uDesc, location = @uLoc, startDate = @uSDate, endDate = @uEDate, attendants = @uAtt WHERE evntID = @uEveID";
+                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@uTitle", title);
+                cmd.Parameters.AddWithValue("@uDesc", desc);
+                cmd.Parameters.AddWithValue("@uLoc", loc);
+                cmd.Parameters.AddWithValue("@uSDate", start.ToString("MM/dd/yyyy hh:mm:ss tt"));
+                cmd.Parameters.AddWithValue("@uEDate", end.ToString("MM/dd/yyyy hh:mm:ss tt"));
+                cmd.Parameters.AddWithValue("@uAtt", attending);
+                cmd.Parameters.AddWithValue("@uEveID", eventID);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
+
+            // Returns event list
+            return Calendar.retrieveEventList(employeeID);
         }
 
         // Used to create an employee object from the database
@@ -102,6 +164,12 @@ namespace CalendarSoftwareSystem
             conn.Close();
 
             return thisEmployee;
+        }
+
+        public int EmployeeID
+        {
+            get { return employeeID; }
+            set { employeeID = value; }
         }
     }
 }

@@ -42,6 +42,7 @@ namespace CalendarSoftwareSystem
                 MySqlDataReader myReader = cmd.ExecuteReader();
                 while (myReader.Read())
                 {
+                    int eventID = Int32.Parse(myReader["evntID"].ToString());
                     string title = myReader["title"].ToString();
                     string description = myReader["description"].ToString();
                     string location = myReader["location"].ToString();
@@ -51,7 +52,7 @@ namespace CalendarSoftwareSystem
 
                     List<string> attendants = new List<string>() { myReader["attendants"].ToString() };
 
-                    thisEventList.Add(new Event(title, description, location, attendants, startDate, endDate));
+                    thisEventList.Add(new Event(eventID, title, description, location, attendants, startDate, endDate));
                 }
                 myReader.Close();
 

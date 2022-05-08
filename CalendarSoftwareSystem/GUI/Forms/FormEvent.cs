@@ -14,7 +14,8 @@ namespace CalendarSoftwareSystem
 {
     public partial class EventForm : Form
     {
-        int curDay;
+        int curDay, curEve;
+        bool isEditing;
         List<string> possibleAttendants = new List<string>();
         Employee thisEmployee;
         Manager thisManager;
@@ -25,6 +26,7 @@ namespace CalendarSoftwareSystem
             curDay = day;
             thisEmployee = employee;
             thisCalendar = calendar;
+            isEditing = false;
             InitializeComponent();
 
             // Set initial panel visibility
@@ -69,7 +71,7 @@ namespace CalendarSoftwareSystem
             radButEveStaAM.Checked = true;
             radButEveEndAM.Checked = true;
 
-            populateEventBox();
+            populateEventList();
 
             // Populate attendants checkList
             string connStr = "server=157.89.28.29;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
@@ -107,6 +109,7 @@ namespace CalendarSoftwareSystem
             List<string> attendants = new List<string>();
             DateTime startDate = DateTime.Now, endDate = DateTime.Now;
             string eventState = "VALID";
+
             int staHour = 0, endHour = 0;
 
             // Add title
@@ -196,8 +199,6 @@ namespace CalendarSoftwareSystem
                     {
                         foreach (Event eve in thisCalendar.ThisCalendar.EventList)
                         {
-                            Debug.WriteLine("Start Date: " + endDate);
-                            Debug.WriteLine("Event Date: " + eve.EndDate);
                             if ((startDate.CompareTo(eve.StartDate) == -1 && endDate.CompareTo(eve.StartDate) == 1)
                                 || (startDate.CompareTo(eve.EndDate) == -1 && endDate.CompareTo(eve.EndDate) == 1)
                                 || (startDate.CompareTo(eve.StartDate) == 1 && endDate.CompareTo(eve.EndDate) == -1)
@@ -224,7 +225,6 @@ namespace CalendarSoftwareSystem
             List<Event> tempEvents = new List<Event>();
             switch (eventState)
             {
-                
                 case "CONFLICTING_TIMES":
                     DialogResult result = MessageBox.Show("The time provided conflicts with another event. Are you sure you wish to create this event?", "Calendar System", MessageBoxButtons.YesNo);
 
@@ -237,11 +237,20 @@ namespace CalendarSoftwareSystem
                         else
                             tempEvents.Add(thisManager.createGroupEvent(title, description, location, attendants, startDate, endDate));
                         thisCalendar.ThisCalendar.EventList = tempEvents;
+                        
+                        if (isEditing)
+                        {
+                            thisCalendar.ThisCalendar.EventList = thisEmployee.editEvent(curEve, title, description, location, attendants, startDate, endDate);
+                            MessageBox.Show("Event edited.", "Calendar System");
+                        }
+                        else
+                        {
+                            thisCalendar.ThisCalendar.EventList = thisEmployee.createEvent(title, description, location, attendants, startDate, endDate);
+                            MessageBox.Show("Event created.", "Calendar System");
+                        }
                         thisCalendar.displayDays();
 
-
-
-                        MessageBox.Show("Event created.", "Calendar System");
+                        
                         this.Close();
                     }
 
@@ -254,9 +263,20 @@ namespace CalendarSoftwareSystem
                     else
                         tempEvents.Add(thisManager.createGroupEvent(title, description, location, attendants, startDate, endDate));
                     thisCalendar.ThisCalendar.EventList = tempEvents;
+                    if (isEditing)
+                    {
+                        thisCalendar.ThisCalendar.EventList = thisEmployee.editEvent(curEve, title, description, location, attendants, startDate, endDate);
+                        MessageBox.Show("Event created.", "Calendar System");
+                        MessageBox.Show("Event edited.", "Calendar System");
+                    }
+                    else
+                    {
+                        thisCalendar.ThisCalendar.EventList = thisEmployee.createEvent(title, description, location, attendants, startDate, endDate);
+                        MessageBox.Show("Event created.", "Calendar System");
+                    }
                     thisCalendar.displayDays();
 
-                    MessageBox.Show("Event created.", "Calendar System");
+                    
                     this.Close();
                     break;
                 case "NO_TITLE":
@@ -284,7 +304,7 @@ namespace CalendarSoftwareSystem
         {
             // Update screen
             lblEveTitle.Text = "New Event";
-            if(FormCalendar.curUserIsManager)
+            if(FormCalendar.CurUserIsManager)
             {
                 lblEventAttendents.Visible = true;
                 chklstAttendants.Visible = true;
@@ -308,17 +328,17 @@ namespace CalendarSoftwareSystem
             // Set initial panel visibility
             panelEveView.Visible = false;
             panelEveAdd.Visible = true;
+
+            isEditing = false;
         }
 
         private void btnEveViewEdit_Click(object sender, EventArgs e)
         {
             // Update screen
-            Event editedEvent = new Event();
-            if (lBoxEveView.SelectedIndex >= 0)
+            if (lViewEveView.SelectedItems.Count > 0)
             {
-                
-                lblEveTitle.Text = "Edit/View Event: " + lBoxEveView.SelectedItem.ToString().Substring(0, lBoxEveView.SelectedItem.ToString().IndexOf("\t"));
-                if (FormCalendar.curUserIsManager)
+                lblEveTitle.Text = "Edit/View Event: " + lViewEveView.SelectedItems[0].SubItems[1].Text;
+                if (FormCalendar.CurUserIsManager)
                 {
                     lblEventAttendents.Visible = true;
                     chklstAttendants.Visible = true;
@@ -328,21 +348,15 @@ namespace CalendarSoftwareSystem
                     lblEventAttendents.Visible = false;
                     chklstAttendants.Visible = false;
                 }
-                string name = lBoxEveView.SelectedItem.ToString().Substring(0, lBoxEveView.SelectedItem.ToString().IndexOf("\t"));
-                int dateBegin = lBoxEveView.SelectedItem.ToString().IndexOf("\t", lBoxEveView.SelectedItem.ToString().IndexOf("\t"));
-                int dateEnd = lBoxEveView.SelectedItem.ToString().IndexOf("\t", dateBegin);
-                string dateTime = lBoxEveView.SelectedItem.ToString().Substring(dateBegin, (lBoxEveView.SelectedItem.ToString().IndexOf("	-")-dateBegin));
-
-                editedEvent.editEvent();
-                editedEvent.deleteEvent(thisCalendar, dateTime, name);
+                tBoxEveName.Text = lViewEveView.SelectedItems[0].SubItems[1].Text;
 
                 
                 // Set initial panel visibility
                 panelEveView.Visible = false;
                 panelEveAdd.Visible = true;
 
-                
-                MessageBox.Show("Event edited.", "Calendar System");
+                isEditing = true;
+                curEve = Int32.Parse(lViewEveView.SelectedItems[0].SubItems[0].Text);
             }    
             else
             {
@@ -354,17 +368,15 @@ namespace CalendarSoftwareSystem
         {
             Event deletedEvent = new Event();
             ///Delete Event Code Here///
-            if (lBoxEveView.SelectedIndex >= 0)
+            if (lViewEveView.SelectedItems.Count > 0)
             {
-                string name = lBoxEveView.SelectedItem.ToString().Substring(0, lBoxEveView.SelectedItem.ToString().IndexOf("\t"));
-                int dateBegin = lBoxEveView.SelectedItem.ToString().IndexOf("\t", lBoxEveView.SelectedItem.ToString().IndexOf("\t"));
-                string dateTime = lBoxEveView.SelectedItem.ToString().Substring(dateBegin, (lBoxEveView.SelectedItem.ToString().IndexOf("\t-") - dateBegin));
-                
-                switch(deletedEvent.deleteEvent(thisCalendar, dateTime, name))
+                string eveID = lViewEveView.SelectedItems[0].SubItems[0].Text;
+
+                switch (deletedEvent.deleteEvent(thisCalendar, Int32.Parse(eveID), thisEmployee.EmployeeID))
                 {
                     case "VALID_EVENT":
                         MessageBox.Show("Event deleted.", "Calendar System");
-                        populateEventBox();
+                        populateEventList();
                         thisCalendar.displayDays();
                         break;
                     case "DATA_NOT_FOUND":
@@ -391,16 +403,32 @@ namespace CalendarSoftwareSystem
             panelEveAdd.Visible = false;
         }
 
-        private void populateEventBox()
+        private void populateEventList()
         {
-            lBoxEveView.Items.Clear();
-            foreach (Event eve in FormCalendar.thisCalendar.EventList)
+            lViewEveView.Items.Clear();
+            var header1 = lViewEveView.Columns.Add("Event ID", -2, HorizontalAlignment.Left);
+            var header2 = lViewEveView.Columns.Add("Title", -2, HorizontalAlignment.Left);
+            var header3 = lViewEveView.Columns.Add("Start Date", -2, HorizontalAlignment.Left);
+            var header4 = lViewEveView.Columns.Add("End Date", -2, HorizontalAlignment.Left);
+
+            foreach (Event eve in thisCalendar.ThisCalendar.EventList)
             {
                 if (eve.StartDate.Date.ToString("M/d/yyyy").Equals(FormCalendar.thisCalendar.Month + "/" + FormCalendar.thisCalendar.Day + "/" + FormCalendar.thisCalendar.Year))
                 {
-                    lBoxEveView.Items.Add(eve.Title + "\t\t\t" + eve.StartDate.ToString() + "\t-\t" + eve.EndDate.ToString());
+                    ListViewItem lvi = new ListViewItem(new string[]
+                    {
+                    eve.EventID.ToString(),
+                    eve.Title,
+                    eve.StartDate.ToString("MM/dd/yyyy hh:mm:ss tt"),
+                    eve.EndDate.ToString("MM/dd/yyyy hh:mm:ss tt")
+                    });
+                    lViewEveView.Items.Add(lvi);
                 }
             }
+            lViewEveView.Columns[0].Width = -2;
+            lViewEveView.Columns[1].Width = -2;
+            lViewEveView.Columns[2].Width = -2;
+            lViewEveView.Columns[3].Width = -2;
         }
     }
 }
