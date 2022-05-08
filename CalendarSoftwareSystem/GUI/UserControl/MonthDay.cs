@@ -34,7 +34,6 @@ namespace CalendarSoftwareSystem
             {
                 if (e.StartDate.Date.ToString("M/d/yyyy").Equals(FormCalendar.thisCalendar.Month + "/" + numDay + "/" + FormCalendar.thisCalendar.Year))
                 {
-                    Debug.WriteLine("Event Count: " + eventCount);
                     if (eventCount < 4)
                     {
                         eventCount++;

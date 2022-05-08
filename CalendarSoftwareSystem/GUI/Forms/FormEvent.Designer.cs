@@ -71,13 +71,13 @@ namespace CalendarSoftwareSystem
             this.btnEveBack = new System.Windows.Forms.Button();
             this.btnEveCoord = new System.Windows.Forms.Button();
             this.panelEveView = new System.Windows.Forms.Panel();
-            this.lBoxEveView = new System.Windows.Forms.ListBox();
             this.BtnEveViewCancel = new System.Windows.Forms.Button();
             this.btnEveViewDelete = new System.Windows.Forms.Button();
             this.btnEveViewEdit = new System.Windows.Forms.Button();
             this.lblEveView = new System.Windows.Forms.Label();
             this.btnEveViewCreate = new System.Windows.Forms.Button();
             this.lblEveViewDate = new System.Windows.Forms.Label();
+            this.lViewEveView = new System.Windows.Forms.ListView();
             this.panelEveStaRad.SuspendLayout();
             this.panelEveEndRad.SuspendLayout();
             this.panelEveAdd.SuspendLayout();
@@ -802,7 +802,7 @@ namespace CalendarSoftwareSystem
             // 
             // panelEveView
             // 
-            this.panelEveView.Controls.Add(this.lBoxEveView);
+            this.panelEveView.Controls.Add(this.lViewEveView);
             this.panelEveView.Controls.Add(this.BtnEveViewCancel);
             this.panelEveView.Controls.Add(this.btnEveViewDelete);
             this.panelEveView.Controls.Add(this.btnEveViewEdit);
@@ -813,14 +813,6 @@ namespace CalendarSoftwareSystem
             this.panelEveView.Name = "panelEveView";
             this.panelEveView.Size = new System.Drawing.Size(796, 443);
             this.panelEveView.TabIndex = 12;
-            // 
-            // lBoxEveView
-            // 
-            this.lBoxEveView.FormattingEnabled = true;
-            this.lBoxEveView.Location = new System.Drawing.Point(23, 82);
-            this.lBoxEveView.Name = "lBoxEveView";
-            this.lBoxEveView.Size = new System.Drawing.Size(753, 303);
-            this.lBoxEveView.TabIndex = 16;
             // 
             // BtnEveViewCancel
             // 
@@ -908,14 +900,25 @@ namespace CalendarSoftwareSystem
             this.lblEveViewDate.TabIndex = 12;
             this.lblEveViewDate.Text = "DATE";
             // 
+            // lViewEveView
+            // 
+            this.lViewEveView.FullRowSelect = true;
+            this.lViewEveView.HideSelection = false;
+            this.lViewEveView.Location = new System.Drawing.Point(26, 79);
+            this.lViewEveView.Name = "lViewEveView";
+            this.lViewEveView.Size = new System.Drawing.Size(750, 316);
+            this.lViewEveView.TabIndex = 17;
+            this.lViewEveView.UseCompatibleStateImageBehavior = false;
+            this.lViewEveView.View = System.Windows.Forms.View.Details;
+            // 
             // EventForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panelEveAdd);
             this.Controls.Add(this.panelEveView);
+            this.Controls.Add(this.panelEveAdd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "EventForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -981,8 +984,8 @@ namespace CalendarSoftwareSystem
         private System.Windows.Forms.Button BtnEveViewCancel;
         private System.Windows.Forms.Button btnEveViewDelete;
         private System.Windows.Forms.Button btnEveViewEdit;
-        private System.Windows.Forms.ListBox lBoxEveView;
         private System.Windows.Forms.Button btnEveCoord;
         private System.Windows.Forms.Button btnEveBack;
+        private System.Windows.Forms.ListView lViewEveView;
     }
 }

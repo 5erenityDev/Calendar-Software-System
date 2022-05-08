@@ -14,16 +14,14 @@ namespace CalendarSoftwareSystem
     public partial class FormCalendar : Form
     {
         // Create variables
-        public static bool curUserIsManager;
+        private static bool curUserIsManager;
 
         // Create objects
         private static User unidentifiedUser;
         private static Employee thisEmployee;
-        private static Manager thisManager;
         public static Calendar thisCalendar;
         private static List<Event> eventList = new List<Event>();
 
-        //
         public FormCalendar()
         {
             InitializeComponent();
@@ -83,7 +81,7 @@ namespace CalendarSoftwareSystem
                     tBoxLogPass.Text = "";
 
                     // Create Manager Object
-                    thisManager = Manager.retrieveManager(unidentifiedUser.EmpID);
+                    thisEmployee = Manager.retrieveManager(unidentifiedUser.EmpID);
 
                     thisCalendar = new Calendar(now.Day, now.Month, now.Year, Calendar.retrieveEventList(unidentifiedUser.EmpID));
 
@@ -135,7 +133,6 @@ namespace CalendarSoftwareSystem
             }
             
             thisEmployee = null;
-            thisManager = null;
             thisCalendar = null;
         }
 
@@ -221,6 +218,12 @@ namespace CalendarSoftwareSystem
             get { return thisCalendar; }
             set { thisCalendar = value; }
 
+        }
+
+        public static bool CurUserIsManager
+        {
+            get { return curUserIsManager; }
+            set { curUserIsManager = value; }
         }
     }
 }
