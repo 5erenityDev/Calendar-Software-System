@@ -17,7 +17,7 @@ namespace CalendarSoftwareSystem
         int curDay;
         bool isEditing;
         List<string> possibleAttendants = new List<string>();
-        Employee thisEmployee;
+        public Employee thisEmployee;
         FormCalendar thisCalendar;
 
         public EventForm(int day, Employee employee, FormCalendar calendar)
@@ -223,7 +223,7 @@ namespace CalendarSoftwareSystem
                         if (isEditing)
                         {
                             //thisEmployee.editEvent(title, description, location, attendants, startDate, endDate);
-                            thisCalendar.ThisCalendar.EventList = Calendar.retrieveEventList(thisEmployee.EmployeeID);
+                            thisCalendar.ThisCalendar.EventList = Calendar.retrieveEventList(thisEmployee.name);
                         }
                         else
                         {
@@ -240,7 +240,7 @@ namespace CalendarSoftwareSystem
                     //update calendar events and create event
                     if (isEditing)
                     {
-                        thisCalendar.ThisCalendar.EventList = Calendar.retrieveEventList(thisEmployee.EmployeeID);
+                        thisCalendar.ThisCalendar.EventList = Calendar.retrieveEventList(thisEmployee.name);
                     }
                     else
                     {
@@ -280,13 +280,11 @@ namespace CalendarSoftwareSystem
             {
                 lblEventAttendents.Visible = true;
                 chklstAttendants.Visible = true;
-                btnEveCoord.Visible = true;
             }
             else
             {
                 lblEventAttendents.Visible = false;
                 chklstAttendants.Visible = false;
-                btnEveCoord.Visible = false;
             }
 
             // Set initial panel visibility
@@ -301,20 +299,18 @@ namespace CalendarSoftwareSystem
             // Update screen
             if (lViewEveView.SelectedItems.Count > 0)
             {
-                lblEveTitle.Text = "Edit/View Event: " + lViewEveView.SelectedItems[0].SubItems[0].Text;
+                lblEveTitle.Text = "Edit/View Event: " + lViewEveView.SelectedItems[0].SubItems[1].Text;
                 if (FormCalendar.CurUserIsManager)
                 {
                     lblEventAttendents.Visible = true;
                     chklstAttendants.Visible = true;
-                    btnEveCoord.Visible = true;
                 }
                 else
                 {
                     lblEventAttendents.Visible = false;
                     chklstAttendants.Visible = false;
-                    btnEveCoord.Visible = false;
                 }
-                tBoxEveName.Text = lViewEveView.SelectedItems[0].SubItems[0].Text;
+                tBoxEveName.Text = lViewEveView.SelectedItems[0].SubItems[1].Text;
 
                 
                 // Set initial panel visibility
@@ -395,5 +391,7 @@ namespace CalendarSoftwareSystem
             lViewEveView.Columns[2].Width = -2;
             lViewEveView.Columns[3].Width = -2;
         }
+
+        
     }
 }

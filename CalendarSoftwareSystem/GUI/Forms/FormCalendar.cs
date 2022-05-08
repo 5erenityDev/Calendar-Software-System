@@ -19,7 +19,8 @@ namespace CalendarSoftwareSystem
 
         // Create objects
         private static User unidentifiedUser;
-        private static Employee thisEmployee;
+        public static Manager thisManager;
+        public static Employee thisEmployee;
         public static Calendar thisCalendar;
         private static List<Event> eventList = new List<Event>();
 
@@ -83,7 +84,7 @@ namespace CalendarSoftwareSystem
                     tBoxLogPass.Text = "";
 
                     // Create Manager Object
-                    thisEmployee = Manager.retrieveManager(unidentifiedUser.EmpID);
+                    thisManager = Manager.retrieveManager(unidentifiedUser.EmpID);
 
                     thisCalendar = new Calendar(now.Day, now.Month, now.Year, Calendar.retrieveEventList(thisManager.name));
 

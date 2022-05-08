@@ -22,7 +22,7 @@ namespace CalendarSoftwareSystem
         public Event createGroupEvent(string title, string desc, string loc, List<string> attendList, DateTime start, DateTime end)
         {
             //creates event object
-            Event newEvent = new Event(title, desc, loc, attendList, start, end);
+            Event newEvent = new Event(employeeID, title, desc, loc, attendList, start, end);
 
             string attending = "";
             //create comma seperated string of attendants

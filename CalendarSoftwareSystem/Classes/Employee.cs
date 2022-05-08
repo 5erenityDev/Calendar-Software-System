@@ -77,7 +77,7 @@ namespace CalendarSoftwareSystem
             conn.Close();
 
             // Returns event list
-            return Calendar.retrieveEventList(employeeID);
+            return Calendar.retrieveEventList(name);
         }
 
         public List<Event> editEvent(int eventID, string title, string desc, string loc, List<string> attendList, DateTime start, DateTime end)
@@ -125,7 +125,7 @@ namespace CalendarSoftwareSystem
             conn.Close();
 
             // Returns event list
-            return Calendar.retrieveEventList(employeeID);
+            return Calendar.retrieveEventList(name);
         }
 
         // Used to create an employee object from the database

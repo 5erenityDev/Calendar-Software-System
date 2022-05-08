@@ -72,7 +72,10 @@ namespace CalendarSoftwareSystem
             if(!deleted)
                 result = RESULTS[1];
 
-            thisCalendar.ThisCalendar.EventList = Calendar.retrieveEventList(empID);
+            if(FormCalendar.thisEmployee != null)
+                thisCalendar.ThisCalendar.EventList = Calendar.retrieveEventList(FormCalendar.thisEmployee.name);
+            else
+                thisCalendar.ThisCalendar.EventList = Calendar.retrieveEventList(FormCalendar.thisManager.name);
 
             return result;
         }
