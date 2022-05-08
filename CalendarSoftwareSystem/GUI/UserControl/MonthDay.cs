@@ -15,7 +15,6 @@ namespace CalendarSoftwareSystem
     {
         int curDay;
         Employee thisEmployee;
-        Manager thisManager;
         FormCalendar thisCalendar;
 
         public MonthDay(Employee employee, FormCalendar calendar)
@@ -24,54 +23,17 @@ namespace CalendarSoftwareSystem
             thisEmployee = employee;
             thisCalendar = calendar;
         }
-        public MonthDay(Manager manager, FormCalendar calendar)
-        {
-            InitializeComponent();
-            thisManager = manager;
-            thisCalendar = calendar;
-        }
 
         public void days(int numDay)
         {
             lblDays.Text = numDay.ToString();
             lblEvents.Text = "";
-            int eventCount = 0;
-
             foreach (Event e in FormCalendar.thisCalendar.EventList)
             {
                 if (e.StartDate.Date.ToString("M/d/yyyy").Equals(FormCalendar.thisCalendar.Month + "/" + numDay + "/" + FormCalendar.thisCalendar.Year))
                 {
-                    if (eventCount < 4)
-                    {
-                        eventCount++;
-                        if (e.Title.Length > 10)
-                        {
-                            lblEvents.Text += e.Title.Substring(0, 9) + "...";
-                        }
-                        else
-                        {
-                            lblEvents.Text += e.Title;
-                        }
-                        lblEvents.Text += '\n';
-                    }
-                    else
-                    {
-                        int count = 0;
-                        for (int i = 0; i < lblEvents.Text.Length; i++)
-                        {
-                            if (lblEvents.Text[i] == '\n')
-                            {
-                                
-                                count++;
-                                if (count == 3)
-                                {
-                                    lblEvents.Text = lblEvents.Text.Substring(0, i) + "\n+" + (eventCount - 2) + " more events";
-                                    break;
-                                }
-                            }
-                        }
-                        
-                    }
+                    lblEvents.Text += e.Title;
+                    lblEvents.Text += "\n";
                 }
             }
             
@@ -80,15 +42,7 @@ namespace CalendarSoftwareSystem
         private void UserControlDays_Click(object sender, EventArgs e)
         {
             curDay = Convert.ToInt32(lblDays.Text);
-            EventForm eventform;
-            if (thisEmployee != null)
-            {
-                eventform = new EventForm(curDay, thisEmployee, thisCalendar);
-            }
-            else
-            {
-                eventform = new EventForm(curDay, thisManager, thisCalendar);
-            }
+            EventForm eventform = new EventForm(curDay, thisEmployee, thisCalendar);
             eventform.Show();
         }
 

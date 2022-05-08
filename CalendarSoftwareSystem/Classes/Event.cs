@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,11 +8,9 @@ namespace CalendarSoftwareSystem
 {
     public class Event
     {
-        private int eventID;
         private string title;
         private string description;
         private string location;
-        private static readonly string[] RESULTS = { "VALID_EVENT", "DATA_NOT_FOUND", "UNABLE_TO_CONNECT" };
 
         private List<string> attendants;
 
@@ -21,9 +18,8 @@ namespace CalendarSoftwareSystem
         private DateTime endDate;
         
         
-        public Event(int eID, string t, string d, string l, List<string> a, DateTime sDate, DateTime eDate)
+        public Event(string t, string d, string l, List<string> a, DateTime sDate, DateTime eDate)
         {
-            eventID = eID;
             title = t;
             description = d;
             location = l;
@@ -35,55 +31,14 @@ namespace CalendarSoftwareSystem
 
         }
 
-        public Event()
+        private void editEvent()
         {
-        }
-        
 
-        public string deleteEvent(FormCalendar thisCalendar, int eveID, int empID)
-        {
-            bool deleted = false;
-            string result = RESULTS[0];
-
-            string connStr = "server=157.89.28.29;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
-            MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connStr);
-            try
-            {
-                conn.Open();
-                string sql = "DELETE FROM csop_event WHERE evntID=@eveID";
-                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@eveID", eveID);
-                int rowsAffected = cmd.ExecuteNonQuery();
-                if (rowsAffected > 0)
-                {
-                    deleted = true;
-                }
-            }
-            catch (TimeoutException ex)
-            {
-                result = RESULTS[2];
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-            conn.Close();
-
-            if(!deleted)
-                result = RESULTS[1];
-
-            thisCalendar.ThisCalendar.EventList = Calendar.retrieveEventList(empID);
-
-            return result;
         }
 
-
-
-
-        public int EventID
+        private void deleteEvent()
         {
-            get { return eventID; }
-            set { eventID = value; }
+
         }
 
         public string Title

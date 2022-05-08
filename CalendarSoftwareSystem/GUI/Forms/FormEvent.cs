@@ -14,29 +14,15 @@ namespace CalendarSoftwareSystem
 {
     public partial class EventForm : Form
     {
-        int curDay, curEve;
-        bool isEditing;
+        int curDay;
         List<string> possibleAttendants = new List<string>();
         Employee thisEmployee;
-        Manager thisManager;
         FormCalendar thisCalendar;
 
         public EventForm(int day, Employee employee, FormCalendar calendar)
         {
             curDay = day;
             thisEmployee = employee;
-            thisCalendar = calendar;
-            isEditing = false;
-            InitializeComponent();
-
-            // Set initial panel visibility
-            panelEveView.Visible = true;
-            panelEveAdd.Visible = false;
-        }
-        public EventForm(int day, Manager manager, FormCalendar calendar)
-        {
-            curDay = day;
-            thisManager = manager;
             thisCalendar = calendar;
             InitializeComponent();
 
@@ -67,11 +53,18 @@ namespace CalendarSoftwareSystem
             cBoxEveEndDay.Text = FormCalendar.thisCalendar.Day.ToString();
             cBoxEveEndYear.Text = FormCalendar.thisCalendar.Year.ToString();
 
-            // Set Time to default on AM
-            radButEveStaAM.Checked = true;
-            radButEveEndAM.Checked = true;
-
-            populateEventList();
+            // Populate event box
+            foreach (Event eve in FormCalendar.thisCalendar.EventList)
+            {
+                if (eve.StartDate.Date.ToString("M/d/yyyy").Equals(FormCalendar.thisCalendar.Month + "/" + FormCalendar.thisCalendar.Day + "/" + FormCalendar.thisCalendar.Year))
+                {
+                    //debug oversized event title name display
+                    if (eve.Title.Length >= 23)
+                        lBoxEveView.Items.Add(eve.Title.Substring(0,20)+"..." + "\t\t" + eve.StartDate.ToString() + "\t-\t" + eve.EndDate.ToString());
+                    else
+                        lBoxEveView.Items.Add(eve.Title + "\t\t\t" + eve.StartDate.ToString() + "\t-\t" + eve.EndDate.ToString());
+                }
+            }
 
             // Populate attendants checkList
             string connStr = "server=157.89.28.29;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
@@ -109,7 +102,6 @@ namespace CalendarSoftwareSystem
             List<string> attendants = new List<string>();
             DateTime startDate = DateTime.Now, endDate = DateTime.Now;
             string eventState = "VALID";
-
             int staHour = 0, endHour = 0;
 
             // Add title
@@ -129,154 +121,64 @@ namespace CalendarSoftwareSystem
                     attendants.Add(chklstAttendants.Items[i].ToString());
             }
 
-            if (eventState == "VALID")
+            // Add start date
+            try
             {
-                // Add start date
-                try
+                if (radButEveStaAM.Checked)
                 {
-                    if (radButEveStaAM.Checked)
-                    {
-                        if (Int32.Parse(cBoxEveStaHour.Text) == 12)
-                            staHour = 0;
-                        else
-                            staHour = Int32.Parse(cBoxEveStaHour.Text);
-                        startDate = Convert.ToDateTime(cBoxEveStaMon.Text + "/" + cBoxEveStaDay.Text + "/" + cBoxEveStaYear.Text + " " + cBoxEveStaHour.Text + ":" + cBoxEveStaMin.Text + " " + "AM");
-                    }
-                    else
-                    {
-                        if (Int32.Parse(cBoxEveStaHour.Text) == 12)
-                            staHour = 12;
-                        else
-                            staHour = Int32.Parse(cBoxEveStaHour.Text) + 12;
-                        startDate = Convert.ToDateTime(cBoxEveStaMon.Text + "/" + cBoxEveStaDay.Text + "/" + cBoxEveStaYear.Text + " " + cBoxEveStaHour.Text + ":" + cBoxEveStaMin.Text + " " + "PM");
-                    }
+                    staHour = Int32.Parse(cBoxEveStaHour.Text);
+                    startDate = Convert.ToDateTime(cBoxEveStaMon.Text + "/" + cBoxEveStaDay.Text + "/" + cBoxEveStaYear.Text + " " + cBoxEveStaHour.Text + ":" + cBoxEveStaMin.Text + " " + "AM");
                 }
-                catch (Exception ex)
+                else
                 {
-                    eventState = "INVALID_START";
+                    staHour = Int32.Parse(cBoxEveStaHour.Text) + 12;
+                    startDate = Convert.ToDateTime(cBoxEveStaMon.Text + "/" + cBoxEveStaDay.Text + "/" + cBoxEveStaYear.Text + " " + cBoxEveStaHour.Text + ":" + cBoxEveStaMin.Text + " " + "PM");
                 }
+                    
+            }
+            catch (Exception ex)
+            {
+                eventState = "INVALID_START";
             }
 
-            
-
-            if (eventState == "VALID")
+            // Add end date
+            try
             {
-                // Add end date
-                try
+                if (radButEveEndAM.Checked)
                 {
-                    if (radButEveEndAM.Checked)
-                    {
-                        if (Int32.Parse(cBoxEveEndHour.Text) == 12)
-                            endHour = 0;
-                        else
-                            endHour = Int32.Parse(cBoxEveEndHour.Text);
-                        endDate = Convert.ToDateTime(cBoxEveEndMon.Text + "/" + cBoxEveEndDay.Text + "/" + cBoxEveEndYear.Text + " " + cBoxEveEndHour.Text + ":" + cBoxEveEndMin.Text + " " + "AM");
-                    }
-                    else
-                    {
-                        if (Int32.Parse(cBoxEveEndHour.Text) == 12)
-                            endHour = 12;
-                        else
-                            endHour = Int32.Parse(cBoxEveEndHour.Text) + 12;
-                        endDate = Convert.ToDateTime(cBoxEveEndMon.Text + "/" + cBoxEveEndDay.Text + "/" + cBoxEveEndYear.Text + " " + cBoxEveEndHour.Text + ":" + cBoxEveEndMin.Text + " " + "PM");
-                    }
-
-                    if (endHour < staHour)
-                    {
-                        Debug.WriteLine("End Before Start in Hour");
+                    endHour = Int32.Parse(cBoxEveStaHour.Text);
+                    endDate = Convert.ToDateTime(cBoxEveEndMon.Text + "/" + cBoxEveEndDay.Text + "/" + cBoxEveEndYear.Text + " " + cBoxEveEndHour.Text + ":" + cBoxEveEndMin.Text + " " + "AM");
+                }
+                else
+                {
+                    endHour = Int32.Parse(cBoxEveStaHour.Text) + 12;
+                    endDate = Convert.ToDateTime(cBoxEveEndMon.Text + "/" + cBoxEveEndDay.Text + "/" + cBoxEveEndYear.Text + " " + cBoxEveEndHour.Text + ":" + cBoxEveEndMin.Text + " " + "PM");
+                }
+                if(endHour < staHour)
+                    eventState = "END_BEFORE_START";
+                else if(endHour == staHour)
+                    if (Int32.Parse(cBoxEveEndMin.Text) < Int32.Parse(cBoxEveStaMin.Text))
                         eventState = "END_BEFORE_START";
-                    }
-                    else if (endHour == staHour)
-                    {
-                        Debug.WriteLine("End Hour Matches Start Hour");
-                        if (Int32.Parse(cBoxEveEndMin.Text) < Int32.Parse(cBoxEveStaMin.Text))
-                        {
-                            Debug.WriteLine("End min before Start min");
-                            eventState = "END_BEFORE_START";
-                        }
-                    }
-                    else
-                    {
-                        foreach (Event eve in thisCalendar.ThisCalendar.EventList)
-                        {
-                            if ((startDate.CompareTo(eve.StartDate) == -1 && endDate.CompareTo(eve.StartDate) == 1)
-                                || (startDate.CompareTo(eve.EndDate) == -1 && endDate.CompareTo(eve.EndDate) == 1)
-                                || (startDate.CompareTo(eve.StartDate) == 1 && endDate.CompareTo(eve.EndDate) == -1)
-                                || (startDate.CompareTo(eve.StartDate) == -1 && endDate.CompareTo(eve.EndDate) == 1)
-                                || (startDate.CompareTo(eve.StartDate) == 0)
-                                || (startDate.CompareTo(eve.EndDate) == 0)
-                                || (endDate.CompareTo(eve.StartDate) == 0)
-                                || (endDate.CompareTo(eve.EndDate) == 0))
-                            {
-                                eventState = "CONFLICTING_TIMES";
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-
-                    eventState = "INVALID_END";
-                }
             }
+            catch (Exception ex)
+            {
 
+                eventState = "INVALID_END";
+            }
 
             // Check and make sure all necessary features have been added
-            List<Event> tempEvents = new List<Event>();
             switch (eventState)
             {
-                case "CONFLICTING_TIMES":
-                    DialogResult result = MessageBox.Show("The time provided conflicts with another event. Are you sure you wish to create this event?", "Calendar System", MessageBoxButtons.YesNo);
-
-                    if (result == DialogResult.Yes)
-                    {
-                        //update calendar events and create event
-                        tempEvents = thisCalendar.ThisCalendar.EventList;
-                        if (thisEmployee != null)
-                            tempEvents.Add(thisEmployee.createEvent(title, description, location, attendants, startDate, endDate));
-                        else
-                            tempEvents.Add(thisManager.createGroupEvent(title, description, location, attendants, startDate, endDate));
-                        thisCalendar.ThisCalendar.EventList = tempEvents;
-                        
-                        if (isEditing)
-                        {
-                            thisCalendar.ThisCalendar.EventList = thisEmployee.editEvent(curEve, title, description, location, attendants, startDate, endDate);
-                            MessageBox.Show("Event edited.", "Calendar System");
-                        }
-                        else
-                        {
-                            thisCalendar.ThisCalendar.EventList = thisEmployee.createEvent(title, description, location, attendants, startDate, endDate);
-                            MessageBox.Show("Event created.", "Calendar System");
-                        }
-                        thisCalendar.displayDays();
-
-                        
-                        this.Close();
-                    }
-
-                    break;
                 case "VALID":
                     //update calendar events and create event
-                    tempEvents = thisCalendar.ThisCalendar.EventList;
-                    if (thisEmployee != null)
-                        tempEvents.Add(thisEmployee.createEvent(title, description, location, attendants, startDate, endDate));
-                    else
-                        tempEvents.Add(thisManager.createGroupEvent(title, description, location, attendants, startDate, endDate));
+                    List<Event> tempEvents = thisCalendar.ThisCalendar.EventList;
+                    tempEvents.Add(thisEmployee.createEvent(title, description, location, attendants, startDate, endDate));
                     thisCalendar.ThisCalendar.EventList = tempEvents;
-                    if (isEditing)
-                    {
-                        thisCalendar.ThisCalendar.EventList = thisEmployee.editEvent(curEve, title, description, location, attendants, startDate, endDate);
-                        MessageBox.Show("Event created.", "Calendar System");
-                        MessageBox.Show("Event edited.", "Calendar System");
-                    }
-                    else
-                    {
-                        thisCalendar.ThisCalendar.EventList = thisEmployee.createEvent(title, description, location, attendants, startDate, endDate);
-                        MessageBox.Show("Event created.", "Calendar System");
-                    }
                     thisCalendar.displayDays();
 
-                    
+
+
+                    MessageBox.Show("Event created.");
                     this.Close();
                     break;
                 case "NO_TITLE":
@@ -304,59 +206,46 @@ namespace CalendarSoftwareSystem
         {
             // Update screen
             lblEveTitle.Text = "New Event";
-            if(FormCalendar.CurUserIsManager)
+            if(FormCalendar.curUserIsManager)
             {
                 lblEventAttendents.Visible = true;
                 chklstAttendants.Visible = true;
+                btnEveCoord.Visible = true;
             }
             else
             {
                 lblEventAttendents.Visible = false;
                 chklstAttendants.Visible = false;
-            }
-
-            if (thisManager != null)
-            {
-                for (int i = 0; i <= chklstAttendants.Items.Count - 1; i++)
-                {
-                    Debug.WriteLine("is a manager");
-                    if (chklstAttendants.Items[i].ToString().Equals(thisManager.name))
-                        chklstAttendants.SetItemChecked(i, true);
-                }
+                btnEveCoord.Visible = false;
             }
 
             // Set initial panel visibility
             panelEveView.Visible = false;
             panelEveAdd.Visible = true;
-
-            isEditing = false;
         }
 
         private void btnEveViewEdit_Click(object sender, EventArgs e)
         {
             // Update screen
-            if (lViewEveView.SelectedItems.Count > 0)
+            if(lBoxEveView.SelectedIndex >= 0)
             {
-                lblEveTitle.Text = "Edit/View Event: " + lViewEveView.SelectedItems[0].SubItems[1].Text;
-                if (FormCalendar.CurUserIsManager)
+                lblEveTitle.Text = "Edit/View Event: " + lBoxEveView.SelectedItem.ToString().Substring(0, lBoxEveView.SelectedItem.ToString().IndexOf("\t"));
+                if (FormCalendar.curUserIsManager)
                 {
                     lblEventAttendents.Visible = true;
                     chklstAttendants.Visible = true;
+                    btnEveCoord.Visible = true;
                 }
                 else
                 {
                     lblEventAttendents.Visible = false;
                     chklstAttendants.Visible = false;
+                    btnEveCoord.Visible = false;
                 }
-                tBoxEveName.Text = lViewEveView.SelectedItems[0].SubItems[1].Text;
 
-                
                 // Set initial panel visibility
                 panelEveView.Visible = false;
                 panelEveAdd.Visible = true;
-
-                isEditing = true;
-                curEve = Int32.Parse(lViewEveView.SelectedItems[0].SubItems[0].Text);
             }    
             else
             {
@@ -366,34 +255,12 @@ namespace CalendarSoftwareSystem
 
         private void btnEveViewDelete_Click(object sender, EventArgs e)
         {
-            Event deletedEvent = new Event();
             ///Delete Event Code Here///
-            if (lViewEveView.SelectedItems.Count > 0)
-            {
-                string eveID = lViewEveView.SelectedItems[0].SubItems[0].Text;
-
-                switch (deletedEvent.deleteEvent(thisCalendar, Int32.Parse(eveID), thisEmployee.EmployeeID))
-                {
-                    case "VALID_EVENT":
-                        MessageBox.Show("Event deleted.", "Calendar System");
-                        populateEventList();
-                        thisCalendar.displayDays();
-                        break;
-                    case "DATA_NOT_FOUND":
-                        MessageBox.Show("This event was not located in the database.", "Calendar System");
-                        break;
-                    case "UNABLE_TO_CONNECT":
-                        MessageBox.Show("Unable to communicate with EKU server, please test connection and try again.", "Calendar System");
-                        break;
-                }
-                
-            }
         }
 
         private void btnEveCoord_Click(object sender, EventArgs e)
         {
-            ///createGroupEvent code here///
-
+            ///Coordinate Event with Employees code here///
         }
 
         private void btnEveBack_Click(object sender, EventArgs e)
@@ -401,34 +268,6 @@ namespace CalendarSoftwareSystem
             // Set initial panel visibility
             panelEveView.Visible = true;
             panelEveAdd.Visible = false;
-        }
-
-        private void populateEventList()
-        {
-            lViewEveView.Items.Clear();
-            var header1 = lViewEveView.Columns.Add("Event ID", -2, HorizontalAlignment.Left);
-            var header2 = lViewEveView.Columns.Add("Title", -2, HorizontalAlignment.Left);
-            var header3 = lViewEveView.Columns.Add("Start Date", -2, HorizontalAlignment.Left);
-            var header4 = lViewEveView.Columns.Add("End Date", -2, HorizontalAlignment.Left);
-
-            foreach (Event eve in thisCalendar.ThisCalendar.EventList)
-            {
-                if (eve.StartDate.Date.ToString("M/d/yyyy").Equals(FormCalendar.thisCalendar.Month + "/" + FormCalendar.thisCalendar.Day + "/" + FormCalendar.thisCalendar.Year))
-                {
-                    ListViewItem lvi = new ListViewItem(new string[]
-                    {
-                    eve.EventID.ToString(),
-                    eve.Title,
-                    eve.StartDate.ToString("MM/dd/yyyy hh:mm:ss tt"),
-                    eve.EndDate.ToString("MM/dd/yyyy hh:mm:ss tt")
-                    });
-                    lViewEveView.Items.Add(lvi);
-                }
-            }
-            lViewEveView.Columns[0].Width = -2;
-            lViewEveView.Columns[1].Width = -2;
-            lViewEveView.Columns[2].Width = -2;
-            lViewEveView.Columns[3].Width = -2;
         }
     }
 }
