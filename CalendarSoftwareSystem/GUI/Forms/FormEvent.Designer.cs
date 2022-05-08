@@ -87,9 +87,9 @@ namespace CalendarSoftwareSystem
             // tBoxEveName
             // 
             this.tBoxEveName.Location = new System.Drawing.Point(137, 56);
-            this.tBoxEveName.MaxLength = 20;
+            this.tBoxEveName.MaxLength = 50;
             this.tBoxEveName.Name = "tBoxEveName";
-            this.tBoxEveName.Size = new System.Drawing.Size(186, 20);
+            this.tBoxEveName.Size = new System.Drawing.Size(365, 20);
             this.tBoxEveName.TabIndex = 0;
             // 
             // lblEveName

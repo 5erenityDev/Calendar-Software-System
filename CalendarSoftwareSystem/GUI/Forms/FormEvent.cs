@@ -14,7 +14,7 @@ namespace CalendarSoftwareSystem
 {
     public partial class EventForm : Form
     {
-        int curDay;
+        int curDay, curEve;
         bool isEditing;
         List<string> possibleAttendants = new List<string>();
         Employee thisEmployee;
@@ -222,16 +222,17 @@ namespace CalendarSoftwareSystem
                         
                         if (isEditing)
                         {
-                            //thisEmployee.editEvent(title, description, location, attendants, startDate, endDate);
-                            thisCalendar.ThisCalendar.EventList = Calendar.retrieveEventList(thisEmployee.EmployeeID);
+                            thisCalendar.ThisCalendar.EventList = thisEmployee.editEvent(curEve, title, description, location, attendants, startDate, endDate);
+                            MessageBox.Show("Event edited.", "Calendar System");
                         }
                         else
                         {
                             thisCalendar.ThisCalendar.EventList = thisEmployee.createEvent(title, description, location, attendants, startDate, endDate);
+                            MessageBox.Show("Event created.", "Calendar System");
                         }
                         thisCalendar.displayDays();
 
-                        MessageBox.Show("Event created.", "Calendar System");
+                        
                         this.Close();
                     }
 
@@ -240,15 +241,18 @@ namespace CalendarSoftwareSystem
                     //update calendar events and create event
                     if (isEditing)
                     {
-                        thisCalendar.ThisCalendar.EventList = Calendar.retrieveEventList(thisEmployee.EmployeeID);
+                        thisCalendar.ThisCalendar.EventList = thisEmployee.editEvent(curEve, title, description, location, attendants, startDate, endDate);
+                        MessageBox.Show("Event created.", "Calendar System");
+                        MessageBox.Show("Event edited.", "Calendar System");
                     }
                     else
                     {
                         thisCalendar.ThisCalendar.EventList = thisEmployee.createEvent(title, description, location, attendants, startDate, endDate);
+                        MessageBox.Show("Event created.", "Calendar System");
                     }
                     thisCalendar.displayDays();
 
-                    MessageBox.Show("Event created.", "Calendar System");
+                    
                     this.Close();
                     break;
                 case "NO_TITLE":
@@ -301,7 +305,7 @@ namespace CalendarSoftwareSystem
             // Update screen
             if (lViewEveView.SelectedItems.Count > 0)
             {
-                lblEveTitle.Text = "Edit/View Event: " + lViewEveView.SelectedItems[0].SubItems[0].Text;
+                lblEveTitle.Text = "Edit/View Event: " + lViewEveView.SelectedItems[0].SubItems[1].Text;
                 if (FormCalendar.CurUserIsManager)
                 {
                     lblEventAttendents.Visible = true;
@@ -314,7 +318,7 @@ namespace CalendarSoftwareSystem
                     chklstAttendants.Visible = false;
                     btnEveCoord.Visible = false;
                 }
-                tBoxEveName.Text = lViewEveView.SelectedItems[0].SubItems[0].Text;
+                tBoxEveName.Text = lViewEveView.SelectedItems[0].SubItems[1].Text;
 
                 
                 // Set initial panel visibility
@@ -322,6 +326,7 @@ namespace CalendarSoftwareSystem
                 panelEveAdd.Visible = true;
 
                 isEditing = true;
+                curEve = Int32.Parse(lViewEveView.SelectedItems[0].SubItems[0].Text);
             }    
             else
             {
