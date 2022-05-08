@@ -66,11 +66,6 @@ namespace CalendarSoftwareSystem
             return newEvent;
         }
 
-        public void editGroupEvents(FormCalendar cal)
-        {
-            /* similar to the formevent editing but for the events that have group aspects?*/
-        }
-
         // Used to create a manager object from the database
         public static Manager retrieveManager(int empID)
         {

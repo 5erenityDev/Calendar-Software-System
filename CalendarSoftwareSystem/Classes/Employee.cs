@@ -106,7 +106,8 @@ namespace CalendarSoftwareSystem
             MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connStr);
             try
             {
-                string sql = "UPDATE csop_event SET title = @uTitle, description = @uDesc, location = @uLoc, startDate = @uSDate, endDate = @uEDate, attendants = @uAtt WHERE evntID = @uEveID";
+                conn.Open();
+                string sql = "UPDATE csop_event SET (title, description, location, startDate, endDate, attendants) VALUES (@uTitle, @uDesc, @uLoc, @uSDate, @uEDate, @uAtt) WHERE evntID = @uEveID";
                 MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@uTitle", title);
                 cmd.Parameters.AddWithValue("@uDesc", desc);
@@ -115,7 +116,6 @@ namespace CalendarSoftwareSystem
                 cmd.Parameters.AddWithValue("@uEDate", end.ToString("MM/dd/yyyy hh:mm:ss tt"));
                 cmd.Parameters.AddWithValue("@uAtt", attending);
                 cmd.Parameters.AddWithValue("@uEveID", eventID);
-                conn.Open();
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
