@@ -11,7 +11,7 @@ namespace CalendarSoftwareSystem
     public class Employee
     {
         protected int employeeID;
-        protected string name;
+        public string name;
         protected string username;
         protected string password;
 
@@ -36,22 +36,7 @@ namespace CalendarSoftwareSystem
             //creates event object
             Event newEvent = new Event(title, desc, loc, attendList, start, end);
 
-            string attending = "";
-            //create comma seperated string of attendants
-            foreach (string att in attendList)
-            {
-                if (attendList.LastIndexOf(att) == 0)
-                {
-                    attending += att;
-                }
-                else
-                {
-                    attending += ", " + att;
-                }
-            }
-            //default add creator to attending list if it is empty
-            if (attendList.Count == 0)
-                attending = name;
+            string attending = name;
 
             //write new event to the Database(wasn't clear on whether we wanted this in the event class or here)
             //feel free to move this elsewere or delete it if it is made redundant

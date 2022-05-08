@@ -73,6 +73,7 @@ namespace CalendarSoftwareSystem
                             empID = Int32.Parse(myReader["empID"].ToString());
                             if (Int32.Parse(myReader["isManager"].ToString()) == 1)
                             {
+                                Debug.WriteLine("is a manager");
                                 result = RESULTS[1];
                             }
                             else

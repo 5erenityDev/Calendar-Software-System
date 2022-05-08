@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -64,7 +65,8 @@ namespace CalendarSoftwareSystem
                     // Create Employee Object
                     thisEmployee = Employee.retrieveEmployee(unidentifiedUser.EmpID);
 
-                    thisCalendar = new Calendar(now.Day, now.Month, now.Year, Calendar.retrieveEventList(unidentifiedUser.EmpID));
+                    Debug.WriteLine(thisEmployee.name);
+                    thisCalendar = new Calendar(now.Day, now.Month, now.Year, Calendar.retrieveEventList(thisEmployee.name));
 
                     curUserIsManager = false;
 
@@ -84,8 +86,9 @@ namespace CalendarSoftwareSystem
 
                     // Create Manager Object
                     thisManager = Manager.retrieveManager(unidentifiedUser.EmpID);
+                    thisEmployee = null;
 
-                    thisCalendar = new Calendar(now.Day, now.Month, now.Year, Calendar.retrieveEventList(unidentifiedUser.EmpID));
+                    thisCalendar = new Calendar(now.Day, now.Month, now.Year, Calendar.retrieveEventList(thisManager.name));
 
                     curUserIsManager = true;
 
@@ -203,7 +206,11 @@ namespace CalendarSoftwareSystem
             // Create usercontrol objects for the actual days of the month
             for (int i = 1; i <= monthDays; i++)
             {
-                MonthDay ucDays = new MonthDay(thisEmployee, this);
+                MonthDay ucDays;
+                if (thisEmployee!=null)
+                    ucDays = new MonthDay(thisEmployee, this);
+                else
+                    ucDays = new MonthDay(thisManager, this);
                 ucDays.days(i);
                 flPanelMonth.Controls.Add(ucDays);
             }

@@ -15,12 +15,19 @@ namespace CalendarSoftwareSystem
     {
         int curDay;
         Employee thisEmployee;
+        Manager thisManager;
         FormCalendar thisCalendar;
 
         public MonthDay(Employee employee, FormCalendar calendar)
         {
             InitializeComponent();
             thisEmployee = employee;
+            thisCalendar = calendar;
+        }
+        public MonthDay(Manager manager, FormCalendar calendar)
+        {
+            InitializeComponent();
+            thisManager = manager;
             thisCalendar = calendar;
         }
 
@@ -74,7 +81,15 @@ namespace CalendarSoftwareSystem
         private void UserControlDays_Click(object sender, EventArgs e)
         {
             curDay = Convert.ToInt32(lblDays.Text);
-            EventForm eventform = new EventForm(curDay, thisEmployee, thisCalendar);
+            EventForm eventform;
+            if (thisEmployee != null)
+            {
+                eventform = new EventForm(curDay, thisEmployee, thisCalendar);
+            }
+            else
+            {
+                eventform = new EventForm(curDay, thisManager, thisCalendar);
+            }
             eventform.Show();
         }
 

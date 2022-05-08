@@ -74,7 +74,7 @@ namespace CalendarSoftwareSystem
 
                 if (tle == title)
                 {
-                    if (eve.StartDate.ToString("MM/dd/yyyy hh:mm:ss tt").Equals(dateTime))
+                    if (eve.StartDate.ToString("MM/d/yyyy hh:mm:ss tt").Equals(dateTime))
                     {
                         Debug.WriteLine("Hello");
                         matched = true;

@@ -23,9 +23,10 @@ namespace CalendarSoftwareSystem
             eventList = eList;
         }
 
-        public static List<Event> retrieveEventList(int empID)
+        public static List<Event> retrieveEventList(string name)
         {
             string connStr = "server=157.89.28.29;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
+            name = '%'+name+'%';
 
             MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connStr);
             List<Event> thisEventList = new List<Event>();
@@ -33,11 +34,10 @@ namespace CalendarSoftwareSystem
             try
             {
                 conn.Open();
-                string sql = "SELECT * FROM csop_event WHERE empID=@empID";
+                string sql = "SELECT * FROM csop_event WHERE attendants LIKE @attendant";
                 MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
 
-
-                cmd.Parameters.AddWithValue("@empID", empID);
+                cmd.Parameters.AddWithValue("@attendant", name);
 
                 MySqlDataReader myReader = cmd.ExecuteReader();
                 while (myReader.Read())

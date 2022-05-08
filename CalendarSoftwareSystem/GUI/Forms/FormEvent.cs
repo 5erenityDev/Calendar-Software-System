@@ -17,12 +17,24 @@ namespace CalendarSoftwareSystem
         int curDay;
         List<string> possibleAttendants = new List<string>();
         Employee thisEmployee;
+        Manager thisManager;
         FormCalendar thisCalendar;
 
         public EventForm(int day, Employee employee, FormCalendar calendar)
         {
             curDay = day;
             thisEmployee = employee;
+            thisCalendar = calendar;
+            InitializeComponent();
+
+            // Set initial panel visibility
+            panelEveView.Visible = true;
+            panelEveAdd.Visible = false;
+        }
+        public EventForm(int day, Manager manager, FormCalendar calendar)
+        {
+            curDay = day;
+            thisManager = manager;
             thisCalendar = calendar;
             InitializeComponent();
 
@@ -220,7 +232,10 @@ namespace CalendarSoftwareSystem
                     {
                         //update calendar events and create event
                         tempEvents = thisCalendar.ThisCalendar.EventList;
-                        tempEvents.Add(thisEmployee.createEvent(title, description, location, attendants, startDate, endDate));
+                        if (thisEmployee != null)
+                            tempEvents.Add(thisEmployee.createEvent(title, description, location, attendants, startDate, endDate));
+                        else
+                            tempEvents.Add(thisManager.createGroupEvent(title, description, location, attendants, startDate, endDate));
                         thisCalendar.ThisCalendar.EventList = tempEvents;
                         thisCalendar.displayDays();
 
@@ -234,7 +249,10 @@ namespace CalendarSoftwareSystem
                 case "VALID":
                     //update calendar events and create event
                     tempEvents = thisCalendar.ThisCalendar.EventList;
-                    tempEvents.Add(thisEmployee.createEvent(title, description, location, attendants, startDate, endDate));
+                    if (thisEmployee != null)
+                        tempEvents.Add(thisEmployee.createEvent(title, description, location, attendants, startDate, endDate));
+                    else
+                        tempEvents.Add(thisManager.createGroupEvent(title, description, location, attendants, startDate, endDate));
                     thisCalendar.ThisCalendar.EventList = tempEvents;
                     thisCalendar.displayDays();
 
@@ -270,13 +288,21 @@ namespace CalendarSoftwareSystem
             {
                 lblEventAttendents.Visible = true;
                 chklstAttendants.Visible = true;
-                btnEveCoord.Visible = true;
             }
             else
             {
                 lblEventAttendents.Visible = false;
                 chklstAttendants.Visible = false;
-                btnEveCoord.Visible = false;
+            }
+
+            if (thisManager != null)
+            {
+                for (int i = 0; i <= chklstAttendants.Items.Count - 1; i++)
+                {
+                    Debug.WriteLine("is a manager");
+                    if (chklstAttendants.Items[i].ToString().Equals(thisManager.name))
+                        chklstAttendants.SetItemChecked(i, true);
+                }
             }
 
             // Set initial panel visibility
@@ -296,13 +322,11 @@ namespace CalendarSoftwareSystem
                 {
                     lblEventAttendents.Visible = true;
                     chklstAttendants.Visible = true;
-                    btnEveCoord.Visible = true;
                 }
                 else
                 {
                     lblEventAttendents.Visible = false;
                     chklstAttendants.Visible = false;
-                    btnEveCoord.Visible = false;
                 }
                 string name = lBoxEveView.SelectedItem.ToString().Substring(0, lBoxEveView.SelectedItem.ToString().IndexOf("\t"));
                 int dateBegin = lBoxEveView.SelectedItem.ToString().IndexOf("\t", lBoxEveView.SelectedItem.ToString().IndexOf("\t"));
