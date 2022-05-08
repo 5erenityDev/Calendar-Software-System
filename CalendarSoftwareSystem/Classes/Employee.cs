@@ -128,6 +128,33 @@ namespace CalendarSoftwareSystem
             return Calendar.retrieveEventList(name);
         }
 
+        public static List<string> findAttendants(List<string> possibleAttendants)
+        {
+            string connStr = "server=157.89.28.29;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
+
+            MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connStr);
+
+            try
+            {
+                conn.Open();
+                string sql = "SELECT name FROM csop_employee";
+                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
+
+                MySqlDataReader myReader = cmd.ExecuteReader();
+                while (myReader.Read())
+                    possibleAttendants.Add(myReader.GetString(0));
+                myReader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
+
+            return possibleAttendants;
+        }
+
         // Used to create an employee object from the database
         public static Employee retrieveEmployee(int empID)
         {
