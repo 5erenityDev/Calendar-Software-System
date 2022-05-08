@@ -14,7 +14,7 @@ namespace CalendarSoftwareSystem
 {
     public partial class EventForm : Form
     {
-        int curDay;
+        int curDay, curEve;
         bool isEditing;
         List<string> possibleAttendants = new List<string>();
         public Employee thisEmployee;
@@ -171,15 +171,12 @@ namespace CalendarSoftwareSystem
 
                     if (endHour < staHour)
                     {
-                        Debug.WriteLine("End Before Start in Hour");
                         eventState = "END_BEFORE_START";
                     }
                     else if (endHour == staHour)
                     {
-                        Debug.WriteLine("End Hour Matches Start Hour");
                         if (Int32.Parse(cBoxEveEndMin.Text) < Int32.Parse(cBoxEveStaMin.Text))
                         {
-                            Debug.WriteLine("End min before Start min");
                             eventState = "END_BEFORE_START";
                         }
                     }
@@ -222,16 +219,17 @@ namespace CalendarSoftwareSystem
                         
                         if (isEditing)
                         {
-                            //thisEmployee.editEvent(title, description, location, attendants, startDate, endDate);
-                            thisCalendar.ThisCalendar.EventList = Calendar.retrieveEventList(thisEmployee.name);
+                            thisCalendar.ThisCalendar.EventList = thisEmployee.editEvent(curEve, title, description, location, attendants, startDate, endDate);
+                            MessageBox.Show("Event edited.", "Calendar System");
                         }
                         else
                         {
                             thisCalendar.ThisCalendar.EventList = thisEmployee.createEvent(title, description, location, attendants, startDate, endDate);
+                            MessageBox.Show("Event created.", "Calendar System");
                         }
                         thisCalendar.displayDays();
 
-                        MessageBox.Show("Event created.", "Calendar System");
+                        
                         this.Close();
                     }
 
@@ -240,15 +238,17 @@ namespace CalendarSoftwareSystem
                     //update calendar events and create event
                     if (isEditing)
                     {
-                        thisCalendar.ThisCalendar.EventList = Calendar.retrieveEventList(thisEmployee.name);
+                        thisCalendar.ThisCalendar.EventList = thisEmployee.editEvent(curEve, title, description, location, attendants, startDate, endDate);
+                        MessageBox.Show("Event edited.", "Calendar System");
                     }
                     else
                     {
                         thisCalendar.ThisCalendar.EventList = thisEmployee.createEvent(title, description, location, attendants, startDate, endDate);
+                        MessageBox.Show("Event created.", "Calendar System");
                     }
                     thisCalendar.displayDays();
 
-                    MessageBox.Show("Event created.", "Calendar System");
+                    
                     this.Close();
                     break;
                 case "NO_TITLE":
@@ -280,11 +280,13 @@ namespace CalendarSoftwareSystem
             {
                 lblEventAttendents.Visible = true;
                 chklstAttendants.Visible = true;
+                btnEveCoord.Visible = true;
             }
             else
             {
                 lblEventAttendents.Visible = false;
                 chklstAttendants.Visible = false;
+                btnEveCoord.Visible = false;
             }
 
             // Set initial panel visibility
@@ -318,6 +320,7 @@ namespace CalendarSoftwareSystem
                 panelEveAdd.Visible = true;
 
                 isEditing = true;
+                curEve = Int32.Parse(lViewEveView.SelectedItems[0].SubItems[0].Text);
             }    
             else
             {
@@ -354,7 +357,7 @@ namespace CalendarSoftwareSystem
         private void btnEveCoord_Click(object sender, EventArgs e)
         {
             ///createGroupEvent code here///
-
+            FormCalendar.thisManager.coordinateEvent();
         }
 
         private void btnEveBack_Click(object sender, EventArgs e)

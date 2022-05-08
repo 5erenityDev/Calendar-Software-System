@@ -18,52 +18,10 @@ namespace CalendarSoftwareSystem
             password = pass;
         }
 
-
-        public Event createGroupEvent(string title, string desc, string loc, List<string> attendList, DateTime start, DateTime end)
+        // This method will look at all attendants events and figure out what times all users are avaliable
+        public void coordinateEvent()
         {
-            //creates event object
-            Event newEvent = new Event(employeeID, title, desc, loc, attendList, start, end);
 
-            string attending = "";
-            //create comma seperated string of attendants
-            foreach (string att in attendList)
-            {
-                if (attendList.LastIndexOf(att) == 0)
-                {
-                    attending += att;
-                }
-                else
-                {
-                    attending += ", " + att;
-                }
-            }
-
-            //write new event to the Database(wasn't clear on whether we wanted this in the event class or here)
-            //feel free to move this elsewere or delete it if it is made redundant
-
-            string connStr = "server=157.89.28.29;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
-            MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connStr);
-            try
-            {
-                conn.Open();
-                string sql = "INSERT INTO csop_event (title, description, location, startDate, endDate, attendants, empID) VALUES (@uTitle, @uDesc, @uLoc, @uSDate, @uEDate, @uAtt, @uEmpID)";
-                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@uTitle", title);
-                cmd.Parameters.AddWithValue("@uDesc", desc);
-                cmd.Parameters.AddWithValue("@uLoc", loc);
-                cmd.Parameters.AddWithValue("@uSDate", start.ToString("MM/dd/yyyy hh:mm:ss tt"));
-                cmd.Parameters.AddWithValue("@uEDate", end.ToString("MM/dd/yyyy hh:mm:ss tt"));
-                cmd.Parameters.AddWithValue("@uAtt", attending);
-                cmd.Parameters.AddWithValue("@uEmpID", employeeID);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-            conn.Close();
-
-            return newEvent;
         }
 
         // Used to create a manager object from the database

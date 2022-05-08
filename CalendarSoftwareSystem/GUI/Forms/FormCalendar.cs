@@ -64,8 +64,8 @@ namespace CalendarSoftwareSystem
                     // Create Employee Object
                     thisEmployee = Employee.retrieveEmployee(unidentifiedUser.EmpID);
 
-                    Debug.WriteLine(thisEmployee.name);
-                    thisCalendar = new Calendar(now.Day, now.Month, now.Year, Calendar.retrieveEventList(thisEmployee.name));
+                    Debug.WriteLine(thisEmployee.Name);
+                    thisCalendar = new Calendar(now.Day, now.Month, now.Year, Calendar.retrieveEventList(thisEmployee.Name));
 
                     curUserIsManager = false;
 
@@ -86,7 +86,7 @@ namespace CalendarSoftwareSystem
                     // Create Manager Object
                     thisManager = Manager.retrieveManager(unidentifiedUser.EmpID);
 
-                    thisCalendar = new Calendar(now.Day, now.Month, now.Year, Calendar.retrieveEventList(thisManager.name));
+                    thisCalendar = new Calendar(now.Day, now.Month, now.Year, Calendar.retrieveEventList(thisManager.Name));
 
                     curUserIsManager = true;
 

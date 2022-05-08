@@ -87,9 +87,9 @@ namespace CalendarSoftwareSystem
             // tBoxEveName
             // 
             this.tBoxEveName.Location = new System.Drawing.Point(137, 56);
-            this.tBoxEveName.MaxLength = 20;
+            this.tBoxEveName.MaxLength = 50;
             this.tBoxEveName.Name = "tBoxEveName";
-            this.tBoxEveName.Size = new System.Drawing.Size(186, 20);
+            this.tBoxEveName.Size = new System.Drawing.Size(365, 20);
             this.tBoxEveName.TabIndex = 0;
             // 
             // lblEveName
@@ -99,7 +99,7 @@ namespace CalendarSoftwareSystem
             this.lblEveName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.lblEveName.Location = new System.Drawing.Point(3, 56);
             this.lblEveName.Name = "lblEveName";
-            this.lblEveName.Size = new System.Drawing.Size(107, 19);
+            this.lblEveName.Size = new System.Drawing.Size(93, 17);
             this.lblEveName.TabIndex = 1;
             this.lblEveName.Text = "Event Name:";
             // 
@@ -110,7 +110,7 @@ namespace CalendarSoftwareSystem
             this.lblEveDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.lblEveDesc.Location = new System.Drawing.Point(4, 99);
             this.lblEveDesc.Name = "lblEveDesc";
-            this.lblEveDesc.Size = new System.Drawing.Size(143, 19);
+            this.lblEveDesc.Size = new System.Drawing.Size(127, 17);
             this.lblEveDesc.TabIndex = 1;
             this.lblEveDesc.Text = "Event Description:";
             // 
@@ -121,7 +121,7 @@ namespace CalendarSoftwareSystem
             this.lblEveLoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.lblEveLoc.Location = new System.Drawing.Point(4, 270);
             this.lblEveLoc.Name = "lblEveLoc";
-            this.lblEveLoc.Size = new System.Drawing.Size(124, 19);
+            this.lblEveLoc.Size = new System.Drawing.Size(109, 17);
             this.lblEveLoc.TabIndex = 1;
             this.lblEveLoc.Text = "Event Location:";
             // 
@@ -150,7 +150,7 @@ namespace CalendarSoftwareSystem
             this.lblEveSta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.lblEveSta.Location = new System.Drawing.Point(22, 325);
             this.lblEveSta.Name = "lblEveSta";
-            this.lblEveSta.Size = new System.Drawing.Size(90, 19);
+            this.lblEveSta.Size = new System.Drawing.Size(79, 17);
             this.lblEveSta.TabIndex = 1;
             this.lblEveSta.Text = "Event Start:";
             // 
@@ -177,7 +177,7 @@ namespace CalendarSoftwareSystem
             this.lblEveTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.lblEveTitle.Location = new System.Drawing.Point(3, 5);
             this.lblEveTitle.Name = "lblEveTitle";
-            this.lblEveTitle.Size = new System.Drawing.Size(269, 55);
+            this.lblEveTitle.Size = new System.Drawing.Size(235, 47);
             this.lblEveTitle.TabIndex = 1;
             this.lblEveTitle.Text = "NEW EVENT";
             // 
@@ -188,7 +188,7 @@ namespace CalendarSoftwareSystem
             this.lblEveEnd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.lblEveEnd.Location = new System.Drawing.Point(416, 326);
             this.lblEveEnd.Name = "lblEveEnd";
-            this.lblEveEnd.Size = new System.Drawing.Size(87, 19);
+            this.lblEveEnd.Size = new System.Drawing.Size(75, 17);
             this.lblEveEnd.TabIndex = 1;
             this.lblEveEnd.Text = "Event End:";
             // 
@@ -199,7 +199,7 @@ namespace CalendarSoftwareSystem
             this.lblEveStaDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.lblEveStaDate.Location = new System.Drawing.Point(160, 305);
             this.lblEveStaDate.Name = "lblEveStaDate";
-            this.lblEveStaDate.Size = new System.Drawing.Size(49, 19);
+            this.lblEveStaDate.Size = new System.Drawing.Size(44, 17);
             this.lblEveStaDate.TabIndex = 1;
             this.lblEveStaDate.Text = "Date:";
             // 
@@ -210,7 +210,7 @@ namespace CalendarSoftwareSystem
             this.lblEveStaTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.lblEveStaTime.Location = new System.Drawing.Point(317, 305);
             this.lblEveStaTime.Name = "lblEveStaTime";
-            this.lblEveStaTime.Size = new System.Drawing.Size(50, 19);
+            this.lblEveStaTime.Size = new System.Drawing.Size(45, 17);
             this.lblEveStaTime.TabIndex = 1;
             this.lblEveStaTime.Text = "Time:";
             // 
@@ -221,7 +221,7 @@ namespace CalendarSoftwareSystem
             this.lblEventAttendents.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.lblEventAttendents.Location = new System.Drawing.Point(606, 79);
             this.lblEventAttendents.Name = "lblEventAttendents";
-            this.lblEventAttendents.Size = new System.Drawing.Size(95, 19);
+            this.lblEventAttendents.Size = new System.Drawing.Size(83, 17);
             this.lblEventAttendents.TabIndex = 4;
             this.lblEventAttendents.Text = "Attendants:";
             // 
@@ -240,7 +240,7 @@ namespace CalendarSoftwareSystem
             this.radButEveStaAM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.radButEveStaAM.Location = new System.Drawing.Point(3, 3);
             this.radButEveStaAM.Name = "radButEveStaAM";
-            this.radButEveStaAM.Size = new System.Drawing.Size(53, 23);
+            this.radButEveStaAM.Size = new System.Drawing.Size(49, 21);
             this.radButEveStaAM.TabIndex = 6;
             this.radButEveStaAM.TabStop = true;
             this.radButEveStaAM.Text = "AM";
@@ -285,7 +285,7 @@ namespace CalendarSoftwareSystem
             this.radButEveStaPM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.radButEveStaPM.Location = new System.Drawing.Point(66, 3);
             this.radButEveStaPM.Name = "radButEveStaPM";
-            this.radButEveStaPM.Size = new System.Drawing.Size(50, 23);
+            this.radButEveStaPM.Size = new System.Drawing.Size(47, 21);
             this.radButEveStaPM.TabIndex = 6;
             this.radButEveStaPM.TabStop = true;
             this.radButEveStaPM.Text = "PM";
@@ -298,7 +298,7 @@ namespace CalendarSoftwareSystem
             this.lblEveStaColon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.lblEveStaColon.Location = new System.Drawing.Point(330, 326);
             this.lblEveStaColon.Name = "lblEveStaColon";
-            this.lblEveStaColon.Size = new System.Drawing.Size(13, 19);
+            this.lblEveStaColon.Size = new System.Drawing.Size(12, 17);
             this.lblEveStaColon.TabIndex = 9;
             this.lblEveStaColon.Text = ":";
             // 
@@ -444,7 +444,7 @@ namespace CalendarSoftwareSystem
             this.lblEveStaSlashTwo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.lblEveStaSlashTwo.Location = new System.Drawing.Point(201, 325);
             this.lblEveStaSlashTwo.Name = "lblEveStaSlashTwo";
-            this.lblEveStaSlashTwo.Size = new System.Drawing.Size(16, 19);
+            this.lblEveStaSlashTwo.Size = new System.Drawing.Size(14, 17);
             this.lblEveStaSlashTwo.TabIndex = 9;
             this.lblEveStaSlashTwo.Text = "/";
             // 
@@ -455,7 +455,7 @@ namespace CalendarSoftwareSystem
             this.lblEveStaSlashOne.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.lblEveStaSlashOne.Location = new System.Drawing.Point(148, 325);
             this.lblEveStaSlashOne.Name = "lblEveStaSlashOne";
-            this.lblEveStaSlashOne.Size = new System.Drawing.Size(16, 19);
+            this.lblEveStaSlashOne.Size = new System.Drawing.Size(14, 17);
             this.lblEveStaSlashOne.TabIndex = 9;
             this.lblEveStaSlashOne.Text = "/";
             // 
@@ -466,7 +466,7 @@ namespace CalendarSoftwareSystem
             this.lblEveEndDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.lblEveEndDate.Location = new System.Drawing.Point(550, 305);
             this.lblEveEndDate.Name = "lblEveEndDate";
-            this.lblEveEndDate.Size = new System.Drawing.Size(49, 19);
+            this.lblEveEndDate.Size = new System.Drawing.Size(44, 17);
             this.lblEveEndDate.TabIndex = 1;
             this.lblEveEndDate.Text = "Date:";
             // 
@@ -477,7 +477,7 @@ namespace CalendarSoftwareSystem
             this.lblEveEndTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.lblEveEndTime.Location = new System.Drawing.Point(709, 305);
             this.lblEveEndTime.Name = "lblEveEndTime";
-            this.lblEveEndTime.Size = new System.Drawing.Size(50, 19);
+            this.lblEveEndTime.Size = new System.Drawing.Size(45, 17);
             this.lblEveEndTime.TabIndex = 1;
             this.lblEveEndTime.Text = "Time:";
             // 
@@ -520,7 +520,7 @@ namespace CalendarSoftwareSystem
             this.lblEveEndColon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.lblEveEndColon.Location = new System.Drawing.Point(722, 326);
             this.lblEveEndColon.Name = "lblEveEndColon";
-            this.lblEveEndColon.Size = new System.Drawing.Size(13, 19);
+            this.lblEveEndColon.Size = new System.Drawing.Size(12, 17);
             this.lblEveEndColon.TabIndex = 9;
             this.lblEveEndColon.Text = ":";
             // 
@@ -531,7 +531,7 @@ namespace CalendarSoftwareSystem
             this.lblEveEndSlashTwo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.lblEveEndSlashTwo.Location = new System.Drawing.Point(591, 325);
             this.lblEveEndSlashTwo.Name = "lblEveEndSlashTwo";
-            this.lblEveEndSlashTwo.Size = new System.Drawing.Size(16, 19);
+            this.lblEveEndSlashTwo.Size = new System.Drawing.Size(14, 17);
             this.lblEveEndSlashTwo.TabIndex = 9;
             this.lblEveEndSlashTwo.Text = "/";
             // 
@@ -542,7 +542,7 @@ namespace CalendarSoftwareSystem
             this.lblEveEndSlashOne.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.lblEveEndSlashOne.Location = new System.Drawing.Point(538, 325);
             this.lblEveEndSlashOne.Name = "lblEveEndSlashOne";
-            this.lblEveEndSlashOne.Size = new System.Drawing.Size(16, 19);
+            this.lblEveEndSlashOne.Size = new System.Drawing.Size(14, 17);
             this.lblEveEndSlashOne.TabIndex = 9;
             this.lblEveEndSlashOne.Text = "/";
             // 
@@ -706,7 +706,7 @@ namespace CalendarSoftwareSystem
             this.radButEveEndPM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.radButEveEndPM.Location = new System.Drawing.Point(66, 3);
             this.radButEveEndPM.Name = "radButEveEndPM";
-            this.radButEveEndPM.Size = new System.Drawing.Size(50, 23);
+            this.radButEveEndPM.Size = new System.Drawing.Size(47, 21);
             this.radButEveEndPM.TabIndex = 6;
             this.radButEveEndPM.TabStop = true;
             this.radButEveEndPM.Text = "PM";
@@ -719,7 +719,7 @@ namespace CalendarSoftwareSystem
             this.radButEveEndAM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.radButEveEndAM.Location = new System.Drawing.Point(3, 3);
             this.radButEveEndAM.Name = "radButEveEndAM";
-            this.radButEveEndAM.Size = new System.Drawing.Size(53, 23);
+            this.radButEveEndAM.Size = new System.Drawing.Size(49, 21);
             this.radButEveEndAM.TabIndex = 6;
             this.radButEveEndAM.TabStop = true;
             this.radButEveEndAM.Text = "AM";
@@ -882,7 +882,7 @@ namespace CalendarSoftwareSystem
             this.lblEveView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.lblEveView.Location = new System.Drawing.Point(21, 57);
             this.lblEveView.Name = "lblEveView";
-            this.lblEveView.Size = new System.Drawing.Size(60, 19);
+            this.lblEveView.Size = new System.Drawing.Size(53, 17);
             this.lblEveView.TabIndex = 12;
             this.lblEveView.Text = "Events:";
             // 
@@ -909,7 +909,7 @@ namespace CalendarSoftwareSystem
             this.lblEveViewDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.lblEveViewDate.Location = new System.Drawing.Point(3, 5);
             this.lblEveViewDate.Name = "lblEveViewDate";
-            this.lblEveViewDate.Size = new System.Drawing.Size(133, 55);
+            this.lblEveViewDate.Size = new System.Drawing.Size(116, 47);
             this.lblEveViewDate.TabIndex = 12;
             this.lblEveViewDate.Text = "DATE";
             // 

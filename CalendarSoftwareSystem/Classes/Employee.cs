@@ -11,7 +11,7 @@ namespace CalendarSoftwareSystem
     public class Employee
     {
         protected int employeeID;
-        public string name;
+        protected string name;
         protected string username;
         protected string password;
 
@@ -57,7 +57,7 @@ namespace CalendarSoftwareSystem
             MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connStr);
             try
             {
-                
+
                 string sql = "INSERT INTO csop_event (title, description, location, startDate, endDate, attendants, empID) VALUES (@uTitle, @uDesc, @uLoc, @uSDate, @uEDate, @uAtt, @uEmpID);" + "SELECT SCOPE_IDENTITY();";
                 MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@uTitle", title);
@@ -106,8 +106,7 @@ namespace CalendarSoftwareSystem
             MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connStr);
             try
             {
-                conn.Open();
-                string sql = "UPDATE csop_event SET (title, description, location, startDate, endDate, attendants) VALUES (@uTitle, @uDesc, @uLoc, @uSDate, @uEDate, @uAtt) WHERE evntID = @uEveID";
+                string sql = "UPDATE csop_event SET title = @uTitle, description = @uDesc, location = @uLoc, startDate = @uSDate, endDate = @uEDate, attendants = @uAtt WHERE evntID = @uEveID";
                 MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@uTitle", title);
                 cmd.Parameters.AddWithValue("@uDesc", desc);
@@ -116,6 +115,7 @@ namespace CalendarSoftwareSystem
                 cmd.Parameters.AddWithValue("@uEDate", end.ToString("MM/dd/yyyy hh:mm:ss tt"));
                 cmd.Parameters.AddWithValue("@uAtt", attending);
                 cmd.Parameters.AddWithValue("@uEveID", eventID);
+                conn.Open();
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -170,6 +170,12 @@ namespace CalendarSoftwareSystem
         {
             get { return employeeID; }
             set { employeeID = value; }
+        }
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
         }
     }
 }

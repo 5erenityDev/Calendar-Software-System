@@ -71,3 +71,8 @@ D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\obj\Debug
 D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.csproj.CopyComplete
 D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.exe
 D:\Holder\School\CSC340\GroupProject\repository\CalendarSoftwareSystem\obj\Debug\CalendarSoftwareSystem.pdb
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\bin\Debug\K4os.Compression.LZ4.Streams.dll
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\bin\Debug\BouncyCastle.Crypto.dll
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\bin\Debug\K4os.Compression.LZ4.dll
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\bin\Debug\K4os.Hash.xxHash.dll
+D:\School\EKU\Spring 2022\CSC 340\FINAL PROJECTS\Calendar-Software-System\CalendarSoftwareSystem\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll

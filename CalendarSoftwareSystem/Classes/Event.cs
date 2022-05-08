@@ -73,9 +73,9 @@ namespace CalendarSoftwareSystem
                 result = RESULTS[1];
 
             if(FormCalendar.thisEmployee != null)
-                thisCalendar.ThisCalendar.EventList = Calendar.retrieveEventList(FormCalendar.thisEmployee.name);
+                thisCalendar.ThisCalendar.EventList = Calendar.retrieveEventList(FormCalendar.thisEmployee.Name);
             else
-                thisCalendar.ThisCalendar.EventList = Calendar.retrieveEventList(FormCalendar.thisManager.name);
+                thisCalendar.ThisCalendar.EventList = Calendar.retrieveEventList(FormCalendar.thisManager.Name);
 
             return result;
         }
