@@ -31,7 +31,7 @@ namespace CalendarSoftwareSystem
                 attending += '/' + att;
             }
             //default add creator to attending list if it is empty
-            if (attarr.Length > 1)
+            if (attarr.Length > 0)
                 isGroupEvent = true;
 
             string connStr = "server=157.89.28.29;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
@@ -73,7 +73,7 @@ namespace CalendarSoftwareSystem
             }
 
             // Check if this is a group event
-            if (attarr.Length > 1)
+            if (attarr.Length > 0)
                 isGroupEvent = true;
 
             string connStr = "server=157.89.28.29;user=student;database=csc340_db;port=3306;password=Maroon@21?;";

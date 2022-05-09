@@ -92,6 +92,8 @@ namespace CalendarSoftwareSystem
             // 
             // tBoxEveName
             // 
+            this.tBoxEveName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.tBoxEveName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(27)))));
             this.tBoxEveName.Location = new System.Drawing.Point(137, 56);
             this.tBoxEveName.MaxLength = 50;
             this.tBoxEveName.Name = "tBoxEveName";
@@ -102,7 +104,7 @@ namespace CalendarSoftwareSystem
             // 
             this.lblEveName.AutoSize = true;
             this.lblEveName.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.lblEveName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.lblEveName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
             this.lblEveName.Location = new System.Drawing.Point(3, 56);
             this.lblEveName.Name = "lblEveName";
             this.lblEveName.Size = new System.Drawing.Size(93, 17);
@@ -113,7 +115,7 @@ namespace CalendarSoftwareSystem
             // 
             this.lblEveDesc.AutoSize = true;
             this.lblEveDesc.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.lblEveDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.lblEveDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
             this.lblEveDesc.Location = new System.Drawing.Point(4, 99);
             this.lblEveDesc.Name = "lblEveDesc";
             this.lblEveDesc.Size = new System.Drawing.Size(127, 17);
@@ -124,7 +126,7 @@ namespace CalendarSoftwareSystem
             // 
             this.lblEveLoc.AutoSize = true;
             this.lblEveLoc.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.lblEveLoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.lblEveLoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
             this.lblEveLoc.Location = new System.Drawing.Point(4, 270);
             this.lblEveLoc.Name = "lblEveLoc";
             this.lblEveLoc.Size = new System.Drawing.Size(109, 17);
@@ -133,6 +135,8 @@ namespace CalendarSoftwareSystem
             // 
             // tBoxEveDesc
             // 
+            this.tBoxEveDesc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.tBoxEveDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(27)))));
             this.tBoxEveDesc.Location = new System.Drawing.Point(137, 99);
             this.tBoxEveDesc.MaxLength = 500;
             this.tBoxEveDesc.Multiline = true;
@@ -143,6 +147,8 @@ namespace CalendarSoftwareSystem
             // 
             // tBoxEveLoc
             // 
+            this.tBoxEveLoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.tBoxEveLoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(27)))));
             this.tBoxEveLoc.Location = new System.Drawing.Point(137, 270);
             this.tBoxEveLoc.MaxLength = 50;
             this.tBoxEveLoc.Name = "tBoxEveLoc";
@@ -153,7 +159,7 @@ namespace CalendarSoftwareSystem
             // 
             this.lblEveSta.AutoSize = true;
             this.lblEveSta.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.lblEveSta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.lblEveSta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
             this.lblEveSta.Location = new System.Drawing.Point(22, 325);
             this.lblEveSta.Name = "lblEveSta";
             this.lblEveSta.Size = new System.Drawing.Size(79, 17);
@@ -162,12 +168,12 @@ namespace CalendarSoftwareSystem
             // 
             // btnEveSave
             // 
-            this.btnEveSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.btnEveSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(103)))), ((int)(((byte)(102)))));
             this.btnEveSave.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEveSave.FlatAppearance.BorderSize = 0;
             this.btnEveSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEveSave.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEveSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.btnEveSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.btnEveSave.Location = new System.Drawing.Point(701, 401);
             this.btnEveSave.Name = "btnEveSave";
             this.btnEveSave.Size = new System.Drawing.Size(75, 29);
@@ -180,7 +186,7 @@ namespace CalendarSoftwareSystem
             // 
             this.lblEveTitle.AutoSize = true;
             this.lblEveTitle.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Bold);
-            this.lblEveTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.lblEveTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(194)))), ((int)(((byte)(247)))));
             this.lblEveTitle.Location = new System.Drawing.Point(3, 5);
             this.lblEveTitle.Name = "lblEveTitle";
             this.lblEveTitle.Size = new System.Drawing.Size(235, 47);
@@ -191,7 +197,7 @@ namespace CalendarSoftwareSystem
             // 
             this.lblEveEnd.AutoSize = true;
             this.lblEveEnd.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.lblEveEnd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.lblEveEnd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
             this.lblEveEnd.Location = new System.Drawing.Point(416, 326);
             this.lblEveEnd.Name = "lblEveEnd";
             this.lblEveEnd.Size = new System.Drawing.Size(75, 17);
@@ -202,7 +208,7 @@ namespace CalendarSoftwareSystem
             // 
             this.lblEveStaDate.AutoSize = true;
             this.lblEveStaDate.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.lblEveStaDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.lblEveStaDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
             this.lblEveStaDate.Location = new System.Drawing.Point(160, 305);
             this.lblEveStaDate.Name = "lblEveStaDate";
             this.lblEveStaDate.Size = new System.Drawing.Size(44, 17);
@@ -213,7 +219,7 @@ namespace CalendarSoftwareSystem
             // 
             this.lblEveStaTime.AutoSize = true;
             this.lblEveStaTime.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.lblEveStaTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.lblEveStaTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
             this.lblEveStaTime.Location = new System.Drawing.Point(317, 305);
             this.lblEveStaTime.Name = "lblEveStaTime";
             this.lblEveStaTime.Size = new System.Drawing.Size(45, 17);
@@ -224,7 +230,7 @@ namespace CalendarSoftwareSystem
             // 
             this.lblEventAttendents.AutoSize = true;
             this.lblEventAttendents.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.lblEventAttendents.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.lblEventAttendents.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
             this.lblEventAttendents.Location = new System.Drawing.Point(606, 79);
             this.lblEventAttendents.Name = "lblEventAttendents";
             this.lblEventAttendents.Size = new System.Drawing.Size(83, 17);
@@ -233,6 +239,8 @@ namespace CalendarSoftwareSystem
             // 
             // chklstAttendants
             // 
+            this.chklstAttendants.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.chklstAttendants.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(27)))));
             this.chklstAttendants.FormattingEnabled = true;
             this.chklstAttendants.Location = new System.Drawing.Point(512, 99);
             this.chklstAttendants.Name = "chklstAttendants";
@@ -243,7 +251,7 @@ namespace CalendarSoftwareSystem
             // 
             this.radButEveStaAM.AutoSize = true;
             this.radButEveStaAM.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.radButEveStaAM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.radButEveStaAM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
             this.radButEveStaAM.Location = new System.Drawing.Point(3, 3);
             this.radButEveStaAM.Name = "radButEveStaAM";
             this.radButEveStaAM.Size = new System.Drawing.Size(49, 21);
@@ -254,8 +262,10 @@ namespace CalendarSoftwareSystem
             // 
             // cBoxEveStaYear
             // 
+            this.cBoxEveStaYear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.cBoxEveStaYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxEveStaYear.Enabled = false;
+            this.cBoxEveStaYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(27)))));
             this.cBoxEveStaYear.FormattingEnabled = true;
             this.cBoxEveStaYear.Location = new System.Drawing.Point(215, 324);
             this.cBoxEveStaYear.Name = "cBoxEveStaYear";
@@ -264,7 +274,9 @@ namespace CalendarSoftwareSystem
             // 
             // cBoxEveStaHour
             // 
+            this.cBoxEveStaHour.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.cBoxEveStaHour.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxEveStaHour.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(27)))));
             this.cBoxEveStaHour.FormattingEnabled = true;
             this.cBoxEveStaHour.Items.AddRange(new object[] {
             "01",
@@ -288,7 +300,7 @@ namespace CalendarSoftwareSystem
             // 
             this.radButEveStaPM.AutoSize = true;
             this.radButEveStaPM.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.radButEveStaPM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.radButEveStaPM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
             this.radButEveStaPM.Location = new System.Drawing.Point(66, 3);
             this.radButEveStaPM.Name = "radButEveStaPM";
             this.radButEveStaPM.Size = new System.Drawing.Size(47, 21);
@@ -310,8 +322,10 @@ namespace CalendarSoftwareSystem
             // 
             // cBoxEveStaMon
             // 
+            this.cBoxEveStaMon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.cBoxEveStaMon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxEveStaMon.Enabled = false;
+            this.cBoxEveStaMon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(27)))));
             this.cBoxEveStaMon.FormattingEnabled = true;
             this.cBoxEveStaMon.Items.AddRange(new object[] {
             "1",
@@ -333,8 +347,10 @@ namespace CalendarSoftwareSystem
             // 
             // cBoxEveStaDay
             // 
+            this.cBoxEveStaDay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.cBoxEveStaDay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxEveStaDay.Enabled = false;
+            this.cBoxEveStaDay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(27)))));
             this.cBoxEveStaDay.FormattingEnabled = true;
             this.cBoxEveStaDay.Items.AddRange(new object[] {
             "1",
@@ -375,7 +391,9 @@ namespace CalendarSoftwareSystem
             // 
             // cBoxEveStaMin
             // 
+            this.cBoxEveStaMin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.cBoxEveStaMin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxEveStaMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(27)))));
             this.cBoxEveStaMin.FormattingEnabled = true;
             this.cBoxEveStaMin.Items.AddRange(new object[] {
             "00",
@@ -469,7 +487,7 @@ namespace CalendarSoftwareSystem
             // 
             this.lblEveEndDate.AutoSize = true;
             this.lblEveEndDate.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.lblEveEndDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.lblEveEndDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
             this.lblEveEndDate.Location = new System.Drawing.Point(550, 305);
             this.lblEveEndDate.Name = "lblEveEndDate";
             this.lblEveEndDate.Size = new System.Drawing.Size(44, 17);
@@ -480,7 +498,7 @@ namespace CalendarSoftwareSystem
             // 
             this.lblEveEndTime.AutoSize = true;
             this.lblEveEndTime.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.lblEveEndTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.lblEveEndTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
             this.lblEveEndTime.Location = new System.Drawing.Point(709, 305);
             this.lblEveEndTime.Name = "lblEveEndTime";
             this.lblEveEndTime.Size = new System.Drawing.Size(45, 17);
@@ -489,8 +507,10 @@ namespace CalendarSoftwareSystem
             // 
             // cBoxEveEndYear
             // 
+            this.cBoxEveEndYear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.cBoxEveEndYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxEveEndYear.Enabled = false;
+            this.cBoxEveEndYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(27)))));
             this.cBoxEveEndYear.FormattingEnabled = true;
             this.cBoxEveEndYear.Location = new System.Drawing.Point(605, 324);
             this.cBoxEveEndYear.Name = "cBoxEveEndYear";
@@ -499,7 +519,9 @@ namespace CalendarSoftwareSystem
             // 
             // cBoxEveEndHour
             // 
+            this.cBoxEveEndHour.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.cBoxEveEndHour.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxEveEndHour.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(27)))));
             this.cBoxEveEndHour.FormattingEnabled = true;
             this.cBoxEveEndHour.Items.AddRange(new object[] {
             "01",
@@ -554,8 +576,10 @@ namespace CalendarSoftwareSystem
             // 
             // cBoxEveEndMon
             // 
+            this.cBoxEveEndMon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.cBoxEveEndMon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxEveEndMon.Enabled = false;
+            this.cBoxEveEndMon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(27)))));
             this.cBoxEveEndMon.FormattingEnabled = true;
             this.cBoxEveEndMon.Items.AddRange(new object[] {
             "1",
@@ -577,8 +601,10 @@ namespace CalendarSoftwareSystem
             // 
             // cBoxEveEndDay
             // 
+            this.cBoxEveEndDay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.cBoxEveEndDay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxEveEndDay.Enabled = false;
+            this.cBoxEveEndDay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(27)))));
             this.cBoxEveEndDay.FormattingEnabled = true;
             this.cBoxEveEndDay.Items.AddRange(new object[] {
             "1",
@@ -619,7 +645,9 @@ namespace CalendarSoftwareSystem
             // 
             // cBoxEveEndMin
             // 
+            this.cBoxEveEndMin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.cBoxEveEndMin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxEveEndMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(27)))));
             this.cBoxEveEndMin.FormattingEnabled = true;
             this.cBoxEveEndMin.Items.AddRange(new object[] {
             "00",
@@ -709,7 +737,7 @@ namespace CalendarSoftwareSystem
             // 
             this.radButEveEndPM.AutoSize = true;
             this.radButEveEndPM.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.radButEveEndPM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.radButEveEndPM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
             this.radButEveEndPM.Location = new System.Drawing.Point(66, 3);
             this.radButEveEndPM.Name = "radButEveEndPM";
             this.radButEveEndPM.Size = new System.Drawing.Size(47, 21);
@@ -722,7 +750,7 @@ namespace CalendarSoftwareSystem
             // 
             this.radButEveEndAM.AutoSize = true;
             this.radButEveEndAM.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.radButEveEndAM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.radButEveEndAM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
             this.radButEveEndAM.Location = new System.Drawing.Point(3, 3);
             this.radButEveEndAM.Name = "radButEveEndAM";
             this.radButEveEndAM.Size = new System.Drawing.Size(49, 21);
@@ -776,12 +804,12 @@ namespace CalendarSoftwareSystem
             // 
             // btnEveBack
             // 
-            this.btnEveBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.btnEveBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(103)))), ((int)(((byte)(102)))));
             this.btnEveBack.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEveBack.FlatAppearance.BorderSize = 0;
             this.btnEveBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEveBack.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEveBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.btnEveBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.btnEveBack.Location = new System.Drawing.Point(14, 401);
             this.btnEveBack.Name = "btnEveBack";
             this.btnEveBack.Size = new System.Drawing.Size(75, 29);
@@ -806,6 +834,9 @@ namespace CalendarSoftwareSystem
             // 
             // lViewEveView
             // 
+            this.lViewEveView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.lViewEveView.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.lViewEveView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(27)))));
             this.lViewEveView.FullRowSelect = true;
             this.lViewEveView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lViewEveView.HideSelection = false;
@@ -821,12 +852,12 @@ namespace CalendarSoftwareSystem
             // 
             // BtnEveViewCancel
             // 
-            this.BtnEveViewCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.BtnEveViewCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(103)))), ((int)(((byte)(102)))));
             this.BtnEveViewCancel.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.BtnEveViewCancel.FlatAppearance.BorderSize = 0;
             this.BtnEveViewCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEveViewCancel.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.BtnEveViewCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.BtnEveViewCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.BtnEveViewCancel.Location = new System.Drawing.Point(14, 401);
             this.BtnEveViewCancel.Name = "BtnEveViewCancel";
             this.BtnEveViewCancel.Size = new System.Drawing.Size(75, 29);
@@ -837,12 +868,12 @@ namespace CalendarSoftwareSystem
             // 
             // btnEveViewDelete
             // 
-            this.btnEveViewDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.btnEveViewDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(103)))), ((int)(((byte)(102)))));
             this.btnEveViewDelete.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEveViewDelete.FlatAppearance.BorderSize = 0;
             this.btnEveViewDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEveViewDelete.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEveViewDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.btnEveViewDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.btnEveViewDelete.Location = new System.Drawing.Point(512, 401);
             this.btnEveViewDelete.Name = "btnEveViewDelete";
             this.btnEveViewDelete.Size = new System.Drawing.Size(75, 29);
@@ -853,12 +884,12 @@ namespace CalendarSoftwareSystem
             // 
             // btnEveViewEdit
             // 
-            this.btnEveViewEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.btnEveViewEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(103)))), ((int)(((byte)(102)))));
             this.btnEveViewEdit.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEveViewEdit.FlatAppearance.BorderSize = 0;
             this.btnEveViewEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEveViewEdit.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEveViewEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.btnEveViewEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.btnEveViewEdit.Location = new System.Drawing.Point(597, 401);
             this.btnEveViewEdit.Name = "btnEveViewEdit";
             this.btnEveViewEdit.Size = new System.Drawing.Size(96, 29);
@@ -871,7 +902,7 @@ namespace CalendarSoftwareSystem
             // 
             this.lblEveView.AutoSize = true;
             this.lblEveView.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.lblEveView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.lblEveView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
             this.lblEveView.Location = new System.Drawing.Point(21, 57);
             this.lblEveView.Name = "lblEveView";
             this.lblEveView.Size = new System.Drawing.Size(53, 17);
@@ -880,12 +911,12 @@ namespace CalendarSoftwareSystem
             // 
             // btnEveViewCreate
             // 
-            this.btnEveViewCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.btnEveViewCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(103)))), ((int)(((byte)(102)))));
             this.btnEveViewCreate.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEveViewCreate.FlatAppearance.BorderSize = 0;
             this.btnEveViewCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEveViewCreate.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEveViewCreate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.btnEveViewCreate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.btnEveViewCreate.Location = new System.Drawing.Point(701, 401);
             this.btnEveViewCreate.Name = "btnEveViewCreate";
             this.btnEveViewCreate.Size = new System.Drawing.Size(75, 29);
@@ -898,7 +929,7 @@ namespace CalendarSoftwareSystem
             // 
             this.lblEveViewDate.AutoSize = true;
             this.lblEveViewDate.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Bold);
-            this.lblEveViewDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.lblEveViewDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(194)))), ((int)(((byte)(247)))));
             this.lblEveViewDate.Location = new System.Drawing.Point(3, 5);
             this.lblEveViewDate.Name = "lblEveViewDate";
             this.lblEveViewDate.Size = new System.Drawing.Size(116, 47);
@@ -907,12 +938,12 @@ namespace CalendarSoftwareSystem
             // 
             // btnEveCoord
             // 
-            this.btnEveCoord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.btnEveCoord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(103)))), ((int)(((byte)(102)))));
             this.btnEveCoord.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEveCoord.FlatAppearance.BorderSize = 0;
             this.btnEveCoord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEveCoord.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEveCoord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.btnEveCoord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.btnEveCoord.Location = new System.Drawing.Point(204, 401);
             this.btnEveCoord.Name = "btnEveCoord";
             this.btnEveCoord.Size = new System.Drawing.Size(401, 29);
@@ -934,12 +965,12 @@ namespace CalendarSoftwareSystem
             // 
             // btnEveCoordCancel
             // 
-            this.btnEveCoordCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.btnEveCoordCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(103)))), ((int)(((byte)(102)))));
             this.btnEveCoordCancel.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEveCoordCancel.FlatAppearance.BorderSize = 0;
             this.btnEveCoordCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEveCoordCancel.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEveCoordCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.btnEveCoordCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.btnEveCoordCancel.Location = new System.Drawing.Point(7, 401);
             this.btnEveCoordCancel.Name = "btnEveCoordCancel";
             this.btnEveCoordCancel.Size = new System.Drawing.Size(75, 29);
@@ -950,12 +981,12 @@ namespace CalendarSoftwareSystem
             // 
             // btnEveCoordSelect
             // 
-            this.btnEveCoordSelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.btnEveCoordSelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(103)))), ((int)(((byte)(102)))));
             this.btnEveCoordSelect.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEveCoordSelect.FlatAppearance.BorderSize = 0;
             this.btnEveCoordSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEveCoordSelect.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEveCoordSelect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.btnEveCoordSelect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.btnEveCoordSelect.Location = new System.Drawing.Point(714, 401);
             this.btnEveCoordSelect.Name = "btnEveCoordSelect";
             this.btnEveCoordSelect.Size = new System.Drawing.Size(75, 29);
@@ -968,7 +999,7 @@ namespace CalendarSoftwareSystem
             // 
             this.lblEveCoordDate.AutoSize = true;
             this.lblEveCoordDate.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Bold);
-            this.lblEveCoordDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.lblEveCoordDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(194)))), ((int)(((byte)(247)))));
             this.lblEveCoordDate.Location = new System.Drawing.Point(17, 10);
             this.lblEveCoordDate.Name = "lblEveCoordDate";
             this.lblEveCoordDate.Size = new System.Drawing.Size(486, 47);
@@ -977,12 +1008,16 @@ namespace CalendarSoftwareSystem
             // 
             // lViewEveCoord
             // 
+            this.lViewEveCoord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.lViewEveCoord.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold);
+            this.lViewEveCoord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(27)))));
             this.lViewEveCoord.FullRowSelect = true;
             this.lViewEveCoord.HideSelection = false;
             this.lViewEveCoord.Location = new System.Drawing.Point(26, 76);
             this.lViewEveCoord.MultiSelect = false;
             this.lViewEveCoord.Name = "lViewEveCoord";
             this.lViewEveCoord.Size = new System.Drawing.Size(750, 316);
+            this.lViewEveCoord.Sorting = System.Windows.Forms.SortOrder.Descending;
             this.lViewEveCoord.TabIndex = 20;
             this.lViewEveCoord.UseCompatibleStateImageBehavior = false;
             this.lViewEveCoord.View = System.Windows.Forms.View.Details;
@@ -991,11 +1026,11 @@ namespace CalendarSoftwareSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(30)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(47)))), ((int)(((byte)(52)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panelEveCoord);
             this.Controls.Add(this.panelEveView);
             this.Controls.Add(this.panelEveAdd);
-            this.Controls.Add(this.panelEveCoord);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "EventForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

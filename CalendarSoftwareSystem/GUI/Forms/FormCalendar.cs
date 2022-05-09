@@ -33,6 +33,9 @@ namespace CalendarSoftwareSystem
             // Initialize variables
             DateTime now = DateTime.Now;
             thisCalendar = new Calendar(now.Day, now.Month, now.Year, eventList);
+            thisCalendar.Month = now.Day;
+            thisCalendar.Month = now.Month;
+            thisCalendar.Month = now.Year;
         }
 
 
@@ -135,37 +138,57 @@ namespace CalendarSoftwareSystem
         //Purpose: This function increments the number of months by one, accounting for year changes
         private void btnCalNext_Click(object sender, EventArgs e)
         {
-            // Increment to the next month
-            thisCalendar.Month++;
-
-            // If 13 is reached, move over to the next year
-            if (thisCalendar.Month > 12)
+            try 
             {
-                thisCalendar.Month = 1;
-                thisCalendar.Year++;
-            }
+                // Increment to the next month
+                thisCalendar.Month++;
 
-            // Display this change to the user
-            displayDays();
+                // If 13 is reached, move over to the next year
+                if (thisCalendar.Month > 12)
+                {
+                    thisCalendar.Month = 1;
+                    thisCalendar.Year++;
+                }
+
+                // Display this change to the user
+                displayDays();
+            }
+            catch
+            {
+                DateTime now = DateTime.Now;
+                thisCalendar.Month = now.Day;
+                thisCalendar.Month = now.Month;
+                thisCalendar.Month = now.Year;
+            }
         }
 
         //Attatched to: btnCalPrevious (Panel: panelCalendar)
         //Purpose: This function decrements the number of months by one, accounting for year changes
         private void btnCalPrevious_Click(object sender, EventArgs e)
         {
-            // Decrement to the next month
-            thisCalendar.Month--;
-
-            // If 0 is reached, move back to the previous year
-            if (thisCalendar.Month < 1)
+            try
             {
-                thisCalendar.Month = 12;
-                thisCalendar.Year--;
-            }
+                // Decrement to the next month
+                thisCalendar.Month--;
 
-            // Display this change to the user
-            displayDays();
-        }
+                // If 0 is reached, move back to the previous year
+                if (thisCalendar.Month < 1)
+                {
+                    thisCalendar.Month = 12;
+                    thisCalendar.Year--;
+                }
+
+                // Display this change to the user
+                displayDays();
+            }
+            catch
+            {
+                DateTime now = DateTime.Now;
+                thisCalendar.Month = now.Day;
+                thisCalendar.Month = now.Month;
+                thisCalendar.Month = now.Year;
+            }
+}
 
         //Used in:  formCalendar_Load, btnCalNext_Click, btnCalPrevious_Click
         //Purpose:  This function displays the days of the month to the user

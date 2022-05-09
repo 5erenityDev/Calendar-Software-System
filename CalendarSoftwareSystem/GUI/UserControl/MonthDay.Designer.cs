@@ -37,7 +37,7 @@ namespace CalendarSoftwareSystem
             // 
             this.lblDays.AutoSize = true;
             this.lblDays.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDays.ForeColor = System.Drawing.Color.Lavender;
+            this.lblDays.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
             this.lblDays.Location = new System.Drawing.Point(-1, 0);
             this.lblDays.Name = "lblDays";
             this.lblDays.Size = new System.Drawing.Size(32, 23);
@@ -48,7 +48,7 @@ namespace CalendarSoftwareSystem
             // 
             this.lblEvents.AutoSize = true;
             this.lblEvents.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.lblEvents.ForeColor = System.Drawing.Color.Lavender;
+            this.lblEvents.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(144)))), ((int)(((byte)(191)))));
             this.lblEvents.Location = new System.Drawing.Point(2, 23);
             this.lblEvents.Name = "lblEvents";
             this.lblEvents.Size = new System.Drawing.Size(49, 17);
@@ -59,7 +59,7 @@ namespace CalendarSoftwareSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(27)))));
             this.Controls.Add(this.lblEvents);
             this.Controls.Add(this.lblDays);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));

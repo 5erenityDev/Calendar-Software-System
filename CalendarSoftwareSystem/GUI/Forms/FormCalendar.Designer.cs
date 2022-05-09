@@ -56,27 +56,27 @@ namespace CalendarSoftwareSystem
             // 
             // panelLogin
             // 
-            this.panelLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
+            this.panelLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(47)))), ((int)(((byte)(52)))));
             this.panelLogin.Controls.Add(this.lblLogPass);
             this.panelLogin.Controls.Add(this.lblLogUser);
             this.panelLogin.Controls.Add(this.btnLogLogin);
             this.panelLogin.Controls.Add(this.lblLogTitle);
             this.panelLogin.Controls.Add(this.tBoxLogPass);
             this.panelLogin.Controls.Add(this.tBoxLogUser);
-            this.panelLogin.Location = new System.Drawing.Point(-1, 0);
+            this.panelLogin.Location = new System.Drawing.Point(-1, -1);
             this.panelLogin.Name = "panelLogin";
-            this.panelLogin.Size = new System.Drawing.Size(1264, 680);
+            this.panelLogin.Size = new System.Drawing.Size(1267, 681);
             this.panelLogin.TabIndex = 0;
             // 
             // lblLogPass
             // 
             this.lblLogPass.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblLogPass.AutoSize = true;
-            this.lblLogPass.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
-            this.lblLogPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.lblLogPass.Location = new System.Drawing.Point(486, 307);
+            this.lblLogPass.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold);
+            this.lblLogPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
+            this.lblLogPass.Location = new System.Drawing.Point(364, 323);
             this.lblLogPass.Name = "lblLogPass";
-            this.lblLogPass.Size = new System.Drawing.Size(128, 28);
+            this.lblLogPass.Size = new System.Drawing.Size(146, 32);
             this.lblLogPass.TabIndex = 8;
             this.lblLogPass.Text = "Password:";
             // 
@@ -84,23 +84,23 @@ namespace CalendarSoftwareSystem
             // 
             this.lblLogUser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblLogUser.AutoSize = true;
-            this.lblLogUser.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
-            this.lblLogUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.lblLogUser.Location = new System.Drawing.Point(477, 248);
+            this.lblLogUser.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold);
+            this.lblLogUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
+            this.lblLogUser.Location = new System.Drawing.Point(355, 253);
             this.lblLogUser.Name = "lblLogUser";
-            this.lblLogUser.Size = new System.Drawing.Size(136, 28);
+            this.lblLogUser.Size = new System.Drawing.Size(155, 32);
             this.lblLogUser.TabIndex = 8;
             this.lblLogUser.Text = "Username:";
             // 
             // btnLogLogin
             // 
-            this.btnLogLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.btnLogLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(103)))), ((int)(((byte)(102)))));
             this.btnLogLogin.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnLogLogin.FlatAppearance.BorderSize = 0;
             this.btnLogLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogLogin.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold);
-            this.btnLogLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.btnLogLogin.Location = new System.Drawing.Point(562, 357);
+            this.btnLogLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.btnLogLogin.Location = new System.Drawing.Point(562, 407);
             this.btnLogLogin.Name = "btnLogLogin";
             this.btnLogLogin.Size = new System.Drawing.Size(142, 53);
             this.btnLogLogin.TabIndex = 7;
@@ -113,8 +113,8 @@ namespace CalendarSoftwareSystem
             this.lblLogTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblLogTitle.AutoSize = true;
             this.lblLogTitle.Font = new System.Drawing.Font("Century Gothic", 50F, System.Drawing.FontStyle.Bold);
-            this.lblLogTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.lblLogTitle.Location = new System.Drawing.Point(463, 52);
+            this.lblLogTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(194)))), ((int)(((byte)(247)))));
+            this.lblLogTitle.Location = new System.Drawing.Point(464, 52);
             this.lblLogTitle.Name = "lblLogTitle";
             this.lblLogTitle.Size = new System.Drawing.Size(338, 160);
             this.lblLogTitle.TabIndex = 6;
@@ -123,21 +123,31 @@ namespace CalendarSoftwareSystem
             // 
             // tBoxLogPass
             // 
-            this.tBoxLogPass.Location = new System.Drawing.Point(621, 316);
+            this.tBoxLogPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.tBoxLogPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tBoxLogPass.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold);
+            this.tBoxLogPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(27)))));
+            this.tBoxLogPass.Location = new System.Drawing.Point(516, 323);
+            this.tBoxLogPass.MaxLength = 50;
             this.tBoxLogPass.Name = "tBoxLogPass";
-            this.tBoxLogPass.Size = new System.Drawing.Size(180, 20);
+            this.tBoxLogPass.Size = new System.Drawing.Size(329, 40);
             this.tBoxLogPass.TabIndex = 1;
             // 
             // tBoxLogUser
             // 
-            this.tBoxLogUser.Location = new System.Drawing.Point(621, 257);
+            this.tBoxLogUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.tBoxLogUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tBoxLogUser.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold);
+            this.tBoxLogUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(27)))));
+            this.tBoxLogUser.Location = new System.Drawing.Point(516, 253);
+            this.tBoxLogUser.MaxLength = 50;
             this.tBoxLogUser.Name = "tBoxLogUser";
-            this.tBoxLogUser.Size = new System.Drawing.Size(180, 20);
+            this.tBoxLogUser.Size = new System.Drawing.Size(329, 40);
             this.tBoxLogUser.TabIndex = 0;
             // 
             // panelCalendar
             // 
-            this.panelCalendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
+            this.panelCalendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(47)))), ((int)(((byte)(52)))));
             this.panelCalendar.Controls.Add(this.lblYear);
             this.panelCalendar.Controls.Add(this.btnCalLogOut);
             this.panelCalendar.Controls.Add(this.btnCalPrevious);
@@ -152,9 +162,9 @@ namespace CalendarSoftwareSystem
             this.panelCalendar.Controls.Add(this.labelCalendarMonday);
             this.panelCalendar.Controls.Add(this.labelCalendarSunday);
             this.panelCalendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.panelCalendar.Location = new System.Drawing.Point(-1, 0);
+            this.panelCalendar.Location = new System.Drawing.Point(-1, -1);
             this.panelCalendar.Name = "panelCalendar";
-            this.panelCalendar.Size = new System.Drawing.Size(1267, 680);
+            this.panelCalendar.Size = new System.Drawing.Size(1267, 681);
             this.panelCalendar.TabIndex = 1;
             // 
             // lblYear
@@ -162,7 +172,7 @@ namespace CalendarSoftwareSystem
             this.lblYear.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblYear.AutoSize = true;
             this.lblYear.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Bold);
-            this.lblYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.lblYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(194)))), ((int)(((byte)(247)))));
             this.lblYear.Location = new System.Drawing.Point(1050, 5);
             this.lblYear.Name = "lblYear";
             this.lblYear.Size = new System.Drawing.Size(119, 47);
@@ -172,12 +182,12 @@ namespace CalendarSoftwareSystem
             // 
             // btnCalLogOut
             // 
-            this.btnCalLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.btnCalLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(103)))), ((int)(((byte)(102)))));
             this.btnCalLogOut.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnCalLogOut.FlatAppearance.BorderSize = 0;
             this.btnCalLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalLogOut.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnCalLogOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.btnCalLogOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.btnCalLogOut.Location = new System.Drawing.Point(13, 598);
             this.btnCalLogOut.Name = "btnCalLogOut";
             this.btnCalLogOut.Size = new System.Drawing.Size(75, 64);
@@ -188,12 +198,12 @@ namespace CalendarSoftwareSystem
             // 
             // btnCalPrevious
             // 
-            this.btnCalPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.btnCalPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(103)))), ((int)(((byte)(102)))));
             this.btnCalPrevious.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnCalPrevious.FlatAppearance.BorderSize = 0;
             this.btnCalPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalPrevious.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnCalPrevious.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.btnCalPrevious.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.btnCalPrevious.Location = new System.Drawing.Point(1178, 598);
             this.btnCalPrevious.Name = "btnCalPrevious";
             this.btnCalPrevious.Size = new System.Drawing.Size(75, 29);
@@ -204,12 +214,12 @@ namespace CalendarSoftwareSystem
             // 
             // btnCalNext
             // 
-            this.btnCalNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.btnCalNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(103)))), ((int)(((byte)(102)))));
             this.btnCalNext.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnCalNext.FlatAppearance.BorderSize = 0;
             this.btnCalNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalNext.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnCalNext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.btnCalNext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.btnCalNext.Location = new System.Drawing.Point(1178, 633);
             this.btnCalNext.Name = "btnCalNext";
             this.btnCalNext.Size = new System.Drawing.Size(75, 29);
@@ -230,7 +240,7 @@ namespace CalendarSoftwareSystem
             this.labelCalendarSaturday.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelCalendarSaturday.AutoSize = true;
             this.labelCalendarSaturday.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
-            this.labelCalendarSaturday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.labelCalendarSaturday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
             this.labelCalendarSaturday.Location = new System.Drawing.Point(1029, 52);
             this.labelCalendarSaturday.Name = "labelCalendarSaturday";
             this.labelCalendarSaturday.Size = new System.Drawing.Size(115, 28);
@@ -242,7 +252,7 @@ namespace CalendarSoftwareSystem
             this.labelCalendarFriday.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelCalendarFriday.AutoSize = true;
             this.labelCalendarFriday.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
-            this.labelCalendarFriday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.labelCalendarFriday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
             this.labelCalendarFriday.Location = new System.Drawing.Point(894, 52);
             this.labelCalendarFriday.Name = "labelCalendarFriday";
             this.labelCalendarFriday.Size = new System.Drawing.Size(84, 28);
@@ -254,7 +264,7 @@ namespace CalendarSoftwareSystem
             this.labelCalendarThursday.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelCalendarThursday.AutoSize = true;
             this.labelCalendarThursday.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
-            this.labelCalendarThursday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.labelCalendarThursday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
             this.labelCalendarThursday.Location = new System.Drawing.Point(730, 52);
             this.labelCalendarThursday.Name = "labelCalendarThursday";
             this.labelCalendarThursday.Size = new System.Drawing.Size(115, 28);
@@ -266,7 +276,7 @@ namespace CalendarSoftwareSystem
             this.lblMonth.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMonth.AutoSize = true;
             this.lblMonth.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Bold);
-            this.lblMonth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.lblMonth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(194)))), ((int)(((byte)(247)))));
             this.lblMonth.Location = new System.Drawing.Point(98, 5);
             this.lblMonth.Name = "lblMonth";
             this.lblMonth.Size = new System.Drawing.Size(164, 47);
@@ -279,7 +289,7 @@ namespace CalendarSoftwareSystem
             this.labelCalendarWednesday.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelCalendarWednesday.AutoSize = true;
             this.labelCalendarWednesday.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
-            this.labelCalendarWednesday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.labelCalendarWednesday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
             this.labelCalendarWednesday.Location = new System.Drawing.Point(557, 52);
             this.labelCalendarWednesday.Name = "labelCalendarWednesday";
             this.labelCalendarWednesday.Size = new System.Drawing.Size(151, 28);
@@ -291,7 +301,7 @@ namespace CalendarSoftwareSystem
             this.labelCalendarTuesday.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelCalendarTuesday.AutoSize = true;
             this.labelCalendarTuesday.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
-            this.labelCalendarTuesday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.labelCalendarTuesday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
             this.labelCalendarTuesday.Location = new System.Drawing.Point(429, 52);
             this.labelCalendarTuesday.Name = "labelCalendarTuesday";
             this.labelCalendarTuesday.Size = new System.Drawing.Size(108, 28);
@@ -303,7 +313,7 @@ namespace CalendarSoftwareSystem
             this.labelCalendarMonday.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelCalendarMonday.AutoSize = true;
             this.labelCalendarMonday.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
-            this.labelCalendarMonday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.labelCalendarMonday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
             this.labelCalendarMonday.Location = new System.Drawing.Point(282, 52);
             this.labelCalendarMonday.Name = "labelCalendarMonday";
             this.labelCalendarMonday.Size = new System.Drawing.Size(109, 28);
@@ -315,7 +325,7 @@ namespace CalendarSoftwareSystem
             this.labelCalendarSunday.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelCalendarSunday.AutoSize = true;
             this.labelCalendarSunday.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
-            this.labelCalendarSunday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.labelCalendarSunday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
             this.labelCalendarSunday.Location = new System.Drawing.Point(136, 52);
             this.labelCalendarSunday.Name = "labelCalendarSunday";
             this.labelCalendarSunday.Size = new System.Drawing.Size(98, 28);
@@ -326,10 +336,10 @@ namespace CalendarSoftwareSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(47)))), ((int)(((byte)(52)))));
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.panelCalendar);
             this.Controls.Add(this.panelLogin);
+            this.Controls.Add(this.panelCalendar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormCalendar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

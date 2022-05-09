@@ -563,8 +563,8 @@ namespace CalendarSoftwareSystem
             lViewEveView.Items.Clear();
             var header1 = lViewEveView.Columns.Add("Event ID", -2, HorizontalAlignment.Left);
             var header2 = lViewEveView.Columns.Add("Title", -2, HorizontalAlignment.Left);
-            var header3 = lViewEveView.Columns.Add("Start Date", -2, HorizontalAlignment.Left);
-            var header4 = lViewEveView.Columns.Add("End Date", -2, HorizontalAlignment.Left);
+            var header3 = lViewEveView.Columns.Add("Start Time", -2, HorizontalAlignment.Left);
+            var header4 = lViewEveView.Columns.Add("End Time", -2, HorizontalAlignment.Left);
 
             foreach (Event eve in thisCalendar.ThisCalendar.EventList)
             {
@@ -574,8 +574,8 @@ namespace CalendarSoftwareSystem
                     {
                     eve.EventID.ToString(),
                     eve.Title,
-                    eve.StartDate.ToString("MM/dd/yyyy hh:mm:ss tt"),
-                    eve.EndDate.ToString("MM/dd/yyyy hh:mm:ss tt")
+                    eve.StartDate.ToString("hh:mm:ss tt"),
+                    eve.EndDate.ToString("hh:mm:ss tt")
                     });
                     lViewEveView.Items.Add(lvi);
                 }
@@ -584,6 +584,7 @@ namespace CalendarSoftwareSystem
             lViewEveView.Columns[1].Width = -2;
             lViewEveView.Columns[2].Width = -2;
             lViewEveView.Columns[3].Width = -2;
+            lViewEveView.Sort();
         }
 
         
