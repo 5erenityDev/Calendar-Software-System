@@ -1,27 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CalendarSoftwareSystem
 {
     public class Event
     {
-        private int eventID;
+        private int eventID, empID;
         private string title;
         private string description;
         private string location;
         private static readonly string[] RESULTS = { "VALID_EVENT", "DATA_NOT_FOUND", "UNABLE_TO_CONNECT" };
+        private bool isGroupEvent;
 
-        private List<string> attendants;
+        private string[] attendants;
 
         private DateTime startDate;
         private DateTime endDate;
         
         
-        public Event(int eID, string t, string d, string l, List<string> a, DateTime sDate, DateTime eDate)
+        public Event(int eID, string t, string d, string l, string[] a, DateTime sDate, DateTime eDate, int emID, bool isGE)
         {
             eventID = eID;
             title = t;
@@ -33,6 +29,8 @@ namespace CalendarSoftwareSystem
             startDate = sDate;
             endDate = eDate;
 
+            empID = emID;
+            isGroupEvent = isGE;
         }
 
         public Event()
@@ -110,7 +108,7 @@ namespace CalendarSoftwareSystem
             set { location = value; }
         }
 
-        public List<string> Attendants
+        public string[] Attendants
         {
             get { return attendants; }
             set { attendants = value; }
@@ -126,6 +124,18 @@ namespace CalendarSoftwareSystem
         {
             get { return endDate; }
             set { endDate = value; }
+        }
+
+        public int EmpID
+        {
+            get { return empID; }
+            set { empID = value; }
+        }
+
+        public bool IsGroupEvent
+        {
+            get { return isGroupEvent; }
+            set { isGroupEvent = value; }
         }
     }
 }

@@ -69,7 +69,6 @@ namespace CalendarSoftwareSystem
             this.radButEveEndAM = new System.Windows.Forms.RadioButton();
             this.panelEveAdd = new System.Windows.Forms.Panel();
             this.btnEveBack = new System.Windows.Forms.Button();
-            this.btnEveCoord = new System.Windows.Forms.Button();
             this.panelEveView = new System.Windows.Forms.Panel();
             this.lViewEveView = new System.Windows.Forms.ListView();
             this.BtnEveViewCancel = new System.Windows.Forms.Button();
@@ -78,10 +77,17 @@ namespace CalendarSoftwareSystem
             this.lblEveView = new System.Windows.Forms.Label();
             this.btnEveViewCreate = new System.Windows.Forms.Button();
             this.lblEveViewDate = new System.Windows.Forms.Label();
+            this.btnEveCoord = new System.Windows.Forms.Button();
+            this.panelEveCoord = new System.Windows.Forms.Panel();
+            this.btnEveCoordCancel = new System.Windows.Forms.Button();
+            this.btnEveCoordSelect = new System.Windows.Forms.Button();
+            this.lblEveCoordDate = new System.Windows.Forms.Label();
+            this.lViewEveCoord = new System.Windows.Forms.ListView();
             this.panelEveStaRad.SuspendLayout();
             this.panelEveEndRad.SuspendLayout();
             this.panelEveAdd.SuspendLayout();
             this.panelEveView.SuspendLayout();
+            this.panelEveCoord.SuspendLayout();
             this.SuspendLayout();
             // 
             // tBoxEveName
@@ -261,15 +267,15 @@ namespace CalendarSoftwareSystem
             this.cBoxEveStaHour.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxEveStaHour.FormattingEnabled = true;
             this.cBoxEveStaHour.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
             "10",
             "11",
             "12"});
@@ -496,15 +502,15 @@ namespace CalendarSoftwareSystem
             this.cBoxEveEndHour.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxEveEndHour.FormattingEnabled = true;
             this.cBoxEveEndHour.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
             "10",
             "11",
             "12"});
@@ -727,8 +733,8 @@ namespace CalendarSoftwareSystem
             // 
             // panelEveAdd
             // 
-            this.panelEveAdd.Controls.Add(this.btnEveBack);
             this.panelEveAdd.Controls.Add(this.btnEveCoord);
+            this.panelEveAdd.Controls.Add(this.btnEveBack);
             this.panelEveAdd.Controls.Add(this.panelEveEndRad);
             this.panelEveAdd.Controls.Add(this.lblEveTitle);
             this.panelEveAdd.Controls.Add(this.panelEveStaRad);
@@ -763,9 +769,9 @@ namespace CalendarSoftwareSystem
             this.panelEveAdd.Controls.Add(this.chklstAttendants);
             this.panelEveAdd.Controls.Add(this.cBoxEveStaHour);
             this.panelEveAdd.Controls.Add(this.cBoxEveStaYear);
-            this.panelEveAdd.Location = new System.Drawing.Point(3, 4);
+            this.panelEveAdd.Location = new System.Drawing.Point(2, 6);
             this.panelEveAdd.Name = "panelEveAdd";
-            this.panelEveAdd.Size = new System.Drawing.Size(796, 443);
+            this.panelEveAdd.Size = new System.Drawing.Size(797, 441);
             this.panelEveAdd.TabIndex = 12;
             // 
             // btnEveBack
@@ -784,24 +790,6 @@ namespace CalendarSoftwareSystem
             this.btnEveBack.UseVisualStyleBackColor = false;
             this.btnEveBack.Click += new System.EventHandler(this.btnEveBack_Click);
             // 
-            // btnEveCoord
-            // 
-            this.btnEveCoord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
-            this.btnEveCoord.Enabled = false;
-            this.btnEveCoord.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEveCoord.FlatAppearance.BorderSize = 0;
-            this.btnEveCoord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEveCoord.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEveCoord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.btnEveCoord.Location = new System.Drawing.Point(265, 401);
-            this.btnEveCoord.Name = "btnEveCoord";
-            this.btnEveCoord.Size = new System.Drawing.Size(326, 29);
-            this.btnEveCoord.TabIndex = 12;
-            this.btnEveCoord.Text = "Coordinate Event with Selected Attendants";
-            this.btnEveCoord.UseVisualStyleBackColor = false;
-            this.btnEveCoord.Visible = false;
-            this.btnEveCoord.Click += new System.EventHandler(this.btnEveCoord_Click);
-            // 
             // panelEveView
             // 
             this.panelEveView.Controls.Add(this.lViewEveView);
@@ -811,21 +799,25 @@ namespace CalendarSoftwareSystem
             this.panelEveView.Controls.Add(this.lblEveView);
             this.panelEveView.Controls.Add(this.btnEveViewCreate);
             this.panelEveView.Controls.Add(this.lblEveViewDate);
-            this.panelEveView.Location = new System.Drawing.Point(3, 4);
+            this.panelEveView.Location = new System.Drawing.Point(2, 6);
             this.panelEveView.Name = "panelEveView";
-            this.panelEveView.Size = new System.Drawing.Size(796, 443);
+            this.panelEveView.Size = new System.Drawing.Size(797, 441);
             this.panelEveView.TabIndex = 12;
             // 
             // lViewEveView
             // 
             this.lViewEveView.FullRowSelect = true;
+            this.lViewEveView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lViewEveView.HideSelection = false;
             this.lViewEveView.Location = new System.Drawing.Point(26, 79);
+            this.lViewEveView.MultiSelect = false;
             this.lViewEveView.Name = "lViewEveView";
             this.lViewEveView.Size = new System.Drawing.Size(750, 316);
             this.lViewEveView.TabIndex = 17;
             this.lViewEveView.UseCompatibleStateImageBehavior = false;
             this.lViewEveView.View = System.Windows.Forms.View.Details;
+            this.lViewEveView.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lViewEveView_ColumnWidthChanging);
+            this.lViewEveView.SelectedIndexChanged += new System.EventHandler(this.lViewEveView_SelectedIndexChanged);
             // 
             // BtnEveViewCancel
             // 
@@ -913,14 +905,97 @@ namespace CalendarSoftwareSystem
             this.lblEveViewDate.TabIndex = 12;
             this.lblEveViewDate.Text = "DATE";
             // 
+            // btnEveCoord
+            // 
+            this.btnEveCoord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.btnEveCoord.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEveCoord.FlatAppearance.BorderSize = 0;
+            this.btnEveCoord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEveCoord.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEveCoord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.btnEveCoord.Location = new System.Drawing.Point(204, 401);
+            this.btnEveCoord.Name = "btnEveCoord";
+            this.btnEveCoord.Size = new System.Drawing.Size(401, 29);
+            this.btnEveCoord.TabIndex = 15;
+            this.btnEveCoord.Text = "Coordinate Event With Selected Attendants";
+            this.btnEveCoord.UseVisualStyleBackColor = false;
+            this.btnEveCoord.Click += new System.EventHandler(this.btnEveCoord_Click);
+            // 
+            // panelEveCoord
+            // 
+            this.panelEveCoord.Controls.Add(this.btnEveCoordSelect);
+            this.panelEveCoord.Controls.Add(this.lblEveCoordDate);
+            this.panelEveCoord.Controls.Add(this.lViewEveCoord);
+            this.panelEveCoord.Controls.Add(this.btnEveCoordCancel);
+            this.panelEveCoord.Location = new System.Drawing.Point(2, 6);
+            this.panelEveCoord.Name = "panelEveCoord";
+            this.panelEveCoord.Size = new System.Drawing.Size(797, 441);
+            this.panelEveCoord.TabIndex = 18;
+            // 
+            // btnEveCoordCancel
+            // 
+            this.btnEveCoordCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.btnEveCoordCancel.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEveCoordCancel.FlatAppearance.BorderSize = 0;
+            this.btnEveCoordCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEveCoordCancel.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEveCoordCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.btnEveCoordCancel.Location = new System.Drawing.Point(7, 401);
+            this.btnEveCoordCancel.Name = "btnEveCoordCancel";
+            this.btnEveCoordCancel.Size = new System.Drawing.Size(75, 29);
+            this.btnEveCoordCancel.TabIndex = 20;
+            this.btnEveCoordCancel.Text = "Cancel";
+            this.btnEveCoordCancel.UseVisualStyleBackColor = false;
+            this.btnEveCoordCancel.Click += new System.EventHandler(this.btnEveCoordCancel_Click);
+            // 
+            // btnEveCoordSelect
+            // 
+            this.btnEveCoordSelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
+            this.btnEveCoordSelect.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEveCoordSelect.FlatAppearance.BorderSize = 0;
+            this.btnEveCoordSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEveCoordSelect.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEveCoordSelect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.btnEveCoordSelect.Location = new System.Drawing.Point(714, 401);
+            this.btnEveCoordSelect.Name = "btnEveCoordSelect";
+            this.btnEveCoordSelect.Size = new System.Drawing.Size(75, 29);
+            this.btnEveCoordSelect.TabIndex = 18;
+            this.btnEveCoordSelect.Text = "Select";
+            this.btnEveCoordSelect.UseVisualStyleBackColor = false;
+            this.btnEveCoordSelect.Click += new System.EventHandler(this.btnEveCoordSelect_Click);
+            // 
+            // lblEveCoordDate
+            // 
+            this.lblEveCoordDate.AutoSize = true;
+            this.lblEveCoordDate.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Bold);
+            this.lblEveCoordDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.lblEveCoordDate.Location = new System.Drawing.Point(17, 10);
+            this.lblEveCoordDate.Name = "lblEveCoordDate";
+            this.lblEveCoordDate.Size = new System.Drawing.Size(486, 47);
+            this.lblEveCoordDate.TabIndex = 19;
+            this.lblEveCoordDate.Text = "AVALIABLE TIMEFRAMES:";
+            // 
+            // lViewEveCoord
+            // 
+            this.lViewEveCoord.FullRowSelect = true;
+            this.lViewEveCoord.HideSelection = false;
+            this.lViewEveCoord.Location = new System.Drawing.Point(26, 76);
+            this.lViewEveCoord.MultiSelect = false;
+            this.lViewEveCoord.Name = "lViewEveCoord";
+            this.lViewEveCoord.Size = new System.Drawing.Size(750, 316);
+            this.lViewEveCoord.TabIndex = 20;
+            this.lViewEveCoord.UseCompatibleStateImageBehavior = false;
+            this.lViewEveCoord.View = System.Windows.Forms.View.Details;
+            // 
             // EventForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panelEveAdd);
             this.Controls.Add(this.panelEveView);
+            this.Controls.Add(this.panelEveAdd);
+            this.Controls.Add(this.panelEveCoord);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "EventForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -934,6 +1009,8 @@ namespace CalendarSoftwareSystem
             this.panelEveAdd.PerformLayout();
             this.panelEveView.ResumeLayout(false);
             this.panelEveView.PerformLayout();
+            this.panelEveCoord.ResumeLayout(false);
+            this.panelEveCoord.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -986,8 +1063,13 @@ namespace CalendarSoftwareSystem
         private System.Windows.Forms.Button BtnEveViewCancel;
         private System.Windows.Forms.Button btnEveViewDelete;
         private System.Windows.Forms.Button btnEveViewEdit;
-        private System.Windows.Forms.Button btnEveCoord;
         private System.Windows.Forms.Button btnEveBack;
         private System.Windows.Forms.ListView lViewEveView;
+        private System.Windows.Forms.Button btnEveCoord;
+        private System.Windows.Forms.Panel panelEveCoord;
+        private System.Windows.Forms.Label lblEveCoordDate;
+        private System.Windows.Forms.Button btnEveCoordCancel;
+        private System.Windows.Forms.Button btnEveCoordSelect;
+        private System.Windows.Forms.ListView lViewEveCoord;
     }
 }

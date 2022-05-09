@@ -1,13 +1,6 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CalendarSoftwareSystem
@@ -31,6 +24,7 @@ namespace CalendarSoftwareSystem
             // Set initial panel visibility
             panelEveView.Visible = true;
             panelEveAdd.Visible = false;
+            panelEveCoord.Visible = false;
         }
 
         private void EventForm_Load(object sender, EventArgs e)
@@ -62,7 +56,7 @@ namespace CalendarSoftwareSystem
             populateEventList();
 
             // Populate attendants checkList
-            possibleAttendants = Employee.findAttendants(possibleAttendants);
+            possibleAttendants = Calendar.retrieveAttendants(possibleAttendants, thisEmployee.Name);
             
 
             foreach(string attendant in possibleAttendants)
@@ -71,11 +65,45 @@ namespace CalendarSoftwareSystem
 
         }
 
+        // Used to make it so that only the user who created an event can edit or delete it.
+        private void lViewEveView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            if (lViewEveView.SelectedItems.Count == 0)
+                return;
+            else
+            {
+                foreach (Event eve in thisCalendar.ThisCalendar.EventList)
+                {
+                    if (Int32.Parse(lViewEveView.SelectedItems[0].SubItems[0].Text) == eve.EventID)
+                    {
+                        if (eve.EmpID != thisEmployee.EmployeeID)
+                        {
+                            btnEveViewDelete.Visible = false;
+                            btnEveViewEdit.Visible = false;
+                        }
+                        else
+                        {
+                            btnEveViewDelete.Visible = true;
+                            btnEveViewEdit.Visible = true;
+                        }
+                    }
+                }
+            }    
+        }
+
+        // Used to make column widths non adjustable
+        private void lViewEveView_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
+        {
+            e.Cancel = true;
+            e.NewWidth = lViewEveView.Columns[e.ColumnIndex].Width;
+        }
+
         private void btnEveSave_Click(object sender, EventArgs e)
         {
             // Initialize variables
             string title = "", description = "", location = "";
-            List<string> attendants = new List<string>();
+            List<string> attendantsList = new List<string>();
             DateTime startDate = DateTime.Now, endDate = DateTime.Now;
             string eventState = "VALID";
 
@@ -95,8 +123,9 @@ namespace CalendarSoftwareSystem
             for (int i = 0; i <= chklstAttendants.Items.Count - 1; i++)
             {
                 if (chklstAttendants.GetItemChecked(i))
-                    attendants.Add(chklstAttendants.Items[i].ToString());
+                    attendantsList.Add(chklstAttendants.Items[i].ToString());
             }
+            string[] attendants = attendantsList.ToArray();
 
             if (eventState == "VALID")
             {
@@ -154,27 +183,31 @@ namespace CalendarSoftwareSystem
                     {
                         eventState = "END_BEFORE_START";
                     }
-                    else if (endHour == staHour)
+                    else
                     {
-                        if (Int32.Parse(cBoxEveEndMin.Text) < Int32.Parse(cBoxEveStaMin.Text))
+                        if (endHour == staHour && Int32.Parse(cBoxEveEndMin.Text) < Int32.Parse(cBoxEveStaMin.Text))
                         {
                             eventState = "END_BEFORE_START";
                         }
-                    }
-                    else
-                    {
-                        foreach (Event eve in thisCalendar.ThisCalendar.EventList)
+                        else
                         {
-                            if ((startDate.CompareTo(eve.StartDate) == -1 && endDate.CompareTo(eve.StartDate) == 1)
-                                || (startDate.CompareTo(eve.EndDate) == -1 && endDate.CompareTo(eve.EndDate) == 1)
-                                || (startDate.CompareTo(eve.StartDate) == 1 && endDate.CompareTo(eve.EndDate) == -1)
-                                || (startDate.CompareTo(eve.StartDate) == -1 && endDate.CompareTo(eve.EndDate) == 1)
-                                || (startDate.CompareTo(eve.StartDate) == 0)
-                                || (startDate.CompareTo(eve.EndDate) == 0)
-                                || (endDate.CompareTo(eve.StartDate) == 0)
-                                || (endDate.CompareTo(eve.EndDate) == 0))
+                            foreach (Event eve in thisCalendar.ThisCalendar.EventList)
                             {
-                                eventState = "CONFLICTING_TIMES";
+                                if (eve.EventID.Equals(curEve))
+                                {
+
+                                }
+                                else if ((startDate.CompareTo(eve.StartDate) == -1 && endDate.CompareTo(eve.StartDate) == 1)
+                                    || (startDate.CompareTo(eve.EndDate) == -1 && endDate.CompareTo(eve.EndDate) == 1)
+                                    || (startDate.CompareTo(eve.StartDate) == 1 && endDate.CompareTo(eve.EndDate) == -1)
+                                    || (startDate.CompareTo(eve.StartDate) == -1 && endDate.CompareTo(eve.EndDate) == 1)
+                                    || (startDate.CompareTo(eve.StartDate) == 0)
+                                    || (startDate.CompareTo(eve.EndDate) == 0)
+                                    || (endDate.CompareTo(eve.StartDate) == 0)
+                                    || (endDate.CompareTo(eve.EndDate) == 0))
+                                {
+                                    eventState = "CONFLICTING_TIMES";
+                                }
                             }
                         }
                     }
@@ -255,9 +288,16 @@ namespace CalendarSoftwareSystem
 
         private void btnEveViewCreate_Click(object sender, EventArgs e)
         {
+            curEve = -1;
+
             // Update screen
             lblEveTitle.Text = "New Event";
-            if(FormCalendar.CurUserIsManager)
+            tBoxEveName.Text = "";
+            tBoxEveDesc.Text = "";
+            tBoxEveLoc.Text = "";
+            chklstAttendants.ClearSelected();
+
+            if (FormCalendar.CurUserIsManager)
             {
                 lblEventAttendents.Visible = true;
                 chklstAttendants.Visible = true;
@@ -282,16 +322,55 @@ namespace CalendarSoftwareSystem
             // Update screen
             if (lViewEveView.SelectedItems.Count > 0)
             {
-                lblEveTitle.Text = "Edit/View Event: " + lViewEveView.SelectedItems[0].SubItems[1].Text;
+                curEve = Int32.Parse(lViewEveView.SelectedItems[0].SubItems[0].Text);
+                Event tempEvent = Calendar.retrieveEventDetails(curEve);
+                
+                lblEveTitle.Text = "Edit/View Event: " + tempEvent.Title;
+
+                tBoxEveName.Text = tempEvent.Title;
+                tBoxEveDesc.Text = tempEvent.Description;
+                tBoxEveLoc.Text = tempEvent.Location;
+
+                cBoxEveStaHour.Text = tempEvent.StartDate.ToString("hh");
+                cBoxEveStaMin.Text = tempEvent.StartDate.ToString("mm");
+                if (tempEvent.StartDate.ToString("tt").Equals("AM"))
+                    radButEveStaAM.Checked = true;
+                else
+                    radButEveStaPM.Checked = true;
+                cBoxEveEndHour.Text = tempEvent.EndDate.ToString("hh");
+                cBoxEveEndMin.Text = tempEvent.EndDate.ToString("mm");
+                if (tempEvent.EndDate.ToString("tt").Equals("AM"))
+                    radButEveEndAM.Checked = true;
+                else
+                    radButEveEndPM.Checked = true;
+
+                for (int i = 0; i < chklstAttendants.Items.Count; i++)
+                {
+                    foreach(string att in tempEvent.Attendants)
+                    {
+                        if (att.Equals(chklstAttendants.Items[i]))
+                        {
+                            chklstAttendants.SetItemChecked(i, true);
+                            break;
+                        }
+                        else
+                        {
+                            chklstAttendants.SetItemChecked(i, false);
+                        }
+                    }
+                }
+
                 if (FormCalendar.CurUserIsManager)
                 {
                     lblEventAttendents.Visible = true;
                     chklstAttendants.Visible = true;
+                    btnEveCoord.Visible = true;
                 }
                 else
                 {
                     lblEventAttendents.Visible = false;
                     chklstAttendants.Visible = false;
+                    btnEveCoord.Visible = false;
                 }
                 tBoxEveName.Text = lViewEveView.SelectedItems[0].SubItems[1].Text;
 
@@ -301,7 +380,7 @@ namespace CalendarSoftwareSystem
                 panelEveAdd.Visible = true;
 
                 isEditing = true;
-                curEve = Int32.Parse(lViewEveView.SelectedItems[0].SubItems[0].Text);
+                
             }    
             else
             {
@@ -315,30 +394,36 @@ namespace CalendarSoftwareSystem
             ///Delete Event Code Here///
             if (lViewEveView.SelectedItems.Count > 0)
             {
-                string eveID = lViewEveView.SelectedItems[0].SubItems[0].Text;
+                // Prompt the user asking them if they wish to log off
+                string message = "Are you sure you wish to Delete this event?";
+                string title = "Delete";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show(message, title, buttons);
 
-                switch (deletedEvent.deleteEvent(thisCalendar, Int32.Parse(eveID), thisEmployee.EmployeeID))
+                // If they say yes, delete the event.
+                // If they say no, do nothing and simply return to event menu.
+                if (result == DialogResult.Yes)
                 {
-                    case "VALID_EVENT":
-                        MessageBox.Show("Event deleted.", "Calendar System");
-                        populateEventList();
-                        thisCalendar.displayDays();
-                        break;
-                    case "DATA_NOT_FOUND":
-                        MessageBox.Show("This event was not located in the database.", "Calendar System");
-                        break;
-                    case "UNABLE_TO_CONNECT":
-                        MessageBox.Show("Unable to communicate with EKU server, please test connection and try again.", "Calendar System");
-                        break;
+                    string eveID = lViewEveView.SelectedItems[0].SubItems[0].Text;
+
+                    switch (deletedEvent.deleteEvent(thisCalendar, Int32.Parse(eveID), thisEmployee.EmployeeID))
+                    {
+                        case "VALID_EVENT":
+                            MessageBox.Show("Event deleted.", "Calendar System");
+                            populateEventList();
+                            thisCalendar.displayDays();
+                            break;
+                        case "DATA_NOT_FOUND":
+                            MessageBox.Show("This event was not located in the database.", "Calendar System");
+                            break;
+                        case "UNABLE_TO_CONNECT":
+                            MessageBox.Show("Unable to communicate with EKU server, please test connection and try again.", "Calendar System");
+                            break;
+                    }
                 }
                 
+                
             }
-        }
-
-        private void btnEveCoord_Click(object sender, EventArgs e)
-        {
-            ///createGroupEvent code here///
-            FormCalendar.thisManager.coordinateEvent();
         }
 
         private void btnEveBack_Click(object sender, EventArgs e)
@@ -347,6 +432,131 @@ namespace CalendarSoftwareSystem
             panelEveView.Visible = true;
             panelEveAdd.Visible = false;
         }
+
+        private void btnEveCoord_Click(object sender, EventArgs e)
+        {
+            List<string> attendants = new List<string>();
+            attendants.Add(thisEmployee.Name);
+            // Find selected attendants
+            for (int i = 0; i <= chklstAttendants.Items.Count - 1; i++)
+            {
+                if (chklstAttendants.GetItemChecked(i))
+                    attendants.Add(chklstAttendants.Items[i].ToString());
+            }
+            string[] attArr = attendants.ToArray();
+
+            if (attendants.Count > 1)
+            {
+                // Initialize Variables
+                List<Tuple<DateTime, DateTime>> tempDates = Manager.retrieveAllEventTimes(attArr, Convert.ToDateTime(FormCalendar.thisCalendar.Month + "/" + FormCalendar.thisCalendar.Day + "/" + FormCalendar.thisCalendar.Year), curEve);
+                List<DateTime> goodTimes = new List<DateTime>();
+                if (tempDates.Count > 0)
+                {
+                    DateTime dt = tempDates[0].Item1.Date;
+                    DateTime dt2 = dt.AddDays(1);
+
+                    // Get every minute of a day
+                    while (dt.Date < dt2.Date)
+                    {
+                        goodTimes.Add(dt);
+                        dt = dt.AddMinutes(1);
+                    }
+
+                    // Remove every minute that an employee is busy
+                    foreach (Tuple<DateTime, DateTime> date in tempDates)
+                    {
+                        for (dt = date.Item1; dt <= date.Item2; dt = dt.AddMinutes(1))
+                        {
+                            goodTimes.Remove(dt);
+                        }
+                    }
+
+                    // Set Intial Variables
+                    tempDates = new List<Tuple<DateTime, DateTime>>();
+                    DateTime prevDate = new DateTime(goodTimes[0].Year, goodTimes[0].Month, goodTimes[0].AddDays(-1).Day, 23, 59, 0);
+                    DateTime firstDate = goodTimes[0];
+
+                    // Calculate the avaliable timeframes
+                    foreach (DateTime date in goodTimes)
+                    {
+                        if (prevDate.AddMinutes(1) != date)
+                        {
+                            tempDates.Add(new Tuple<DateTime, DateTime>(firstDate, prevDate));
+                            firstDate = date;
+                        }
+                        prevDate = date;
+                    }
+                    tempDates.Add(new Tuple<DateTime, DateTime>(firstDate, prevDate));
+                    lViewEveCoord.Items.Clear();
+
+                    var header1 = lViewEveCoord.Columns.Add("Start Date", -2, HorizontalAlignment.Left);
+                    var header2 = lViewEveCoord.Columns.Add("End Date", -2, HorizontalAlignment.Left);
+
+                    // Display the avaliable timeframes to the user in a list view
+                    foreach (Tuple<DateTime, DateTime> range in tempDates)
+                    {
+                        ListViewItem lvi = new ListViewItem(new string[]
+                        {
+                        range.Item1.ToString("hh:mm:ss tt"),
+                        range.Item2.ToString("hh:mm:ss tt")
+                        });
+                        lViewEveCoord.Items.Add(lvi);
+                    }
+
+                    lViewEveCoord.Columns[0].Width = -2;
+                    lViewEveCoord.Columns[1].Width = -2;
+
+                    // Set panel visibility
+                    panelEveAdd.Visible = false;
+                    panelEveCoord.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show("There are no conflicts with the other attendant's schedules. Use any time you wish!", "Calendar System");
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Please add attendants to the meeting first.", "Calendar System");
+            }
+        }
+
+        private void btnEveCoordCancel_Click(object sender, EventArgs e)
+        {
+            // Set panel visibility
+            panelEveAdd.Visible = true;
+            panelEveCoord.Visible = false;
+        }
+
+        private void btnEveCoordSelect_Click(object sender, EventArgs e)
+        {
+            // Create DateTime variables
+            DateTime start = Convert.ToDateTime(lViewEveCoord.SelectedItems[0].SubItems[0].Text.ToString());
+            DateTime end = Convert.ToDateTime(lViewEveCoord.SelectedItems[0].SubItems[1].Text.ToString());
+
+            // Change Start Hour
+            cBoxEveStaHour.Text = start.ToString("hh");
+            cBoxEveStaMin.Text = start.ToString("mm");
+            if (start.ToString("tt").Equals("AM"))
+                radButEveStaAM.Checked = true;
+            else
+                radButEveStaPM.Checked = true;
+
+            // Change End Hour
+            cBoxEveEndHour.Text = end.ToString("hh");
+            cBoxEveEndMin.Text = end.ToString("mm");
+            if (end.ToString("tt").Equals("AM"))
+                radButEveEndAM.Checked = true;
+            else
+                radButEveEndPM.Checked = true;
+
+            // Set panel visibility
+            panelEveAdd.Visible = true;
+            panelEveCoord.Visible = false;
+        }
+
+
 
         private void populateEventList()
         {
@@ -370,7 +580,7 @@ namespace CalendarSoftwareSystem
                     lViewEveView.Items.Add(lvi);
                 }
             }
-            lViewEveView.Columns[0].Width = -2;
+            lViewEveView.Columns[0].Width = 0;
             lViewEveView.Columns[1].Width = -2;
             lViewEveView.Columns[2].Width = -2;
             lViewEveView.Columns[3].Width = -2;

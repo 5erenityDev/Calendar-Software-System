@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CalendarSoftwareSystem
@@ -44,11 +36,6 @@ namespace CalendarSoftwareSystem
             curDay = Convert.ToInt32(lblDays.Text);
             EventForm eventform = new EventForm(curDay, thisEmployee, thisCalendar);
             eventform.Show();
-        }
-
-        private void MonthDay_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -40,7 +40,7 @@ namespace CalendarSoftwareSystem
             this.lblDays.ForeColor = System.Drawing.Color.Lavender;
             this.lblDays.Location = new System.Drawing.Point(-1, 0);
             this.lblDays.Name = "lblDays";
-            this.lblDays.Size = new System.Drawing.Size(38, 27);
+            this.lblDays.Size = new System.Drawing.Size(32, 23);
             this.lblDays.TabIndex = 0;
             this.lblDays.Text = "00";
             // 
@@ -51,7 +51,7 @@ namespace CalendarSoftwareSystem
             this.lblEvents.ForeColor = System.Drawing.Color.Lavender;
             this.lblEvents.Location = new System.Drawing.Point(2, 23);
             this.lblEvents.Name = "lblEvents";
-            this.lblEvents.Size = new System.Drawing.Size(56, 19);
+            this.lblEvents.Size = new System.Drawing.Size(49, 17);
             this.lblEvents.TabIndex = 1;
             this.lblEvents.Text = "Events";
             // 
@@ -65,7 +65,6 @@ namespace CalendarSoftwareSystem
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.Name = "MonthDay";
             this.Size = new System.Drawing.Size(145, 90);
-            this.Load += new System.EventHandler(this.MonthDay_Load);
             this.Click += new System.EventHandler(this.UserControlDays_Click);
             this.ResumeLayout(false);
             this.PerformLayout();

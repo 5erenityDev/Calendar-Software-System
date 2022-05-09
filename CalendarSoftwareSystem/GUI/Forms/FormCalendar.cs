@@ -1,13 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CalendarSoftwareSystem
@@ -64,7 +57,6 @@ namespace CalendarSoftwareSystem
                     // Create Employee Object
                     thisEmployee = Employee.retrieveEmployee(unidentifiedUser.EmpID);
 
-                    Debug.WriteLine(thisEmployee.Name);
                     thisCalendar = new Calendar(now.Day, now.Month, now.Year, Calendar.retrieveEventList(thisEmployee.Name));
 
                     curUserIsManager = false;
